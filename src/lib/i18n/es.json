@@ -1,0 +1,935 @@
+{
+	"brand": {
+		"name": "DeadSignal"
+	},
+	"common": {
+		"and": "y"
+	},
+	"meta": {
+		"title": "DeadSignal",
+		"description": "DeadSignal es una interfaz narrativa fija de investigación para explorar El Incidente Helix."
+	},
+	"language": {
+		"selector": "Selector de idioma",
+		"en": "EN",
+		"es": "ES"
+	},
+	"topBar": {
+		"forensicShell": "shell forense",
+		"utc": "UTC"
+	},
+	"status": {
+		"ACTIVE": "ACTIVO",
+		"ELEVATED": "ELEVADO",
+		"DEGRADED": "DEGRADADO",
+		"READ_ONLY": "SOLO LECTURA"
+	},
+	"case": {
+		"noCaseMounted": "Ningún caso montado",
+		"missing": "No hay ningún archivo de caso montado. Ejecuta el seed de la base de datos y recarga el shell."
+	},
+	"folders": {
+		"Documents": "Documentos",
+		"Emails": "Correos",
+		"Chats": "Chats",
+		"Media": "Medios",
+		"System": "Sistema",
+		"RecoveryLab": "Laboratorio de Recuperación",
+		"EvidenceBoard": "Tablero de Evidencias",
+		"Terminal": "Terminal"
+	},
+	"explorer": {
+		"title": "Explorador de archivos",
+		"volume": "Volumen recuperado",
+		"empty": "No hay registros recuperados."
+	},
+	"mainWindow": {
+		"subtitles": {
+			"Documents": "Informes, notas y archivos internos",
+			"Emails": "Archivo de correo corporativo",
+			"Chats": "Capturas de mensajes internos",
+			"Media": "Capturas de cámaras y red",
+			"System": "Eventos recuperados del kernel y la instalación",
+			"RecoveryLab": "Espacio de recuperación forense",
+			"EvidenceBoard": "Evidencias desbloqueadas y conexiones de investigación",
+			"Terminal": "Shell interactivo de comandos"
+		}
+	},
+	"badges": {
+		"flagged": "marcado",
+		"encryptedFragment": "fragmento cifrado"
+	},
+	"progress": {
+		"new": "NUEVO",
+		"read": "leído",
+		"unread": "sin leer",
+		"important": "importante",
+		"locked": "BLOQUEADO",
+		"protected": "PROTEGIDO",
+		"unlocked": "DESBLOQUEADO"
+	},
+	"caseProgress": {
+		"evidenceDiscovered": "evidencias",
+		"caseCompletion": "caso completado",
+		"chapterProgress": "progreso del capítulo"
+	},
+	"labels": {
+		"status": "estado",
+		"threat": "amenaza",
+		"from": "de",
+		"to": "para",
+		"author": "autor",
+		"class": "clase",
+		"created": "creado",
+		"source": "origen",
+		"captured": "capturado",
+		"caption": "descripción",
+		"occurred": "ocurrido",
+		"sourceSubsystem": "subsistema de origen",
+		"eventMessage": "mensaje del evento",
+		"eventTimeline": "línea temporal",
+		"captureMetadata": "metadatos de captura",
+		"chatChannel": "canal de chat",
+		"evidenceSource": "origen",
+		"evidenceStatus": "estado",
+		"evidenceTags": "etiquetas",
+		"password": "contraseña",
+		"command": "comando"
+	},
+	"notifications": {
+		"dismiss": "Descartar notificación",
+		"documentIndexed": {
+			"title": "Documento indexado",
+			"message": "Registro de {category} añadido al progreso local."
+		},
+		"fileAnalyzed": {
+			"title": "Archivo analizado",
+			"message": "{details}.",
+			"parts": {
+				"indexed": "registro indexado",
+				"anomaly": "anomalía de acceso revisada",
+				"evidence": "evidencia descubierta",
+				"evidenceMany": "{count} evidencias descubiertas",
+				"objectiveUpdated": "objetivo actualizado",
+				"objectiveCompleted": "objetivo completado",
+				"file": "nuevo archivo disponible",
+				"files": "{count} archivos nuevos disponibles"
+			}
+		},
+		"newEvidence": {
+			"title": "Nueva evidencia descubierta",
+			"message": "Evidencia añadida al tablero."
+		},
+		"objectiveUpdated": {
+			"title": "Objetivo actualizado",
+			"message": "Un objetivo relacionado cambió de estado."
+		},
+		"objectiveCompleted": {
+			"title": "Objetivo completado",
+			"message": "Hito de investigación confirmado."
+		},
+		"accessAnomaly": {
+			"title": "Anomalía de acceso detectada",
+			"message": "Evento importante del sistema revisado."
+		},
+		"newFile": {
+			"title": "Nuevo archivo recuperado",
+			"message": "{title} ya está disponible."
+		},
+		"fileLocked": {
+			"title": "Archivo bloqueado",
+			"message": "Se requiere evidencia adicional antes de acceder."
+		},
+		"passwordSuccess": {
+			"title": "Acceso concedido",
+			"message": "Archivo protegido descifrado."
+		},
+		"passwordFailure": {
+			"title": "Acceso denegado",
+			"message": "Contraseña rechazada por el cifrado local."
+		},
+		"commandExecuted": {
+			"title": "Comando ejecutado",
+			"message": "{command} completado."
+		},
+		"scanComplete": {
+			"title": "Escaneo completado",
+			"message": "Evento oculto del relé recuperado."
+		},
+		"fragmentRecovered": {
+			"title": "Fragmento recuperado",
+			"message": "{fragment} añadido al Laboratorio de Recuperación."
+		},
+		"documentReconstructed": {
+			"title": "Documento reconstruido",
+			"message": "Informe de mantenimiento del relé de energía restaurado desde fragmentos."
+		},
+		"recoveryBlocked": {
+			"title": "Recuperación bloqueada",
+			"message": "La ruta de recuperación requiere un fragmento previo o el orden correcto."
+		},
+		"connectionCreated": {
+			"title": "Conexión verificada",
+			"message": "Vínculo de evidencia aceptado y guardado."
+		},
+		"connectionDuplicate": {
+			"title": "La conexión ya existe",
+			"message": "Ese par de evidencias ya está vinculado."
+		},
+		"connectionRejected": {
+			"title": "Conexión rechazada",
+			"message": "La relación no está suficientemente justificada."
+		},
+		"speculativeConnectionsDiscarded": {
+			"title": "Conexiones especulativas descartadas",
+			"message": "El tablero ha descartado conexiones especulativas."
+		},
+		"deductionUnlocked": {
+			"title": "Deducción desbloqueada",
+			"message": "{deduction}"
+		},
+		"chapterSummaryUnlocked": {
+			"title": "Resumen de capítulo desbloqueado",
+			"message": "La secuencia del apagón ya puede reconstruirse."
+		}
+	},
+	"access": {
+		"title": "Puerta de acceso",
+		"subtitle": "Este archivo está protegido por cifrado local.",
+		"prompt": "Introduce la contraseña",
+		"submit": "Desbloquear",
+		"cancel": "Cancelar",
+		"error": "Contraseña incorrecta.",
+		"hint": "Las pistas recuperadas pueden contener la frase de desbloqueo."
+	},
+	"terminal": {
+		"title": "Terminal",
+		"prompt": "dead-signal",
+		"systemPrompt": "SISTEMA >",
+		"investigatorPrompt": "INVESTIGADOR >",
+		"inputLabel": "Comando de terminal",
+		"placeholder": "escribe un comando",
+		"run": "Ejecutar",
+		"lockedOutput": "Acceso denegado. Proporciona un token de desbloqueo válido.",
+		"unlockedOutput": "Fragmento cifrado 01 descifrado.",
+		"unknown": "Comando desconocido. Escribe help.",
+		"cleared": "Buffer de terminal limpiado.",
+		"status": "Caso ACTIVO / Amenaza ELEVADA / Archivo en solo lectura.",
+		"scan": "Escaneo finalizado. Evento oculto del relé recuperado.",
+		"scanRepeat": "Escaneo finalizado. No hay eventos ocultos nuevos.",
+		"evidenceEmpty": "Todavía no hay evidencias descubiertas.",
+		"evidenceHeader": "Evidencias descubiertas:",
+		"help": {
+			"header": "Comandos disponibles:",
+			"help": "help - muestra comandos disponibles",
+			"clear": "clear - limpia la salida de terminal",
+			"status": "status - muestra el estado del caso",
+			"scan": "scan - escanea la caché local del sistema",
+			"evidence": "evidence - lista evidencias descubiertas",
+			"unlock": "unlock KNOCK-3 - intenta desbloquear archivo protegido",
+			"recover": "recover relay - escanea la caché del relé para buscar fragmentos",
+			"fragments": "fragments - lista fragmentos recuperados",
+			"repair": "repair file_12 - repara un fragmento recuperado"
+		},
+		"recovery": {
+			"fragmentsEmpty": "No hay fragmentos de recuperación indexados.",
+			"fragmentsHeader": "Fragmentos recuperados:",
+			"results": {
+				"fragment-recovered": "{file} recuperado e indexado.",
+				"reconstructed": "Informe de mantenimiento reconstruido.",
+				"already-recovered": "Fragmento ya recuperado.",
+				"already-reconstructed": "Informe de mantenimiento ya reconstruido.",
+				"missing-scan": "La reparación requiere primero salida de escaneo.",
+				"missing-repair": "La recuperación profunda requiere salida reparada.",
+				"missing-fragments": "El ensamblaje requiere todos los fragmentos.",
+				"wrong-order": "Orden de ensamblaje rechazado.",
+				"unknown-target": "Objetivo de recuperación desconocido.",
+				"unknown-file": "Archivo de reparación desconocido."
+			}
+		}
+	},
+	"counts": {
+		"messages": "{count} mensajes"
+	},
+	"empty": {
+		"email": "No hay ningún correo seleccionado.",
+		"chat": "No hay ningún chat seleccionado.",
+		"document": "No hay ningún documento seleccionado.",
+		"media": "No hay ningún medio seleccionado.",
+		"log": "No hay ningún log seleccionado."
+	},
+	"objectives": {
+		"title": "Objetivos actuales",
+		"states": {
+			"locked": "bloqueado",
+			"active": "activo",
+			"open": "abierto",
+			"completed": "completado"
+		},
+		"blackout": {
+			"label": "Establecer la línea temporal del apagón",
+			"meta": "{count}/{required} logs importantes revisados"
+		},
+		"credential": {
+			"label": "Verificar la credencial duplicada",
+			"meta": "N-KADE-17 aparece en una ubicación imposible"
+		},
+		"archive": {
+			"label": "Inspeccionar la brecha del archivo este",
+			"meta": "{count} artefactos marcados"
+		},
+		"fragment": {
+			"label": "Recuperar el fragmento cifrado",
+			"meta": "{status}"
+		},
+		"traceBlackout": {
+			"label": "Rastrear el origen del apagón",
+			"meta": "El informe del relé y el fragmento cifrado ahora están conectados"
+		},
+		"connectEvidence": {
+			"label": "Crear una conexión entre pistas relacionadas",
+			"meta": "{count}/{required} conexiones verificadas"
+		},
+		"accessPhrase": {
+			"label": "Demostrar la frase de acceso",
+			"meta": "Conecta el patrón de golpes con el fragmento recuperado"
+		},
+		"internalInvolvement": {
+			"label": "Identificar implicación interna",
+			"meta": "Relaciona la brecha con la ruta de acceso oculta"
+		},
+		"reconstructBlackout": {
+			"label": "Reconstruir la secuencia del apagón",
+			"meta": "{connections}/{requiredConnections} conexiones verificadas / {deductions}/{requiredDeductions} deducciones / {fragment}"
+		},
+		"recoverMaintenance": {
+			"label": "Recuperar registros de mantenimiento",
+			"meta": "{count}/{required} fragmentos del relé recuperados"
+		},
+		"meta": {
+			"fragmentLocked": "El fragmento cifrado sigue inaccesible",
+			"fragmentPending": "Fragmento cifrado pendiente",
+			"fragmentOpen": "Usa la pista de contraseña recuperada",
+			"fragmentCompleted": "Fragmento cifrado 01 recuperado"
+		},
+		"guidance": "Completa objetivos leyendo pistas, desbloqueando archivos y creando deducciones válidas."
+	},
+	"files": {
+		"serverRoomAudioTranscript": {
+			"title": "Transcripción de audio de la sala de servidores",
+			"content": "Transcripción acústica recuperada: tres golpes, pausa de un segundo, tres golpes y después una respuesta de baja frecuencia detrás de la pared de la sala de servidores. El patrón repetido queda anotado como KNOCK-3 por el indexador local."
+		},
+		"eastArchiveAccessMap": {
+			"title": "Mapa de acceso del Archivo Este",
+			"content": "Fragmento de mapa recuperado: muestra un pasaje de mantenimiento del archivo este que no aparece en el plano público de la instalación. Dos vectores de acceso convergen en la puerta del archivo a las 22:58:04."
+		},
+		"relayFailureReport": {
+			"title": "Informe de fallo del relé",
+			"content": "Análisis del núcleo uplink: la comunicación externa falló en tres pulsos. El pulso final se originó dentro de la instalación, no desde la torre relay. Acción recomendada: rastrear el origen del apagón a través del nodo interno H-0."
+		},
+		"encryptedFragment01": {
+			"title": "Fragmento cifrado 01",
+			"messages": {
+				"first": "Si el relay se apaga, no mires fuera. La fuente de la señal sigue dentro de Helix.",
+				"second": "Entonces el apagón no fue un fallo. Fue contención."
+			}
+		}
+	},
+	"recovery": {
+		"title": "Laboratorio de Recuperación",
+		"subtitle": "Trabaja sobre una imagen dañada del sistema. Escanea, repara y reconstruye registros parciales sin tocar el archivo original.",
+		"corruptedFile": "Archivo fuente dañado",
+		"results": "Resultados de recuperación",
+		"noResults": "No se han ejecutado acciones de recuperación.",
+		"labels": {
+			"integrity": "integridad",
+			"corruptionLevel": "corrupcion",
+			"recoveredAt": "recuperado",
+			"recoveryOrigin": "origen",
+			"fragments": "fragmentos",
+			"fragment": "fragmento",
+			"corrupted": "corrupto",
+			"reconstructed": "reconstruido"
+		},
+		"badges": {
+			"corrupted": "Corrupto",
+			"damaged": "Dañado",
+			"partial": "Parcial"
+		},
+		"methods": {
+			"title": "Métodos de recuperación",
+			"scan": "Escanear",
+			"repair": "Reparar",
+			"deepRecovery": "Recuperación profunda",
+			"alreadyRecovered": "Ya recuperado"
+		},
+		"methodLabels": {
+			"scan": "Escaneo",
+			"repair": "Reparación",
+			"deep-recovery": "Recuperación profunda",
+			"assemble": "Ensamblar"
+		},
+		"resultStatuses": {
+			"fragment-recovered": "Fragmento recuperado.",
+			"reconstructed": "Documento reconstruido.",
+			"already-recovered": "Fragmento ya recuperado.",
+			"already-reconstructed": "Documento ya reconstruido.",
+			"missing-scan": "Se requiere salida de scan antes de repair.",
+			"missing-repair": "Se requiere salida reparada antes de deep recovery.",
+			"missing-fragments": "Se requieren todos los fragmentos.",
+			"wrong-order": "El orden de fragmentos es incorrecto.",
+			"unknown-target": "Objetivo de recuperación desconocido.",
+			"unknown-file": "Archivo de reparación desconocido."
+		},
+		"corruptionLevels": {
+			"severe": "severa",
+			"high": "alta",
+			"moderate": "moderada",
+			"partial": "parcial",
+			"reconstructed": "reconstruido"
+		},
+		"origins": {
+			"relayShadow": "sector sombra del relé",
+			"maintenanceMirror": "mirror de mantenimiento",
+			"reconstructedFragments": "reconstrucción de fragmentos",
+			"uplinkCache": "imagen de caché uplink",
+			"deepCache": "residuo de caché profunda"
+		},
+		"evidenceType": {
+			"recoveredFragment": "Fragmento recuperado"
+		},
+		"documents": {
+			"maintenanceReport": {
+				"title": "Informe de mantenimiento del relé de energía",
+				"content": "Informe de mantenimiento del relé de energía\n\nLa ventana de mantenimiento se abrió a las 21:40 bajo la ruta de relay H-0.\nEl relay externo no estaba fallando antes del apagón. Fue redirigido por una ruta interna de mantenimiento.\nLa autorización de override manual se registró desde dentro de Helix Labs.\nLa secuencia del apagón coincide con una redirección deliberada, no con una caída de torre."
+			},
+			"relayCache": {
+				"title": "Índice de caché del relé",
+				"content": "Índice de caché del relé recuperado desde una copia dañada del sistema.",
+				"damagedContent": "La sala de serv### experimento acceso no auto###izado durante la ventana de mantenimiento.\nLa ruta del relé de energía H-0 fue movida a control int###o.\nReferencias de fragmentos: file_12 / file_18 / file_21.\nChecksum: PARCIAL // imagen fuente inestable."
+			}
+		},
+		"fragments": {
+			"title": "Fragmentos recuperados",
+			"locked": "Fragmento todavía no recuperado.",
+			"file12": {
+				"title": "Fragmento de Recuperación 12",
+				"content": "Línea 01: La ventana de mantenimiento se abrió bajo la ruta de relay H-0."
+			},
+			"file18": {
+				"title": "Fragmento de Recuperación 18",
+				"content": "Línea 02: El tráfico del relé externo fue redirigido por una ruta interna de mantenimiento."
+			},
+			"file21": {
+				"title": "Fragmento de Recuperación 21",
+				"content": "Línea 03: El override manual se originó dentro de Helix Labs antes del apagón."
+			}
+		},
+		"assembly": {
+			"title": "Ensamblaje de fragmentos",
+			"hint": "Ordena los fragmentos por marcador de línea y ensambla el informe de mantenimiento.",
+			"moveUp": "Subir fragmento",
+			"moveDown": "Bajar fragmento",
+			"submit": "Ensamblar informe",
+			"reconstructed": "Reconstrucción completada"
+		}
+	},
+	"evidence": {
+		"title": "Tablero de Evidencias",
+		"subtitle": "Las evidencias desbloqueadas aparecen aqui a medida que avanza la investigación.",
+		"detailTitle": "Ficha de investigación",
+		"forensicNotes": "Notas forenses",
+		"relatedFiles": "Archivos relacionados",
+		"selectPrompt": "Selecciona una evidencia",
+		"selectHint": "Abre una tarjeta de evidencia para inspeccionar la ficha completa.",
+		"empty": "Todavía no hay evidencias desbloqueadas.",
+		"lockedHint": "Lee archivos, chats, media y logs importantes para revelar conexiones.",
+		"views": {
+			"files": "Fichas",
+			"connections": "Conexiones",
+			"notes": "Notas",
+			"deductions": "Deducciones",
+			"summary": "Resumen"
+		},
+		"status": {
+			"found": "encontrada",
+			"corroborated": "corroborada",
+			"unverified": "sin verificar",
+			"partial": "parcial"
+		},
+		"tags": {
+			"serverRoom": "sala de servidores",
+			"pattern": "patrón",
+			"audio": "audio",
+			"eastArchive": "archivo este",
+			"biometrics": "biometria",
+			"access": "acceso",
+			"credential": "credencial",
+			"auth": "auth",
+			"nKade17": "N-KADE-17",
+			"terminal": "terminal",
+			"encrypted": "cifrado",
+			"fragment": "fragmento",
+			"blackout": "apagón",
+			"map": "mapa",
+			"relay": "relay",
+			"internal": "interno",
+			"recoveredFragment": "fragmento recuperado",
+			"partial": "parcial",
+			"recovery": "recuperación",
+			"maintenance": "mantenimiento"
+		},
+		"items": {
+			"serverRoomKnockPattern": {
+				"title": "Patrón de golpes en la sala de servidores",
+				"description": "Una nota recuperada sugiere que los golpes repetidos cerca de la sala de servidores podrían ser una señal o patrón de respuesta.",
+				"longDescription": "La nota recuperada describe tres golpes desde la sala de servidores y una única respuesta desde la pared. La frase es demasiado específica para tratarla como una anotación casual y podría indicar un patrón físico de señales dentro de una zona sellada.",
+				"source": "Nota adhesiva recuperada",
+				"forensicNotes": "No se ha recuperado ningún audio, pero la descripción coincide con el intervalo previo a la estática de cámara en subnivel C. Marcado para cruzarlo con futuros registros acústicos o de mantenimiento.",
+				"relatedFiles": {
+					"stickyNote": "Documentos / Nota adhesiva recuperada",
+					"sublevelCamera": "Medios / Cámara 03 del subnivel C"
+				}
+			},
+			"eastArchiveBreach": {
+				"title": "Brecha del Archivo Este",
+				"description": "La puerta del archivo registra un acceso imposible: abierta desde ambos lados en el mismo segundo.",
+				"longDescription": "El log de la puerta del archivo este contiene vectores de dirección contradictorios. Si los datos son correctos, la puerta registró dos accesos opuestos en el mismo instante, lo que sugiere manipulación de logs o un estado físico duplicado.",
+				"source": "Nota de seguridad: Archivo Este",
+				"forensicNotes": "El incidente encaja con avisos de verificacion biometrica y una imagen fija donde la puerta aparece abierta y sellada a la vez. Es el indicador de brecha fisica mas fuerte disponible.",
+				"relatedFiles": {
+					"securityNote": "Documentos / Nota de seguridad: Archivo Este",
+					"doorLog": "Sistema / DOOR-441",
+					"archiveStill": "Medios / Puerta del Archivo Este"
+				}
+			},
+			"duplicateCredential": {
+				"title": "Credencial duplicada",
+				"description": "La credencial N-KADE-17 se autenticó dentro de Helix Labs mientras su propietario afirmaba estar fuera.",
+				"longDescription": "Los registros de autenticación sitúan la credencial N-KADE-17 en la terminal C-17 mientras Noah Kade informaba estar fuera de la instalación. El conflicto conecta el correo externo con el evento interno de la pasarela auth.",
+				"source": "Anomalía de inicio de sesión N-KADE-17",
+				"forensicNotes": "La terminal figuraba previamente como offline, lo que aumenta la probabilidad de replay de credencial, identidad clonada o evento auth falsificado.",
+				"relatedFiles": {
+					"authLog": "Sistema / AUTH-102",
+					"kadeEmail": "Correos / Badge rejected at west service gate",
+					"roster": "Documentos / Employee Roster Delta"
+				}
+			},
+			"loginAnomalyNKade17": {
+				"title": "Anomalía de inicio de sesión N-KADE-17",
+				"description": "El log de autenticación sitúa N-KADE-17 en la terminal C-17 mientras su propietario estaba fuera.",
+				"longDescription": "La anomalía de inicio de sesión es el evento crudo del sistema detrás de la credencial duplicada: una misma credencial aparece fuera de la instalación y dentro de la terminal C-17 durante la ventana del apagón.",
+				"source": "Sistema / AUTH-102",
+				"forensicNotes": "No es solo una discrepancia de cuenta. Ancla el conflicto de credencial a una terminal y una ventana temporal concretas.",
+				"relatedFiles": {
+					"authLog": "Sistema / AUTH-102",
+					"credential": "Tablero de Evidencias / Credencial duplicada"
+				}
+			},
+			"encryptedFragment01": {
+				"title": "Fragmento cifrado 01",
+				"description": "El fragmento descifrado confirma que la fuente de la señal permaneció dentro de Helix tras el fallo del relé.",
+				"longDescription": "El fragmento cifrado 01 replantea el apagón como contención y no como un fallo aleatorio. Su redacción apunta de nuevo al patrón de golpes y sugiere que alguien esperaba el apagón antes de que ocurriera.",
+				"source": "Fragmento cifrado 01",
+				"forensicNotes": "El fragmento solo fue legible tras introducir la frase KNOCK-3. Eso convierte el patrón de la sala de servidores en una probable frase de acceso, no en un ritmo casual.",
+				"relatedFiles": {
+					"fragment": "Chats / Fragmento cifrado 01",
+					"stickyNote": "Documentos / Nota adhesiva recuperada"
+				}
+			},
+			"eastArchiveAccessMap": {
+				"title": "Mapa de acceso del Archivo Este",
+				"description": "Un mapa recuperado muestra un pasaje de mantenimiento oculto que llega al archivo este.",
+				"longDescription": "El mapa de acceso añade contexto físico a la brecha del archivo este. Dos vectores ocultos convergen en la misma puerta del archivo, coincidiendo con el evento contradictorio de puerta.",
+				"source": "Mapa de acceso del Archivo Este",
+				"forensicNotes": "El mapa no estaba en el plano público de la instalación. Su recuperación refuerza la posibilidad de que la brecha usara rutas internas o conocimiento privilegiado.",
+				"relatedFiles": {
+					"map": "Documentos / Mapa de acceso del Archivo Este",
+					"breach": "Tablero de Evidencias / Brecha del Archivo Este"
+				}
+			},
+			"relayFailureReport": {
+				"title": "Informe de fallo del relé",
+				"description": "El pulso final del fallo del relé se originó dentro de la instalación y no en la torre.",
+				"longDescription": "El informe sitúa el último fallo de comunicación dentro de Helix Labs. Eso desplaza el apagón de un fallo externo de equipo hacia una acción interna deliberada.",
+				"source": "Informe de fallo del relé",
+				"forensicNotes": "El pulso interno encaja con la anomalía de credencial duplicada y con el aviso cifrado de que la fuente de la señal seguía dentro de Helix.",
+				"relatedFiles": {
+					"report": "Documentos / Informe de fallo del relé",
+					"netLog": "Sistema / NET-900"
+				}
+			},
+			"recoveredFragmentSet": {
+				"title": "Fragmento recuperado",
+				"description": "Fragmentos recuperados del relé apuntan a un registro de mantenimiento desaparecido.",
+				"longDescription": "Los fragmentos están incompletos por separado, pero sus marcadores de línea y referencias al relay indican que pertenecen al mismo informe de mantenimiento.",
+				"source": "Laboratorio de Recuperación",
+				"forensicNotes": "Recuperados desde una copia dañada de la caché del relé. Los fragmentos conservan suficientes datos de secuencia para permitir reconstrucción.",
+				"relatedFiles": {
+					"file12": "Laboratorio de Recuperación / Fragmento de Recuperación 12",
+					"file18": "Laboratorio de Recuperación / Fragmento de Recuperación 18",
+					"file21": "Laboratorio de Recuperación / Fragmento de Recuperación 21"
+				}
+			},
+			"powerRelayMaintenanceReport": {
+				"title": "Informe de mantenimiento del relé de energía",
+				"description": "El informe de mantenimiento reconstruido dice que el relay fue redirigido internamente antes del apagón.",
+				"longDescription": "El informe recuperado conecta el apagón con un cambio de ruta de mantenimiento. El relay externo no simplemente falló; el tráfico fue redirigido por una ruta interna.",
+				"source": "Informe de mantenimiento del relé de energía",
+				"forensicNotes": "La integridad es suficiente para tratar el informe como evidencia corroborada, aunque la imagen original del sistema sigue dañada.",
+				"relatedFiles": {
+					"report": "Documentos / Informe de mantenimiento del relé de energía",
+					"fragments": "Laboratorio de Recuperación / Fragmentos 12, 18, 21"
+				}
+			}
+		}
+	},
+	"connections": {
+		"title": "Tablero de Conexiones",
+		"create": "Conectar",
+		"cooldown": "Recalibrando",
+		"clearSelection": "Limpiar selección",
+		"selection": "evidencias seleccionadas",
+		"noSelection": "No hay nodos seleccionados.",
+		"saved": "conexiones verificadas",
+		"empty": "No hay vínculos de evidencia verificados.",
+		"verified": "verificada",
+		"unverified": "sin verificar",
+		"justificationTitle": "Revisión de conexión",
+		"justificationQuestion": "¿Por qué crees que estas evidencias están relacionadas?",
+		"cancelJustification": "Cancelar revisión de conexión",
+		"reasonLabel": "Motivo",
+		"deductionLabel": "Deducción",
+		"reasonUnknown": "Relación aceptada",
+		"justifications": {
+			"sharedClue": "Coinciden en hora, lugar o código.",
+			"sameAuthor": "Tienen el mismo autor.",
+			"sameFileType": "Son del mismo tipo de archivo."
+		},
+		"reasons": {
+			"accessPhrase": "KNOCK-3 era una frase de acceso escondida en la nota recuperada.",
+			"duplicateLogin": "La misma credencial aparece en una ubicación imposible.",
+			"archiveRoute": "Ambas pruebas indican una ruta física alternativa.",
+			"maintenanceRelay": "El fallo del relay coincide con una manipulación durante mantenimiento."
+		}
+	},
+	"notes": {
+		"title": "Notas del Investigador",
+		"empty": "No hay notas del investigador.",
+		"created": "creada",
+		"cancelEdit": "Cancelar edición",
+		"fields": {
+			"body": "nota",
+			"tags": "etiquetas"
+		},
+		"placeholders": {
+			"body": "Escribe una nota privada de investigación...",
+			"tags": "acceso, relé, sospechoso"
+		},
+		"actions": {
+			"create": "Crear nota",
+			"save": "Guardar nota",
+			"edit": "Editar nota",
+			"delete": "Borrar nota"
+		}
+	},
+	"deductions": {
+		"title": "Deducciones",
+		"locked": "bloqueada",
+		"unlocked": "desbloqueada",
+		"lockedTitle": "Deducción bloqueada",
+		"lockedDescription": "Crea la conexión correcta entre evidencias para resolver esta deducción.",
+		"unknownEvidence": "Evidencia no descubierta",
+		"items": {
+			"accessPhrase": {
+				"title": "El patrón de golpes se uso como frase de acceso",
+				"description": "El ritmo KNOCK-3 no es solo una pista; es la frase que abre el fragmento cifrado 01."
+			},
+			"internalInvolvement": {
+				"title": "La brecha necesitó acceso interno",
+				"description": "La brecha del archivo este y el mapa de acceso oculto apuntan a una ruta física que requería conocimiento interno."
+			},
+			"maintenanceReroute": {
+				"title": "El apagón siguió una redirección de mantenimiento",
+				"description": "El informe de fallo del relé y el registro de mantenimiento reconstruido muestran que el corte se enrutó desde dentro de Helix."
+			}
+		}
+	},
+	"chapterSummary": {
+		"eyebrow": "Resumen del Capítulo 1",
+		"title": "Resumen del Capítulo 1",
+		"points": {
+			"communication": "Helix Labs perdió comunicación.",
+			"unauthorized": "Hubo acceso no autorizado dentro de la instalación.",
+			"serverRoom": "La sala de servidores está relacionada con la frase recuperada.",
+			"deliberate": "El apagón parece deliberado.",
+			"internal": "Alguien con acceso interno pudo estar implicado."
+		},
+		"hook": "La secuencia es más clara, pero la fuente dentro de Helix no ha sido identificada. El capítulo 2 queda abierto.",
+		"chapterTwoUnavailable": "Capítulo 2 aún no disponible.",
+		"actions": {
+			"close": "Cerrar resumen del capítulo",
+			"continue": "Continuar investigación",
+			"chapterTwo": "Ir al Capítulo 2"
+		}
+	},
+	"logs": {
+		"title": "Logs del sistema",
+		"tail": "tail -f recuperado.log",
+		"entriesRecovered": "{count} entradas recuperadas de la caché local.",
+		"activity": {
+			"title": "Actividad interna",
+			"relay": "monitor relay",
+			"indexer": "indexador de caso",
+			"watchdog": "watchdog",
+			"messages": {
+				"relay": "El relay externo sigue inaccesible.",
+				"indexer": "Diario de estado de lectura sincronizado.",
+				"watchdog": "Monitor de objetivos esperando entrada del investigador.",
+				"evidence": "Listener del tablero de evidencias armado."
+			},
+			"dynamic": {
+				"fileRecovered": "Nuevo archivo recuperado indexado.",
+				"passwordFailed": "Fallo al desbloquear archivo protegido.",
+				"passwordAccepted": "Archivo protegido descifrado.",
+				"terminalCommand": "Comando de terminal ejecutado.",
+				"hiddenRelay": "Diagnóstico oculto del relé recuperado."
+			}
+		},
+		"levels": {
+			"INFO": "INFO",
+			"WARN": "AVISO",
+			"ERROR": "ERROR",
+			"CRITICAL": "CRITICO"
+		},
+		"sources": {
+			"auth-gateway": "pasarela auth",
+			"door-control": "control de puertas",
+			"camera-grid": "red de cámaras",
+			"uplink-core": "núcleo uplink",
+			"occupancy-sensor": "sensor de ocupación",
+			"dead-signal-shell": "shell dead signal",
+			"terminal": "terminal",
+			"file-indexer": "indexador de archivos",
+			"cipher-gate": "puerta de cifrado",
+			"connection-board": "tablero de conexiones",
+			"deduction-engine": "motor de deducciones",
+			"recovery-lab": "laboratorio de recuperación"
+		},
+		"titles": {
+			"AUTH-102": "Anomalía de inicio de sesión N-KADE-17",
+			"DOOR-441": "Conflicto de dirección en archivo este",
+			"CAM-500": "Fallo de integridad de cámara",
+			"NET-900": "Perdida del relé externo",
+			"OCC-204": "Pico de ocupación en subnivel C",
+			"SYS-001": "Montaje del indice recuperado",
+			"FILE-201": "Nuevo archivo recuperado",
+			"AUTH-403": "Contraseña rechazada",
+			"AUTH-200": "Archivo protegido descifrado",
+			"TERM-001": "Comando de terminal ejecutado",
+			"SCAN-778": "Diagnóstico oculto del relé",
+			"CON-101": "Conexión de evidencia guardada",
+			"CON-422": "Conexión rechazada",
+			"CON-429": "Conexiones especulativas descartadas",
+			"DED-210": "Deducción desbloqueada",
+			"CH-101": "Resumen de capítulo desbloqueado",
+			"REC-120": "Fragmento de recuperación indexado",
+			"REC-404": "Recuperación bloqueada",
+			"REC-409": "Orden de ensamblaje rechazado",
+			"REC-500": "Documento reconstruido"
+		},
+		"messages": {
+			"AUTH-102": "Inicio de sesión detectado: n.kade desde la terminal C-17.",
+			"DOOR-441": "El evento de acceso al archivo este contiene vectores de dirección contradictorios.",
+			"CAM-500": "Acceso no autorizado detectado. Fallo de integridad en paquetes de cámara.",
+			"NET-900": "Conexión perdida con el relay externo de Helix Labs.",
+			"OCC-204": "La ocupación de subnivel C cambio de 0 a 44 sin movimiento de puertas.",
+			"SYS-001": "Índice de caso recuperado montado en modo solo lectura.",
+			"FILE-201": "Nuevo archivo recuperado indexado: {title}.",
+			"AUTH-403": "Fallo al desbloquear archivo protegido.",
+			"AUTH-200": "Archivo protegido descifrado.",
+			"TERM-001": "Comando de terminal ejecutado.",
+			"terminalCommand": "Comando ejecutado: {command}.",
+			"SCAN-778": "Diagnóstico oculto del relé recuperado.",
+			"CON-101": "Conexión de evidencia verificada guardada en el tablero local.",
+			"CON-422": "Conexión rechazada: la relación no está suficientemente justificada.",
+			"CON-429": "El tablero de conexiones descartó vínculos especulativos tras varios intentos fallidos.",
+			"DED-210": "El motor de deducciones confirmó una relación válida entre evidencias.",
+			"CH-101": "Umbral de reconstrucción del Capítulo 1 alcanzado.",
+			"REC-120": "El Laboratorio de Recuperación indexó un fragmento recuperado.",
+			"REC-404": "Acción de recuperación bloqueada por prerrequisito ausente.",
+			"REC-409": "Orden de ensamblaje de fragmentos rechazado.",
+			"REC-500": "Informe de mantenimiento del relé de energía reconstruido."
+		}
+	},
+	"values": {
+		"documentCategories": {
+			"Report": "Informe",
+			"Note": "Nota",
+			"Internal Memo": "Memo interno",
+			"Recovered": "Recuperado",
+			"Log": "Registro",
+			"Map": "Mapa",
+			"Encrypted Chat": "Chat cifrado",
+			"Recovered Fragment": "Fragmento recuperado"
+		},
+		"classifications": {
+			"Internal": "Interno",
+			"Restricted": "Restringido",
+			"Unverified": "Sin verificar",
+			"Recovered": "Recuperado"
+		},
+		"emailFolders": {
+			"Inbox": "Entrada",
+			"Sent": "Enviados",
+			"Announcements": "Anuncios",
+			"Security": "Seguridad"
+		},
+		"mediaTypes": {
+			"Image": "Imagen"
+		},
+		"chatTypes": {
+			"Chat": "Chat",
+			"Encrypted Chat": "Chat cifrado"
+		},
+		"systemTypes": {
+			"Log": "Registro"
+		}
+	},
+	"dataTexts": {
+		"The Helix Incident": "El Incidente Helix",
+		"Helix Labs lost all communication with its employees after a staged maintenance window. The remaining system image contains emails, chats, files, media captures, and logs that suggest the blackout was deliberate.": "Helix Labs perdió toda comunicación con sus empleados tras una ventana de mantenimiento preparada. La imagen restante del sistema contiene correos, chats, archivos, capturas multimedia y logs que sugieren que el apagón fue deliberado.",
+		"Containment review moved to 23:40": "Revisión de contención movida a las 23:40",
+		"Elias,\n\nThe board wants a clean incident summary before the morning call. Keep the language operational. Do not mention the east archive breach until we know whether the door logs are corrupt or altered.\n\nIf anyone asks about the silence from sublevel C, route it through me.\n\nMara": "Elias,\n\nLa junta quiere un resumen limpio del incidente antes de la llamada de la mañana. Mantén el lenguaje operativo. No menciones la brecha del archivo este hasta que sepamos si los logs de puerta están corruptos o alterados.\n\nSi alguien pregunta por el silencio del subnivel C, canalízalo a través de mí.\n\nMara",
+		"Re: Containment review moved to 23:40": "Re: Revisión de contención movida a las 23:40",
+		"Mara,\n\nI can make the report look routine, but the access pattern is not routine. Someone authenticated as Kade from a terminal that has been offline since July.\n\nSecurity cameras show static at the exact same minute.\n\nElias": "Mara,\n\nPuedo hacer que el informe parezca rutinario, pero el patrón de acceso no es rutinario. Alguien se autenticó como Kade desde una terminal que está fuera de línea desde julio.\n\nLas cámaras de seguridad muestran estática exactamente en el mismo minuto.\n\nElias",
+		"Network maintenance window": "Ventana de mantenimiento de red",
+		"Scheduled maintenance will begin at 23:00 and may interrupt external communication. Local systems should remain available. Report unusual device behavior to Security Operations.": "El mantenimiento programado comenzará a las 23:00 y puede interrumpir la comunicación externa. Los sistemas locales deberían seguir disponibles. Informa cualquier comportamiento inusual de dispositivos a Operaciones de Seguridad.",
+		"Badge rejected at west service gate": "Credencial rechazada en la puerta oeste de servicio",
+		"My badge failed twice at west service. The console says I am already inside the facility. I am not. I left at 18:12 and am writing this from home.\n\nPlease check for a duplicate credential.": "Mi credencial falló dos veces en servicio oeste. La consola dice que ya estoy dentro de la instalación. No lo estoy. Salí a las 18:12 y escribo esto desde casa.\n\nPor favor, revisad si hay una credencial duplicada.",
+		"Dr. Mara Voss": "Dra. Mara Voss",
+		"Internal Dispatch": "Despacho Interno",
+		"All Facility Staff": "Todo el personal de la instalación",
+		"Security Operations": "Operaciones de Seguridad",
+		"Initial Incident Brief": "Informe inicial del incidente",
+		"At 23:17 local facility time, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?": "A las 23:17, hora local de la instalación, Helix Labs dejó de responder a todos los intentos de comunicación externa. La telemetría de red muestra una degradación gradual en lugar de una caída única. La autenticación interna permaneció activa durante nueve minutos después del apagón externo.\n\nPreguntas abiertas: por qué la credencial N-KADE-17 se autenticó desde una terminal fuera de línea, y por qué se sobrescribieron los sensores de ocupación en el subnivel C?",
+		"Security Note: East Archive": "Nota de seguridad: Archivo Este",
+		"The east archive door should remain sealed until biometric records can be manually verified. If the door log is accurate, someone opened it from both sides within the same second.": "La puerta del archivo este debe permanecer sellada hasta que los registros biométricos puedan verificarse manualmente. Si el log de puerta es correcto, alguien la abrió desde ambos lados en el mismo segundo.",
+		"Employee Roster Delta": "Delta de plantilla de empleados",
+		"Night shift roster lists 43 employees onsite. Badge telemetry lists 44. One unknown credential appears only as SIGNAL-000 and has no matching personnel record.": "La plantilla del turno de noche lista 43 empleados en sitio. La telemetría de credenciales lista 44. Una credencial desconocida aparece solo como SIGNAL-000 y no tiene registro de personal asociado.",
+		"Recovered Sticky Note": "Nota adhesiva recuperada",
+		"Three knocks from the server room. One reply from the wall. The lights know before we do.": "Tres golpes desde la sala de servidores. Una respuesta desde la pared. Las luces lo saben antes que nosotros.",
+		"Elias Ren": "Elias Ren",
+		"Mara Voss": "Mara Voss",
+		"Human Systems": "Sistemas Humanos",
+		"Unknown": "Desconocido",
+		"DeadSignal Indexer": "Indexador DeadSignal",
+		"Uplink Core": "Nucleo uplink",
+		"DeadSignal Recovery Lab": "Laboratorio de Recuperación DeadSignal",
+		"Helix Facilities / Power Relay Unit": "Instalaciónes Helix / Unidad de relé de energía",
+		"incident": "incidente",
+		"communications": "comunicaciones",
+		"blackout": "apagón",
+		"east archive": "archivo este",
+		"door logs": "logs de puerta",
+		"biometric": "biometria",
+		"roster": "plantilla",
+		"badge": "credencial",
+		"signal-000": "signal-000",
+		"recovered": "recuperado",
+		"server room": "sala de servidores",
+		"server room,audio,pattern": "sala de servidores,audio,patrón",
+		"east archive,map,access": "archivo este,mapa,acceso",
+		"relay,blackout,uplink": "relé,apagón,uplink",
+		"corrupted,damaged,partial,relay": "corrupto,dañado,parcial,relay",
+		"relay,maintenance,blackout,recovered": "relé,mantenimiento,apagón,recuperado",
+		"Sublevel C Camera 03": "Cámara 03 del subnivel C",
+		"Last intact frame before static consumed the feed.": "Último fotograma intacto antes de que la estática consumiera la señal.",
+		"East Archive Door": "Puerta del Archivo Este",
+		"Door sensor reports open and sealed states simultaneously.": "El sensor de puerta informa estados abierto y sellado simultáneamente.",
+		"Network Map Snapshot": "Captura del mapa de red",
+		"External links drop in a spiral pattern around core node H-0.": "Los enlaces externos caen en un patrón espiral alrededor del nodo central H-0.",
+		"#ops-night-shift": "#turno-nocturno-ops",
+		"#private-thread-7": "#hilo-privado-7",
+		"ops-night-shift": "turno-nocturno-ops",
+		"private-thread-7": "hilo-privado-7",
+		"Iris Vale": "Iris Vale",
+		"Jon Bell": "Jon Bell",
+		"Anyone else seeing the internal map flicker between floors?": "¿Alguien más ve el mapa interno parpadear entre plantas?",
+		"Yes. Sublevel C keeps showing as unoccupied, then full occupancy, then offline.": "Si. El subnivel C aparece como desocupado, luego con ocupación completa y después fuera de línea.",
+		"Do not go down there. The elevator just accepted a call without anyone pressing it.": "No bajeis alli. El ascensor acaba de aceptar una llamada sin que nadie lo pulsara.",
+		"[encrypted fragment] HELIX IS NOT A LAB. IT IS A LOCK.": "[fragmento cifrado] HELIX NO ES UN LABORATORIO. ES UN CANDADO.",
+		"Who are you? How did you get into this channel?": "¿Quién eres? ¿Cómo entraste en este canal?",
+		"Server Room Audio Transcript": "Transcripción de audio de la sala de servidores",
+		"East Archive Access Map": "Mapa de acceso del Archivo Este",
+		"Relay Failure Report": "Informe de fallo del relé",
+		"Power Relay Maintenance Report": "Informe de mantenimiento del relé de energía",
+		"Recovery Fragment 12": "Fragmento de Recuperación 12",
+		"Recovery Fragment 18": "Fragmento de Recuperación 18",
+		"Recovery Fragment 21": "Fragmento de Recuperación 21",
+		"Recovered Fragment": "Fragmento recuperado",
+		"Encrypted Fragment 01": "Fragmento cifrado 01",
+		"Login anomaly N-KADE-17": "Anomalía de inicio de sesión N-KADE-17",
+		"Documents / Recovered Sticky Note": "Documentos / Nota adhesiva recuperada",
+		"Media / Sublevel C Camera 03": "Medios / Cámara 03 del subnivel C",
+		"Documents / Security Note: East Archive": "Documentos / Nota de seguridad: Archivo Este",
+		"Media / East Archive Door": "Medios / Puerta del Archivo Este",
+		"Emails / Badge rejected at west service gate": "Correos / Credencial rechazada en la puerta oeste de servicio",
+		"Documents / Employee Roster Delta": "Documentos / Delta de plantilla de empleados",
+		"audio": "audio",
+		"pattern": "patrón",
+		"map": "mapa",
+		"access": "acceso",
+		"relay": "relay",
+		"maintenance": "mantenimiento",
+		"uplink": "uplink",
+		"corrupted": "corrupto",
+		"damaged": "dañado",
+		"partial": "parcial",
+		"Facility Cartography Cache": "Caché de cartografia de la instalación",
+		"Relay Cache Index": "Índice de caché del relé"
+	},
+	"help": {
+		"open": "Abrir ayuda",
+		"shortLabel": "Ayuda",
+		"kicker": "Ayuda de investigación",
+		"title": "Cómo jugar",
+		"subtitle": "DeadSignal es una investigación forense digital.",
+		"intro": {
+			"copyOne": "Has recibido una copia recuperada del sistema de Helix Labs, una empresa que perdió toda comunicación durante una ventana de mantenimiento.",
+			"copyTwo": "Tu objetivo es reconstruir qué ocurrió.",
+			"copyThree": "El caso no se resuelve solo por leer todo: debes relacionar la información correcta."
+		},
+		"howToPlay": {
+			"title": "Cómo jugar",
+			"steps": {
+				"1": "Lee documentos, correos, chats, registros del sistema y archivos multimedia.",
+				"2": "Algunos archivos contienen pistas importantes.",
+				"3": "Cuando descubras una pista, se añadirá al Tablero de Evidencias.",
+				"4": "Usa el Tablero de Evidencias para conectar pistas relacionadas.",
+				"5": "No todas las conexiones son correctas.",
+				"6": "Para avanzar, tendrás que encontrar contraseñas, desbloquear archivos, recuperar fragmentos y demostrar deducciones.",
+				"7": "Los objetivos de la derecha indican qué líneas de investigación siguen abiertas.",
+				"8": "Busca relaciones por hora, lugar, persona, código o evento."
+			}
+		},
+		"currentObjective": {
+			"title": "Objetivo actual",
+			"body": "Descubrir qué causó el apagón de Helix Labs y quién pudo estar implicado."
+		},
+		"tip": {
+			"title": "Consejo",
+			"body": "No conectes pistas al azar. Lee el contenido y busca relaciones por hora, lugar, persona, código o evento."
+		},
+		"reset": {
+			"confirm": "Esto reiniciará la investigación y borrará progreso, evidencias, conexiones, notas, estado de recuperación, deducciones y logs dinámicos. Se conservará el idioma elegido."
+		},
+		"actions": {
+			"close": "Cerrar ayuda",
+			"understood": "Entendido, iniciar investigación",
+			"reset": "Reiniciar investigación",
+			"confirmReset": "Confirmar reinicio",
+			"cancelReset": "Cancelar"
+		}
+	}
+}

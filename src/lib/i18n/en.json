@@ -1,0 +1,935 @@
+{
+	"brand": {
+		"name": "DeadSignal"
+	},
+	"common": {
+		"and": "and"
+	},
+	"meta": {
+		"title": "DeadSignal",
+		"description": "DeadSignal is a fixed narrative investigation interface for exploring The Helix Incident."
+	},
+	"language": {
+		"selector": "Language selector",
+		"en": "EN",
+		"es": "ES"
+	},
+	"topBar": {
+		"forensicShell": "forensic shell",
+		"utc": "UTC"
+	},
+	"status": {
+		"ACTIVE": "ACTIVE",
+		"ELEVATED": "ELEVATED",
+		"DEGRADED": "DEGRADED",
+		"READ_ONLY": "READ ONLY"
+	},
+	"case": {
+		"noCaseMounted": "No Case Mounted",
+		"missing": "No case archive is mounted. Run the database seed and reload the shell."
+	},
+	"folders": {
+		"Documents": "Documents",
+		"Emails": "Emails",
+		"Chats": "Chats",
+		"Media": "Media",
+		"System": "System",
+		"RecoveryLab": "Recovery Lab",
+		"EvidenceBoard": "Evidence Board",
+		"Terminal": "Terminal"
+	},
+	"explorer": {
+		"title": "File Explorer",
+		"volume": "Recovered Volume",
+		"empty": "No recovered records."
+	},
+	"mainWindow": {
+		"subtitles": {
+			"Documents": "Reports, notes, and internal files",
+			"Emails": "Corporate mail archive",
+			"Chats": "Internal message captures",
+			"Media": "Camera and network captures",
+			"System": "Recovered kernel and facility events",
+			"RecoveryLab": "Forensic recovery workspace",
+			"EvidenceBoard": "Unlocked evidence and investigation links",
+			"Terminal": "Interactive command shell"
+		}
+	},
+	"badges": {
+		"flagged": "flagged",
+		"encryptedFragment": "encrypted fragment"
+	},
+	"progress": {
+		"new": "NEW",
+		"read": "read",
+		"unread": "unread",
+		"important": "important",
+		"locked": "LOCKED",
+		"protected": "PROTECTED",
+		"unlocked": "UNLOCKED"
+	},
+	"caseProgress": {
+		"evidenceDiscovered": "evidence",
+		"caseCompletion": "case complete",
+		"chapterProgress": "chapter progress"
+	},
+	"labels": {
+		"status": "status",
+		"threat": "threat",
+		"from": "from",
+		"to": "to",
+		"author": "author",
+		"class": "class",
+		"created": "created",
+		"source": "source",
+		"captured": "captured",
+		"caption": "caption",
+		"occurred": "occurred",
+		"sourceSubsystem": "source subsystem",
+		"eventMessage": "event message",
+		"eventTimeline": "event timeline",
+		"captureMetadata": "capture metadata",
+		"chatChannel": "chat channel",
+		"evidenceSource": "source",
+		"evidenceStatus": "status",
+		"evidenceTags": "tags",
+		"password": "password",
+		"command": "command"
+	},
+	"notifications": {
+		"dismiss": "Dismiss notification",
+		"documentIndexed": {
+			"title": "Document indexed",
+			"message": "{category} record added to local progress."
+		},
+		"fileAnalyzed": {
+			"title": "File analyzed",
+			"message": "{details}.",
+			"parts": {
+				"indexed": "record indexed",
+				"anomaly": "access anomaly reviewed",
+				"evidence": "evidence discovered",
+				"evidenceMany": "{count} evidence items discovered",
+				"objectiveUpdated": "objective updated",
+				"objectiveCompleted": "objective completed",
+				"file": "new file available",
+				"files": "{count} new files available"
+			}
+		},
+		"newEvidence": {
+			"title": "New evidence discovered",
+			"message": "Evidence added to the board."
+		},
+		"objectiveUpdated": {
+			"title": "Objective updated",
+			"message": "A related objective changed state."
+		},
+		"objectiveCompleted": {
+			"title": "Objective completed",
+			"message": "Investigation milestone confirmed."
+		},
+		"accessAnomaly": {
+			"title": "Access anomaly detected",
+			"message": "Important system event reviewed."
+		},
+		"newFile": {
+			"title": "New file recovered",
+			"message": "{title} is now available."
+		},
+		"fileLocked": {
+			"title": "File locked",
+			"message": "Additional evidence is required before access."
+		},
+		"passwordSuccess": {
+			"title": "Access granted",
+			"message": "Protected file decrypted."
+		},
+		"passwordFailure": {
+			"title": "Access denied",
+			"message": "Password rejected by local cipher."
+		},
+		"commandExecuted": {
+			"title": "Command executed",
+			"message": "{command} completed."
+		},
+		"scanComplete": {
+			"title": "Scan complete",
+			"message": "Hidden relay event recovered."
+		},
+		"fragmentRecovered": {
+			"title": "Fragment recovered",
+			"message": "{fragment} added to Recovery Lab."
+		},
+		"documentReconstructed": {
+			"title": "Document reconstructed",
+			"message": "Power Relay Maintenance Report restored from fragments."
+		},
+		"recoveryBlocked": {
+			"title": "Recovery blocked",
+			"message": "The recovery path requires an earlier fragment or correct ordering."
+		},
+		"connectionCreated": {
+			"title": "Connection verified",
+			"message": "Evidence link accepted and saved."
+		},
+		"connectionDuplicate": {
+			"title": "Connection already exists",
+			"message": "That evidence pair is already linked."
+		},
+		"connectionRejected": {
+			"title": "Connection rejected",
+			"message": "The relationship is not sufficiently justified."
+		},
+		"speculativeConnectionsDiscarded": {
+			"title": "Speculative connections discarded",
+			"message": "The board discarded speculative connections."
+		},
+		"deductionUnlocked": {
+			"title": "Deduction unlocked",
+			"message": "{deduction}"
+		},
+		"chapterSummaryUnlocked": {
+			"title": "Chapter summary unlocked",
+			"message": "The blackout sequence can now be reconstructed."
+		}
+	},
+	"access": {
+		"title": "Access Gate",
+		"subtitle": "This file is protected by local cipher.",
+		"prompt": "Enter password",
+		"submit": "Unlock",
+		"cancel": "Cancel",
+		"error": "Incorrect password.",
+		"hint": "Recovered clues may contain the unlock phrase."
+	},
+	"terminal": {
+		"title": "Terminal",
+		"prompt": "dead-signal",
+		"systemPrompt": "SYSTEM >",
+		"investigatorPrompt": "INVESTIGATOR >",
+		"inputLabel": "Terminal command",
+		"placeholder": "type command",
+		"run": "Run",
+		"lockedOutput": "Access denied. Provide a valid unlock token.",
+		"unlockedOutput": "Encrypted Fragment 01 decrypted.",
+		"unknown": "Unknown command. Type help.",
+		"cleared": "Terminal buffer cleared.",
+		"status": "Case ACTIVE / Threat ELEVATED / Archive read-only.",
+		"scan": "Scan finished. Hidden relay event recovered.",
+		"scanRepeat": "Scan finished. No new hidden events.",
+		"evidenceEmpty": "No evidence discovered yet.",
+		"evidenceHeader": "Discovered evidence:",
+		"help": {
+			"header": "Available commands:",
+			"help": "help - show available commands",
+			"clear": "clear - clear terminal output",
+			"status": "status - print case status",
+			"scan": "scan - scan local system cache",
+			"evidence": "evidence - list discovered evidence",
+			"unlock": "unlock KNOCK-3 - attempt protected file unlock",
+			"recover": "recover relay - scan relay cache for fragments",
+			"fragments": "fragments - list recovered fragments",
+			"repair": "repair file_12 - repair a recovered fragment"
+		},
+		"recovery": {
+			"fragmentsEmpty": "No recovery fragments indexed.",
+			"fragmentsHeader": "Recovered fragments:",
+			"results": {
+				"fragment-recovered": "{file} recovered and indexed.",
+				"reconstructed": "Maintenance report reconstructed.",
+				"already-recovered": "Fragment already recovered.",
+				"already-reconstructed": "Maintenance report already reconstructed.",
+				"missing-scan": "Repair requires scan output first.",
+				"missing-repair": "Deep recovery requires repaired fragment output.",
+				"missing-fragments": "Assembly requires all fragments.",
+				"wrong-order": "Assembly order rejected.",
+				"unknown-target": "Unknown recovery target.",
+				"unknown-file": "Unknown repair file."
+			}
+		}
+	},
+	"counts": {
+		"messages": "{count} messages"
+	},
+	"empty": {
+		"email": "No email selected.",
+		"chat": "No chat selected.",
+		"document": "No document selected.",
+		"media": "No media selected.",
+		"log": "No log selected."
+	},
+	"objectives": {
+		"title": "Current Objectives",
+		"states": {
+			"locked": "locked",
+			"active": "active",
+			"open": "open",
+			"completed": "completed"
+		},
+		"blackout": {
+			"label": "Establish blackout timeline",
+			"meta": "{count}/{required} important logs reviewed"
+		},
+		"credential": {
+			"label": "Verify duplicate credential",
+			"meta": "N-KADE-17 appears in impossible location"
+		},
+		"archive": {
+			"label": "Inspect east archive breach",
+			"meta": "{count} flagged artifacts"
+		},
+		"fragment": {
+			"label": "Recover encrypted fragment",
+			"meta": "{status}"
+		},
+		"traceBlackout": {
+			"label": "Trace the source of the blackout",
+			"meta": "Relay report and encrypted fragment are now connected"
+		},
+		"connectEvidence": {
+			"label": "Connect related evidence",
+			"meta": "{count}/{required} verified connections"
+		},
+		"accessPhrase": {
+			"label": "Prove the access phrase",
+			"meta": "Link the knock pattern to the recovered fragment"
+		},
+		"internalInvolvement": {
+			"label": "Identify internal involvement",
+			"meta": "Tie the breach to the hidden access route"
+		},
+		"reconstructBlackout": {
+			"label": "Reconstruct the blackout sequence",
+			"meta": "{connections}/{requiredConnections} verified connections / {deductions}/{requiredDeductions} deductions / {fragment}"
+		},
+		"recoverMaintenance": {
+			"label": "Recover maintenance records",
+			"meta": "{count}/{required} relay fragments recovered"
+		},
+		"meta": {
+			"fragmentLocked": "Encrypted fragment remains inaccessible",
+			"fragmentPending": "Encrypted fragment pending",
+			"fragmentOpen": "Use the recovered password hint",
+			"fragmentCompleted": "Encrypted Fragment 01 recovered"
+		},
+		"guidance": "Complete objectives by reading clues, unlocking files, and creating valid deductions."
+	},
+	"files": {
+		"serverRoomAudioTranscript": {
+			"title": "Server Room Audio Transcript",
+			"content": "Recovered acoustic transcript: three knocks, one-second pause, three knocks, then a low-frequency reply from behind the server room wall. The repeated pattern is annotated as KNOCK-3 by the local indexer."
+		},
+		"eastArchiveAccessMap": {
+			"title": "East Archive Access Map",
+			"content": "Recovered map fragment shows an east archive maintenance passage that does not appear in the public facility plan. Two access vectors converge on the archive door at 22:58:04."
+		},
+		"relayFailureReport": {
+			"title": "Relay Failure Report",
+			"content": "Uplink core analysis: external communication failed in three pulses. The final pulse originated inside the facility, not from the relay tower. Recommended action: trace the blackout source through internal routing node H-0."
+		},
+		"encryptedFragment01": {
+			"title": "Encrypted Fragment 01",
+			"messages": {
+				"first": "If the relay goes dark, do not look outside. The signal source is still inside Helix.",
+				"second": "Then the blackout was not a failure. It was containment."
+			}
+		}
+	},
+	"recovery": {
+		"title": "Recovery Lab",
+		"subtitle": "Work against a damaged system image. Scan, repair, and rebuild partial records without touching the original archive.",
+		"corruptedFile": "Damaged source file",
+		"results": "Recovery results",
+		"noResults": "No recovery actions executed.",
+		"labels": {
+			"integrity": "integrity",
+			"corruptionLevel": "corruption",
+			"recoveredAt": "recovered",
+			"recoveryOrigin": "origin",
+			"fragments": "fragments",
+			"fragment": "fragment",
+			"corrupted": "corrupted",
+			"reconstructed": "reconstructed"
+		},
+		"badges": {
+			"corrupted": "Corrupted",
+			"damaged": "Damaged",
+			"partial": "Partial"
+		},
+		"methods": {
+			"title": "Recovery methods",
+			"scan": "Scan",
+			"repair": "Repair",
+			"deepRecovery": "Deep Recovery",
+			"alreadyRecovered": "Recovered"
+		},
+		"methodLabels": {
+			"scan": "Scan",
+			"repair": "Repair",
+			"deep-recovery": "Deep Recovery",
+			"assemble": "Assemble"
+		},
+		"resultStatuses": {
+			"fragment-recovered": "Fragment recovered.",
+			"reconstructed": "Document reconstructed.",
+			"already-recovered": "Fragment already recovered.",
+			"already-reconstructed": "Document already reconstructed.",
+			"missing-scan": "Scan output required before repair.",
+			"missing-repair": "Repair output required before deep recovery.",
+			"missing-fragments": "All fragments are required.",
+			"wrong-order": "Fragment order is incorrect.",
+			"unknown-target": "Unknown recovery target.",
+			"unknown-file": "Unknown repair file."
+		},
+		"corruptionLevels": {
+			"severe": "severe",
+			"high": "high",
+			"moderate": "moderate",
+			"partial": "partial",
+			"reconstructed": "reconstructed"
+		},
+		"origins": {
+			"uplinkCache": "uplink cache image",
+			"relayShadow": "relay shadow sector",
+			"maintenanceMirror": "maintenance mirror",
+			"deepCache": "deep cache residue",
+			"reconstructedFragments": "fragment reconstruction"
+		},
+		"evidenceType": {
+			"recoveredFragment": "Recovered Fragment"
+		},
+		"documents": {
+			"relayCache": {
+				"title": "Relay Cache Index",
+				"content": "Relay cache index recovered from a damaged system copy.",
+				"damagedContent": "The server r### experienced unau###ized access during maintenance window.\nPower relay route H-0 was moved to int###al control.\nFragment references: file_12 / file_18 / file_21.\nChecksum: PARTIAL // source image unstable."
+			},
+			"maintenanceReport": {
+				"title": "Power Relay Maintenance Report",
+				"content": "Power Relay Maintenance Report\n\nMaintenance window opened at 21:40 under relay route H-0.\nThe external relay was not failing before the blackout. It was redirected through an internal maintenance path.\nManual override authorization was recorded from inside Helix Labs.\nThe blackout sequence matches a deliberate reroute, not a tower outage."
+			}
+		},
+		"fragments": {
+			"title": "Recovered fragments",
+			"locked": "Fragment not recovered yet.",
+			"file12": {
+				"title": "Recovery Fragment 12",
+				"content": "Line 01: Maintenance window opened under relay route H-0."
+			},
+			"file18": {
+				"title": "Recovery Fragment 18",
+				"content": "Line 02: External relay traffic was redirected through an internal maintenance path."
+			},
+			"file21": {
+				"title": "Recovery Fragment 21",
+				"content": "Line 03: Manual override originated inside Helix Labs before the blackout."
+			}
+		},
+		"assembly": {
+			"title": "Fragment assembly",
+			"hint": "Order the fragments by line marker, then assemble the maintenance report.",
+			"moveUp": "Move fragment up",
+			"moveDown": "Move fragment down",
+			"submit": "Assemble report",
+			"reconstructed": "Reconstruction complete"
+		}
+	},
+	"evidence": {
+		"title": "Evidence Board",
+		"subtitle": "Unlocked evidence appears here as the investigation advances.",
+		"detailTitle": "Investigation file",
+		"forensicNotes": "Forensic notes",
+		"relatedFiles": "Related files",
+		"selectPrompt": "Select evidence",
+		"selectHint": "Open an evidence card to inspect the full investigation file.",
+		"empty": "No evidence unlocked yet.",
+		"lockedHint": "Read files, chats, media, and important logs to surface links.",
+		"views": {
+			"files": "Files",
+			"connections": "Connections",
+			"notes": "Notes",
+			"deductions": "Deductions",
+			"summary": "Summary"
+		},
+		"status": {
+			"found": "found",
+			"corroborated": "corroborated",
+			"unverified": "unverified",
+			"partial": "partial"
+		},
+		"tags": {
+			"serverRoom": "server room",
+			"pattern": "pattern",
+			"audio": "audio",
+			"eastArchive": "east archive",
+			"biometrics": "biometrics",
+			"access": "access",
+			"credential": "credential",
+			"auth": "auth",
+			"nKade17": "N-KADE-17",
+			"terminal": "terminal",
+			"encrypted": "encrypted",
+			"fragment": "fragment",
+			"blackout": "blackout",
+			"map": "map",
+			"relay": "relay",
+			"internal": "internal",
+			"recoveredFragment": "recovered fragment",
+			"partial": "partial",
+			"recovery": "recovery",
+			"maintenance": "maintenance"
+		},
+		"items": {
+			"serverRoomKnockPattern": {
+				"title": "Server Room Knock Pattern",
+				"description": "A recovered note suggests repeated knocks near the server room may be a signal or response pattern.",
+				"longDescription": "The recovered note describes three knocks from the server room and a single reply from the wall. The phrase is too specific to treat as incidental graffiti and may indicate a physical signaling pattern inside a sealed area.",
+				"source": "Recovered Sticky Note",
+				"forensicNotes": "No audio file has been recovered, but the wording matches the timing gap before camera static on sublevel C. Marked for cross-check against future acoustic or maintenance records.",
+				"relatedFiles": {
+					"stickyNote": "Documents / Recovered Sticky Note",
+					"sublevelCamera": "Media / Sublevel C Camera 03"
+				}
+			},
+			"eastArchiveBreach": {
+				"title": "East Archive Breach",
+				"description": "The archive door reports an impossible access event: opened from both sides within the same second.",
+				"longDescription": "The east archive door log contains contradictory direction vectors. If the data is accurate, the door registered two opposing access events at the same timestamp, suggesting either log tampering or a duplicated physical state.",
+				"source": "Security Note: East Archive",
+				"forensicNotes": "The incident aligns with biometric verification warnings and a still image showing the door simultaneously open and sealed. This is the strongest facility breach indicator currently available.",
+				"relatedFiles": {
+					"securityNote": "Documents / Security Note: East Archive",
+					"doorLog": "System / DOOR-441",
+					"archiveStill": "Media / East Archive Door"
+				}
+			},
+			"duplicateCredential": {
+				"title": "Duplicate Credential",
+				"description": "Credential N-KADE-17 authenticated inside Helix Labs while its owner claimed to be offsite.",
+				"longDescription": "Authentication records place credential N-KADE-17 at terminal C-17 while Noah Kade reported being away from the facility. The conflict ties the external email report to the internal auth gateway event.",
+				"source": "Login anomaly N-KADE-17",
+				"forensicNotes": "The terminal was previously marked offline, increasing the likelihood of credential replay, cloned identity, or a forged auth event.",
+				"relatedFiles": {
+					"authLog": "System / AUTH-102",
+					"kadeEmail": "Emails / Badge rejected at west service gate",
+					"roster": "Documents / Employee Roster Delta"
+				}
+			},
+			"loginAnomalyNKade17": {
+				"title": "Login anomaly N-KADE-17",
+				"description": "The authentication log places N-KADE-17 at terminal C-17 while the owner was offsite.",
+				"longDescription": "The login anomaly is the raw system event behind the duplicate credential: one credential appears both outside the facility and inside terminal C-17 during the blackout window.",
+				"source": "System / AUTH-102",
+				"forensicNotes": "This is not just an account mismatch. It anchors the credential conflict to a specific terminal and time window.",
+				"relatedFiles": {
+					"authLog": "System / AUTH-102",
+					"credential": "Evidence Board / Duplicate Credential"
+				}
+			},
+			"encryptedFragment01": {
+				"title": "Encrypted Fragment 01",
+				"description": "The decrypted fragment confirms the signal source remained inside Helix after the relay failed.",
+				"longDescription": "Encrypted Fragment 01 reframes the outage as containment rather than a random failure. Its wording points back to the knock pattern and suggests someone expected the blackout before it happened.",
+				"source": "Encrypted Fragment 01",
+				"forensicNotes": "The fragment became readable only after the KNOCK-3 phrase was provided. That makes the server room pattern a likely access phrase instead of a coincidental rhythm.",
+				"relatedFiles": {
+					"fragment": "Chats / Encrypted Fragment 01",
+					"stickyNote": "Documents / Recovered Sticky Note"
+				}
+			},
+			"eastArchiveAccessMap": {
+				"title": "East Archive Access Map",
+				"description": "A recovered map shows a concealed maintenance passage feeding into the east archive.",
+				"longDescription": "The access map adds physical context to the east archive breach. Two hidden vectors converge on the same archive door, matching the contradictory door event.",
+				"source": "East Archive Access Map",
+				"forensicNotes": "The map was absent from the public facility plan. Its recovery strengthens the possibility that the breach used internal routing or privileged knowledge.",
+				"relatedFiles": {
+					"map": "Documents / East Archive Access Map",
+					"breach": "Evidence Board / East Archive Breach"
+				}
+			},
+			"relayFailureReport": {
+				"title": "Relay Failure Report",
+				"description": "The final relay failure pulse originated inside the facility instead of the tower.",
+				"longDescription": "The report places the last communication failure within Helix Labs. That shifts the blackout from external equipment failure toward deliberate internal action.",
+				"source": "Relay Failure Report",
+				"forensicNotes": "The internal pulse aligns with the duplicate credential anomaly and the encrypted warning that the signal source was still inside Helix.",
+				"relatedFiles": {
+					"report": "Documents / Relay Failure Report",
+					"netLog": "System / NET-900"
+				}
+			},
+			"recoveredFragmentSet": {
+				"title": "Recovered Fragment",
+				"description": "Recovered relay fragments point toward a missing maintenance record.",
+				"longDescription": "The fragments are incomplete on their own, but their line markers and relay references indicate they belong to the same maintenance report.",
+				"source": "Recovery Lab",
+				"forensicNotes": "Recovered from a damaged copy of the relay cache. The fragments retain enough sequence data to support reconstruction.",
+				"relatedFiles": {
+					"file12": "Recovery Lab / Recovery Fragment 12",
+					"file18": "Recovery Lab / Recovery Fragment 18",
+					"file21": "Recovery Lab / Recovery Fragment 21"
+				}
+			},
+			"powerRelayMaintenanceReport": {
+				"title": "Power Relay Maintenance Report",
+				"description": "The reconstructed maintenance report says the relay was redirected internally before the blackout.",
+				"longDescription": "The recovered report ties the blackout to a maintenance route change. The external relay did not simply fail; traffic was rerouted through an internal path.",
+				"source": "Power Relay Maintenance Report",
+				"forensicNotes": "Integrity is high enough to treat the report as corroborating evidence, but the original system image remains damaged.",
+				"relatedFiles": {
+					"report": "Documents / Power Relay Maintenance Report",
+					"fragments": "Recovery Lab / Fragments 12, 18, 21"
+				}
+			}
+		}
+	},
+	"connections": {
+		"title": "Connection Board",
+		"create": "Connect",
+		"cooldown": "Recalibrating",
+		"clearSelection": "Clear selection",
+		"selection": "selected evidence",
+		"noSelection": "No nodes selected.",
+		"saved": "verified connections",
+		"empty": "No verified evidence links saved.",
+		"verified": "verified",
+		"unverified": "unverified",
+		"justificationTitle": "Connection review",
+		"justificationQuestion": "Why do you think these pieces of evidence are related?",
+		"cancelJustification": "Cancel connection review",
+		"reasonLabel": "Reason",
+		"deductionLabel": "Deduction",
+		"reasonUnknown": "Accepted relationship",
+		"justifications": {
+			"sharedClue": "They match by time, place, or code.",
+			"sameAuthor": "They have the same author.",
+			"sameFileType": "They are the same file type."
+		},
+		"reasons": {
+			"accessPhrase": "KNOCK-3 was an access phrase hidden in the recovered note.",
+			"duplicateLogin": "The same credential appears in an impossible location.",
+			"archiveRoute": "Both clues indicate an alternate physical access route.",
+			"maintenanceRelay": "The relay failure matches manipulation during maintenance."
+		}
+	},
+	"notes": {
+		"title": "Investigator Notes",
+		"empty": "No investigator notes.",
+		"created": "created",
+		"cancelEdit": "Cancel edit",
+		"fields": {
+			"body": "note",
+			"tags": "tags"
+		},
+		"placeholders": {
+			"body": "Write a private investigation note...",
+			"tags": "access, relay, suspect"
+		},
+		"actions": {
+			"create": "Create note",
+			"save": "Save note",
+			"edit": "Edit note",
+			"delete": "Delete note"
+		}
+	},
+	"deductions": {
+		"title": "Deductions",
+		"locked": "locked",
+		"unlocked": "unlocked",
+		"lockedTitle": "Deduction locked",
+		"lockedDescription": "Create the right evidence connection to resolve this deduction.",
+		"unknownEvidence": "Undiscovered evidence",
+		"items": {
+			"accessPhrase": {
+				"title": "The knock pattern was used as an access phrase",
+				"description": "The KNOCK-3 rhythm is not just a clue; it is the phrase that opens Encrypted Fragment 01."
+			},
+			"internalInvolvement": {
+				"title": "The breach required internal access",
+				"description": "The east archive breach and hidden access map point to a physical route that required internal knowledge."
+			},
+			"maintenanceReroute": {
+				"title": "The blackout followed a maintenance reroute",
+				"description": "The relay failure report and reconstructed maintenance record show the outage was routed from inside Helix."
+			}
+		}
+	},
+	"chapterSummary": {
+		"eyebrow": "Chapter 1 Summary",
+		"title": "Chapter 1 Summary",
+		"points": {
+			"communication": "Helix Labs lost communication.",
+			"unauthorized": "Unauthorized access occurred inside the facility.",
+			"serverRoom": "The server room is connected to the recovered phrase.",
+			"deliberate": "The blackout appears deliberate.",
+			"internal": "Someone with internal access may be involved."
+		},
+		"hook": "The sequence is clearer, but the source inside Helix has not been identified. Chapter 2 remains open.",
+		"chapterTwoUnavailable": "Chapter 2 is not available yet.",
+		"actions": {
+			"close": "Close chapter summary",
+			"continue": "Continue investigation",
+			"chapterTwo": "Go to Chapter 2"
+		}
+	},
+	"logs": {
+		"title": "System Logs",
+		"tail": "tail -f recovered.log",
+		"entriesRecovered": "{count} entries recovered from local cache.",
+		"activity": {
+			"title": "Internal activity",
+			"relay": "relay monitor",
+			"indexer": "case indexer",
+			"watchdog": "watchdog",
+			"messages": {
+				"relay": "External relay still unreachable.",
+				"indexer": "Read-state journal synchronized.",
+				"watchdog": "Objective monitor awaiting investigator input.",
+				"evidence": "Evidence board listener armed."
+			},
+			"dynamic": {
+				"fileRecovered": "New recovered file indexed.",
+				"passwordFailed": "Protected file unlock failed.",
+				"passwordAccepted": "Protected file decrypted.",
+				"terminalCommand": "Terminal command executed.",
+				"hiddenRelay": "Hidden relay diagnostic recovered."
+			}
+		},
+		"levels": {
+			"INFO": "INFO",
+			"WARN": "WARN",
+			"ERROR": "ERROR",
+			"CRITICAL": "CRITICAL"
+		},
+		"sources": {
+			"auth-gateway": "auth gateway",
+			"door-control": "door control",
+			"camera-grid": "camera grid",
+			"uplink-core": "uplink core",
+			"occupancy-sensor": "occupancy sensor",
+			"dead-signal-shell": "dead signal shell",
+			"terminal": "terminal",
+			"file-indexer": "file indexer",
+			"cipher-gate": "cipher gate",
+			"connection-board": "connection board",
+			"deduction-engine": "deduction engine",
+			"recovery-lab": "recovery lab"
+		},
+		"titles": {
+			"AUTH-102": "Login anomaly N-KADE-17",
+			"DOOR-441": "East archive direction conflict",
+			"CAM-500": "Camera integrity failure",
+			"NET-900": "External relay loss",
+			"OCC-204": "Sublevel C occupancy spike",
+			"SYS-001": "Recovered index mount",
+			"FILE-201": "New file recovered",
+			"AUTH-403": "Password rejected",
+			"AUTH-200": "Protected file decrypted",
+			"TERM-001": "Terminal command executed",
+			"SCAN-778": "Hidden relay diagnostic",
+			"CON-101": "Evidence connection saved",
+			"CON-422": "Connection rejected",
+			"CON-429": "Speculative connections discarded",
+			"DED-210": "Deduction unlocked",
+			"CH-101": "Chapter summary unlocked",
+			"REC-120": "Recovery fragment indexed",
+			"REC-404": "Recovery blocked",
+			"REC-409": "Assembly order rejected",
+			"REC-500": "Document reconstructed"
+		},
+		"messages": {
+			"AUTH-102": "Login detected: n.kade from terminal C-17.",
+			"DOOR-441": "East archive access event contains conflicting direction vectors.",
+			"CAM-500": "Unauthorized access detected. Camera packet integrity failed.",
+			"NET-900": "Connection lost to Helix Labs external relay.",
+			"OCC-204": "Sublevel C occupancy changed from 0 to 44 without door movement.",
+			"SYS-001": "Recovered case index mounted in read-only mode.",
+			"FILE-201": "New recovered file indexed: {title}.",
+			"AUTH-403": "Protected file unlock failed.",
+			"AUTH-200": "Protected file decrypted.",
+			"TERM-001": "Terminal command executed.",
+			"terminalCommand": "Command executed: {command}.",
+			"SCAN-778": "Hidden relay diagnostic recovered.",
+			"CON-101": "Verified evidence connection saved to local board.",
+			"CON-422": "Connection rejected: relationship was not sufficiently justified.",
+			"CON-429": "Connection board discarded speculative links after repeated failed attempts.",
+			"DED-210": "Deduction engine confirmed a valid evidence relationship.",
+			"CH-101": "Chapter 1 reconstruction threshold reached.",
+			"REC-120": "Recovery Lab indexed a recovered fragment.",
+			"REC-404": "Recovery action blocked by missing prerequisite.",
+			"REC-409": "Fragment assembly order rejected.",
+			"REC-500": "Power Relay Maintenance Report reconstructed."
+		}
+	},
+	"values": {
+		"documentCategories": {
+			"Report": "Report",
+			"Note": "Note",
+			"Internal Memo": "Internal Memo",
+			"Recovered": "Recovered",
+			"Log": "Log",
+			"Map": "Map",
+			"Encrypted Chat": "Encrypted Chat",
+			"Recovered Fragment": "Recovered Fragment"
+		},
+		"classifications": {
+			"Internal": "Internal",
+			"Restricted": "Restricted",
+			"Unverified": "Unverified",
+			"Recovered": "Recovered"
+		},
+		"emailFolders": {
+			"Inbox": "Inbox",
+			"Sent": "Sent",
+			"Announcements": "Announcements",
+			"Security": "Security"
+		},
+		"mediaTypes": {
+			"Image": "Image"
+		},
+		"chatTypes": {
+			"Chat": "Chat",
+			"Encrypted Chat": "Encrypted Chat"
+		},
+		"systemTypes": {
+			"Log": "Log"
+		}
+	},
+	"dataTexts": {
+		"The Helix Incident": "The Helix Incident",
+		"Helix Labs lost all communication with its employees after a staged maintenance window. The remaining system image contains emails, chats, files, media captures, and logs that suggest the blackout was deliberate.": "Helix Labs lost all communication with its employees after a staged maintenance window. The remaining system image contains emails, chats, files, media captures, and logs that suggest the blackout was deliberate.",
+		"Containment review moved to 23:40": "Containment review moved to 23:40",
+		"Elias,\n\nThe board wants a clean incident summary before the morning call. Keep the language operational. Do not mention the east archive breach until we know whether the door logs are corrupt or altered.\n\nIf anyone asks about the silence from sublevel C, route it through me.\n\nMara": "Elias,\n\nThe board wants a clean incident summary before the morning call. Keep the language operational. Do not mention the east archive breach until we know whether the door logs are corrupt or altered.\n\nIf anyone asks about the silence from sublevel C, route it through me.\n\nMara",
+		"Re: Containment review moved to 23:40": "Re: Containment review moved to 23:40",
+		"Mara,\n\nI can make the report look routine, but the access pattern is not routine. Someone authenticated as Kade from a terminal that has been offline since July.\n\nSecurity cameras show static at the exact same minute.\n\nElias": "Mara,\n\nI can make the report look routine, but the access pattern is not routine. Someone authenticated as Kade from a terminal that has been offline since July.\n\nSecurity cameras show static at the exact same minute.\n\nElias",
+		"Network maintenance window": "Network maintenance window",
+		"Scheduled maintenance will begin at 23:00 and may interrupt external communication. Local systems should remain available. Report unusual device behavior to Security Operations.": "Scheduled maintenance will begin at 23:00 and may interrupt external communication. Local systems should remain available. Report unusual device behavior to Security Operations.",
+		"Badge rejected at west service gate": "Badge rejected at west service gate",
+		"My badge failed twice at west service. The console says I am already inside the facility. I am not. I left at 18:12 and am writing this from home.\n\nPlease check for a duplicate credential.": "My badge failed twice at west service. The console says I am already inside the facility. I am not. I left at 18:12 and am writing this from home.\n\nPlease check for a duplicate credential.",
+		"Dr. Mara Voss": "Dr. Mara Voss",
+		"Internal Dispatch": "Internal Dispatch",
+		"All Facility Staff": "All Facility Staff",
+		"Security Operations": "Security Operations",
+		"Initial Incident Brief": "Initial Incident Brief",
+		"At 23:17 local facility time, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?": "At 23:17 local facility time, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?",
+		"Security Note: East Archive": "Security Note: East Archive",
+		"The east archive door should remain sealed until biometric records can be manually verified. If the door log is accurate, someone opened it from both sides within the same second.": "The east archive door should remain sealed until biometric records can be manually verified. If the door log is accurate, someone opened it from both sides within the same second.",
+		"Employee Roster Delta": "Employee Roster Delta",
+		"Night shift roster lists 43 employees onsite. Badge telemetry lists 44. One unknown credential appears only as SIGNAL-000 and has no matching personnel record.": "Night shift roster lists 43 employees onsite. Badge telemetry lists 44. One unknown credential appears only as SIGNAL-000 and has no matching personnel record.",
+		"Recovered Sticky Note": "Recovered Sticky Note",
+		"Three knocks from the server room. One reply from the wall. The lights know before we do.": "Three knocks from the server room. One reply from the wall. The lights know before we do.",
+		"Elias Ren": "Elias Ren",
+		"Mara Voss": "Mara Voss",
+		"Human Systems": "Human Systems",
+		"Unknown": "Unknown",
+		"DeadSignal Indexer": "DeadSignal Indexer",
+		"Facility Cartography Cache": "Facility Cartography Cache",
+		"Uplink Core": "Uplink Core",
+		"DeadSignal Recovery Lab": "DeadSignal Recovery Lab",
+		"Helix Facilities / Power Relay Unit": "Helix Facilities / Power Relay Unit",
+		"incident": "incident",
+		"communications": "communications",
+		"blackout": "blackout",
+		"east archive": "east archive",
+		"door logs": "door logs",
+		"biometric": "biometric",
+		"roster": "roster",
+		"badge": "badge",
+		"signal-000": "signal-000",
+		"recovered": "recovered",
+		"server room": "server room",
+		"server room,audio,pattern": "server room,audio,pattern",
+		"east archive,map,access": "east archive,map,access",
+		"relay,blackout,uplink": "relay,blackout,uplink",
+		"corrupted,damaged,partial,relay": "corrupted,damaged,partial,relay",
+		"relay,maintenance,blackout,recovered": "relay,maintenance,blackout,recovered",
+		"Sublevel C Camera 03": "Sublevel C Camera 03",
+		"Last intact frame before static consumed the feed.": "Last intact frame before static consumed the feed.",
+		"East Archive Door": "East Archive Door",
+		"Door sensor reports open and sealed states simultaneously.": "Door sensor reports open and sealed states simultaneously.",
+		"Network Map Snapshot": "Network Map Snapshot",
+		"External links drop in a spiral pattern around core node H-0.": "External links drop in a spiral pattern around core node H-0.",
+		"#ops-night-shift": "#ops-night-shift",
+		"#private-thread-7": "#private-thread-7",
+		"ops-night-shift": "ops-night-shift",
+		"private-thread-7": "private-thread-7",
+		"Iris Vale": "Iris Vale",
+		"Jon Bell": "Jon Bell",
+		"Anyone else seeing the internal map flicker between floors?": "Anyone else seeing the internal map flicker between floors?",
+		"Yes. Sublevel C keeps showing as unoccupied, then full occupancy, then offline.": "Yes. Sublevel C keeps showing as unoccupied, then full occupancy, then offline.",
+		"Do not go down there. The elevator just accepted a call without anyone pressing it.": "Do not go down there. The elevator just accepted a call without anyone pressing it.",
+		"[encrypted fragment] HELIX IS NOT A LAB. IT IS A LOCK.": "[encrypted fragment] HELIX IS NOT A LAB. IT IS A LOCK.",
+		"Who are you? How did you get into this channel?": "Who are you? How did you get into this channel?",
+		"Server Room Audio Transcript": "Server Room Audio Transcript",
+		"East Archive Access Map": "East Archive Access Map",
+		"Relay Failure Report": "Relay Failure Report",
+		"Power Relay Maintenance Report": "Power Relay Maintenance Report",
+		"Relay Cache Index": "Relay Cache Index",
+		"Recovery Fragment 12": "Recovery Fragment 12",
+		"Recovery Fragment 18": "Recovery Fragment 18",
+		"Recovery Fragment 21": "Recovery Fragment 21",
+		"Recovered Fragment": "Recovered Fragment",
+		"Encrypted Fragment 01": "Encrypted Fragment 01",
+		"Login anomaly N-KADE-17": "Login anomaly N-KADE-17",
+		"Documents / Recovered Sticky Note": "Documents / Recovered Sticky Note",
+		"Media / Sublevel C Camera 03": "Media / Sublevel C Camera 03",
+		"Documents / Security Note: East Archive": "Documents / Security Note: East Archive",
+		"Media / East Archive Door": "Media / East Archive Door",
+		"Emails / Badge rejected at west service gate": "Emails / Badge rejected at west service gate",
+		"Documents / Employee Roster Delta": "Documents / Employee Roster Delta",
+		"audio": "audio",
+		"pattern": "pattern",
+		"map": "map",
+		"access": "access",
+		"relay": "relay",
+		"maintenance": "maintenance",
+		"uplink": "uplink",
+		"corrupted": "corrupted",
+		"damaged": "damaged",
+		"partial": "partial"
+	},
+	"help": {
+		"open": "Open help",
+		"shortLabel": "Help",
+		"kicker": "Investigation help",
+		"title": "How to Play",
+		"subtitle": "DeadSignal is a digital forensic investigation.",
+		"intro": {
+			"copyOne": "You received a recovered copy of the Helix Labs system, a company that lost all communication during a maintenance window.",
+			"copyTwo": "Your objective is to reconstruct what happened.",
+			"copyThree": "The case will not solve itself just because you read everything. You need to connect the right information."
+		},
+		"howToPlay": {
+			"title": "How to play",
+			"steps": {
+				"1": "Read documents, emails, chats, system logs, and multimedia files.",
+				"2": "Some files contain important clues.",
+				"3": "When you discover a clue, it is added to the Evidence Board.",
+				"4": "Use the Evidence Board to connect related clues.",
+				"5": "Not every connection is correct.",
+				"6": "To advance, you will need to find passwords, unlock files, recover fragments, and prove deductions.",
+				"7": "The objectives on the right show which investigation lines are still open.",
+				"8": "Look for relationships by time, place, person, code, or event."
+			}
+		},
+		"currentObjective": {
+			"title": "Current objective",
+			"body": "Discover what caused the Helix Labs blackout and who may have been involved."
+		},
+		"tip": {
+			"title": "Tip",
+			"body": "Do not connect clues at random. Read the content and look for shared times, locations, people, codes, or events."
+		},
+		"reset": {
+			"confirm": "This will restart the investigation, clear progress, evidence, connections, notes, recovery state, deductions, and dynamic logs. The selected language will be kept."
+		},
+		"actions": {
+			"close": "Close help",
+			"understood": "Understood, start investigation",
+			"reset": "Restart investigation",
+			"confirmReset": "Confirm restart",
+			"cancelReset": "Cancel"
+		}
+	}
+}

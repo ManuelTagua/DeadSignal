@@ -1,0 +1,19 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#050708"/>
+  <rect x="98" y="62" width="1084" height="596" stroke="#67E8F9" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M452 112H828V650H452V112Z" fill="#0A0F10" stroke="#DFFBFF" stroke-opacity="0.22" stroke-width="6"/>
+  <path d="M640 112V650" stroke="#67E8F9" stroke-opacity="0.23" stroke-width="3"/>
+  <path d="M488 178H606M674 178H792M488 242H606M674 242H792M488 306H606M674 306H792M488 370H606M674 370H792M488 434H606M674 434H792" stroke="#34D399" stroke-opacity="0.16" stroke-width="4"/>
+  <circle cx="602" cy="382" r="12" stroke="#67E8F9" stroke-opacity="0.55" stroke-width="3"/>
+  <circle cx="678" cy="382" r="12" stroke="#67E8F9" stroke-opacity="0.55" stroke-width="3"/>
+  <rect x="850" y="246" width="154" height="192" fill="#061112" stroke="#67E8F9" stroke-opacity="0.28" stroke-width="2"/>
+  <path d="M878 284H976M878 322H976M878 360H976M878 398H940" stroke="#DFFBFF" stroke-opacity="0.22" stroke-width="4"/>
+  <path d="M180 170H372M180 216H330M180 262H376" stroke="#67E8F9" stroke-opacity="0.22" stroke-width="3"/>
+  <text x="182" y="145" fill="#DFFBFF" font-family="Consolas, monospace" font-size="18">EAST ARCHIVE</text>
+  <text x="180" y="610" fill="#67E8F9" fill-opacity="0.72" font-family="Consolas, monospace" font-size="16">STATE: OPEN / SEALED</text>
+  <text x="850" y="468" fill="#34D399" fill-opacity="0.7" font-family="Consolas, monospace" font-size="14">BIOMETRIC LOOP</text>
+  <g opacity="0.45">
+    <path d="M0 102H1280M0 326H1280M0 548H1280" stroke="#67E8F9" stroke-opacity="0.17"/>
+    <path d="M156 0V720M420 0V720M860 0V720M1124 0V720" stroke="#34D399" stroke-opacity="0.11"/>
+  </g>
+</svg>
