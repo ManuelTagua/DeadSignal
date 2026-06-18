@@ -120,7 +120,7 @@ const documents = [
 		classification: "Internal",
 		author: "Elias Ren",
 		content:
-			"At 23:17 local facility time, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?",
+			"The official maintenance window was scheduled to end at 23:00 local facility time. At 23:17, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?\n\nTerminal note: credential traces use trace credential N-KADE-17 after the auth anomaly is isolated.",
 		tags: "incident,communications,blackout",
 		createdAt: new Date("2041-10-09T01:20:00.000Z"),
 		isFlagged: true
@@ -142,7 +142,7 @@ const documents = [
 		classification: "Internal",
 		author: "Human Systems",
 		content:
-			"Night shift roster lists 43 employees onsite. Badge telemetry lists 44. One unknown credential appears only as SIGNAL-000 and has no matching personnel record.",
+			"Night shift roster lists 43 employees onsite. N-KADE-17 is marked off duty and outside active operations. Badge telemetry lists 44 active credentials. One unknown credential appears only as SIGNAL-000 and has no matching personnel record.",
 		tags: "roster,badge,signal-000",
 		createdAt: new Date("2041-10-08T23:08:00.000Z"),
 		isFlagged: false
@@ -196,7 +196,7 @@ const logs = [
 		source: "auth-gateway",
 		code: "AUTH-102",
 		message: "Login detected: n.kade from terminal C-17.",
-		occurredAt: new Date("2041-10-08T22:56:31.000Z")
+		occurredAt: new Date("2041-10-08T22:59:31.000Z")
 	},
 	{
 		level: "WARN",
@@ -224,7 +224,7 @@ const logs = [
 		source: "occupancy-sensor",
 		code: "OCC-204",
 		message: "Sublevel C occupancy changed from 0 to 44 without door movement.",
-		occurredAt: new Date("2041-10-08T23:17:39.000Z")
+		occurredAt: new Date("2041-10-08T22:49:02.000Z")
 	},
 	{
 		level: "INFO",

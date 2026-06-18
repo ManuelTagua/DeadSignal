@@ -28,6 +28,30 @@
 		"noCaseMounted": "Ningún caso montado",
 		"missing": "No hay ningún archivo de caso montado. Ejecuta el seed de la base de datos y recarga el shell."
 	},
+	"chapters": {
+		"title": "Capítulos del caso",
+		"subtitle": "Selecciona el archivo de caso activo. El progreso de cada capítulo se sigue por separado.",
+		"status": {
+			"active": "capítulo activo",
+			"available": "disponible",
+			"locked": "bloqueado",
+			"comingSoon": "próximamente"
+		},
+		"items": {
+			"helix": {
+				"title": "Capítulo 1 / El Incidente Helix",
+				"subtitle": "La investigación del apagón"
+			},
+			"mirror": {
+				"title": "Capítulo 2 / Proyecto MIRROR",
+				"subtitle": "El proyecto oculto tras el apagón"
+			},
+			"chapter3": {
+				"title": "Fase 3 / Pendiente",
+				"subtitle": "Desbloqueado tras Proyecto MIRROR"
+			}
+		}
+	},
 	"folders": {
 		"Documents": "Documentos",
 		"Emails": "Correos",
@@ -72,6 +96,25 @@
 		"evidenceDiscovered": "evidencias",
 		"caseCompletion": "caso completado",
 		"chapterProgress": "progreso del capítulo"
+	},
+	"caseIntegrity": {
+		"title": "Integridad del caso",
+		"shortLabel": "Integridad",
+		"states": {
+			"stable": "Estable",
+			"compromised": "Comprometida",
+			"critical": "Crítica",
+			"failed": "Investigación fallida"
+		},
+		"modal": {
+			"kicker": "Integridad del caso",
+			"title": "Investigación fallida",
+			"body": "El informe ha acumulado demasiadas conclusiones erróneas. El caso debe reiniciarse desde una copia limpia.",
+			"actions": {
+				"restart": "Reiniciar investigación",
+				"help": "Revisar ayuda"
+			}
+		}
 	},
 	"labels": {
 		"status": "estado",
@@ -180,6 +223,55 @@
 			"title": "Conexión rechazada",
 			"message": "La relación no está suficientemente justificada."
 		},
+		"conclusionRejected": {
+			"title": "Conclusión rechazada",
+			"message": "Conclusión rechazada: evidencia insuficiente.",
+			"integrityMessage": "Conclusión rechazada: evidencia insuficiente. Integridad -{amount}%."
+		},
+		"caseIntegrityReduced": {
+			"title": "Integridad reducida",
+			"message": "Demasiadas respuestas incorrectas redujeron la integridad en {amount}%."
+		},
+		"caseDecisionAccepted": {
+			"title": "Conclusión aceptada",
+			"message": "Entrada del informe verificada."
+		},
+		"decisionLocked": {
+			"title": "Intentos agotados",
+			"message": "No quedan intentos para esta decisión."
+		},
+		"contradictionConfirmed": {
+			"title": "Contradicción confirmada",
+			"message": "{contradiction}"
+		},
+		"contradictionRejected": {
+			"title": "Contradicción rechazada",
+			"message": "La relación no está probada con la evidencia seleccionada."
+		},
+		"timelineConfirmed": {
+			"title": "Cronología confirmada",
+			"message": "Secuencia del caso reconstruida."
+		},
+		"timelineRejected": {
+			"title": "Cronología rechazada",
+			"message": "Algunos eventos no respetan la secuencia temporal recuperada."
+		},
+		"suspectAccepted": {
+			"title": "Acusación respaldada",
+			"message": "Implicación interna identificada con un motivo probado."
+		},
+		"suspectRejected": {
+			"title": "Acusación rechazada",
+			"message": "Los datos conocidos no respaldan esa acusación."
+		},
+		"suspectReviewLocked": {
+			"title": "Acusación requerida",
+			"message": "Usa el tablero de Sospechosos para presentar primero una acusación razonada."
+		},
+		"credentialTraceComplete": {
+			"title": "Rastreo de credencial completado",
+			"message": "La actividad de N-KADE-17 queda vinculada a la anomalía de credencial duplicada."
+		},
 		"speculativeConnectionsDiscarded": {
 			"title": "Conexiones especulativas descartadas",
 			"message": "El tablero ha descartado conexiones especulativas."
@@ -188,9 +280,36 @@
 			"title": "Deducción desbloqueada",
 			"message": "{deduction}"
 		},
-		"chapterSummaryUnlocked": {
-			"title": "Resumen de capítulo desbloqueado",
-			"message": "La secuencia del apagón ya puede reconstruirse."
+		"finalReportUnlocked": {
+			"title": "Informe final desbloqueado",
+			"message": "El informe final del Capítulo 1 está listo para presentarse.",
+			"mirrorMessage": "El informe final de Proyecto MIRROR está listo para presentarse."
+		},
+		"finalReportLocked": {
+			"title": "Informe final bloqueado",
+			"message": "Confirma la cronología, el sospechoso, las contradicciones, las conexiones canónicas y el fragmento cifrado antes de presentarlo.",
+			"mirrorMessage": "Confirma la cronología de MIRROR, el sospechoso, las contradicciones y las conexiones canónicas antes de presentarlo."
+		},
+		"finalReportRejected": {
+			"title": "Informe rechazado",
+			"message": "Informe rechazado: algunas conclusiones no están respaldadas.",
+			"integrityMessage": "Informe rechazado: algunas conclusiones no están respaldadas. Integridad -{amount}%."
+		},
+		"chapterResolved": {
+			"title": "Capítulo 1 resuelto",
+			"message": "Informe final aceptado. Capítulo 1 completado."
+		},
+		"chapterLocked": {
+			"title": "Capítulo bloqueado",
+			"message": "Completa la fase anterior antes de abrir este archivo de caso."
+		},
+		"chapter2Resolved": {
+			"title": "Proyecto MIRROR resuelto",
+			"message": "Informe final aceptado. Fase 2 completada."
+		},
+		"chapterComingSoon": {
+			"title": "Fase en cola",
+			"message": "La fase 3 queda desbloqueada para el futuro caso, pero su archivo aún no está montado."
 		}
 	},
 	"access": {
@@ -212,7 +331,7 @@
 		"run": "Ejecutar",
 		"lockedOutput": "Acceso denegado. Proporciona un token de desbloqueo válido.",
 		"unlockedOutput": "Fragmento cifrado 01 descifrado.",
-		"unknown": "Comando desconocido. Escribe help.",
+		"unknown": "Comando no reconocido. Usa help para comandos básicos.",
 		"cleared": "Buffer de terminal limpiado.",
 		"status": "Caso ACTIVO / Amenaza ELEVADA / Archivo en solo lectura.",
 		"scan": "Escaneo finalizado. Evento oculto del relé recuperado.",
@@ -224,12 +343,55 @@
 			"help": "help - muestra comandos disponibles",
 			"clear": "clear - limpia la salida de terminal",
 			"status": "status - muestra el estado del caso",
-			"scan": "scan - escanea la caché local del sistema",
+			"search": "search / buscar <texto> - busca en material descubierto del caso",
 			"evidence": "evidence - lista evidencias descubiertas",
 			"unlock": "unlock KNOCK-3 - intenta desbloquear archivo protegido",
 			"recover": "recover relay - escanea la caché del relé para buscar fragmentos",
 			"fragments": "fragments - lista fragmentos recuperados",
-			"repair": "repair file_12 - repara un fragmento recuperado"
+			"repair": "repair file_12 - repara un fragmento recuperado",
+			"timeline": "timeline / cronologia - lista eventos descubiertos de cronología",
+			"contradictions": "contradictions / contradicciones - lista contradicciones confirmadas",
+			"suspects": "suspects / sospechosos - lista sospechosos descubiertos y datos conocidos",
+			"traceCredential": "trace credential N-KADE-17 - rastrea actividad de la credencial duplicada",
+			"decryptFragment": "decrypt fragment 01 <clave> - descifra el fragmento cifrado recuperado"
+		},
+		"search": {
+			"usage": "Uso: search <texto> o buscar <texto>",
+			"header": "Resultados para \"{query}\" ({count}):",
+			"item": "{title} / {type} / {fragment}",
+			"noMatches": "No hay coincidencias para \"{query}\" en el material descubierto del caso.",
+			"types": {
+				"document": "documento",
+				"email": "correo",
+				"chat": "chat",
+				"log": "log",
+				"evidence": "evidencia"
+			}
+		},
+		"timeline": {
+			"empty": "No hay eventos de cronología descubiertos.",
+			"header": "Eventos de cronología descubiertos:",
+			"item": "{title} / {source}"
+		},
+		"contradictions": {
+			"empty": "No hay contradicciones confirmadas.",
+			"header": "Contradicciones confirmadas:",
+			"item": "{first} <> {second}"
+		},
+		"suspects": {
+			"empty": "No hay sospechosos descubiertos.",
+			"header": "Sospechosos descubiertos:",
+			"item": "{name} / {role} / {facts}",
+			"noFacts": "sin datos conocidos"
+		},
+		"hidden": {
+			"traceUsage": "Uso: trace credential N-KADE-17",
+			"traceAccepted": "Rastreo de credencial completado: la actividad de N-KADE-17 queda vinculada al acceso duplicado y a la terminal C-17.",
+			"traceRepeat": "El rastreo de credencial ya está completado.",
+			"decryptUsage": "Uso: decrypt fragment 01 <clave>",
+			"decryptAccepted": "Fragmento cifrado 01 descifrado.",
+			"decryptAlreadyUnlocked": "El fragmento cifrado 01 ya está descifrado.",
+			"decryptRejected": "Descifrado rechazado: la clave no coincide."
 		},
 		"recovery": {
 			"fragmentsEmpty": "No hay fragmentos de recuperación indexados.",
@@ -268,7 +430,7 @@
 		},
 		"blackout": {
 			"label": "Establecer la línea temporal del apagón",
-			"meta": "{count}/{required} logs importantes revisados"
+			"meta": "{count}/{required} eventos de cronología descubiertos"
 		},
 		"credential": {
 			"label": "Verificar la credencial duplicada",
@@ -290,34 +452,80 @@
 			"label": "Crear una conexión entre pistas relacionadas",
 			"meta": "{count}/{required} conexiones verificadas"
 		},
+		"contradictions": {
+			"label": "Detectar contradicciones del caso",
+			"meta": "{count}/{required} contradicciones confirmadas"
+		},
 		"accessPhrase": {
 			"label": "Demostrar la frase de acceso",
 			"meta": "Conecta el patrón de golpes con el fragmento recuperado"
 		},
 		"internalInvolvement": {
 			"label": "Identificar implicación interna",
-			"meta": "Relaciona la brecha con la ruta de acceso oculta"
+			"meta": "{count}/{required} acusación razonada aceptada"
 		},
 		"reconstructBlackout": {
 			"label": "Reconstruir la secuencia del apagón",
 			"meta": "{connections}/{requiredConnections} conexiones verificadas / {deductions}/{requiredDeductions} deducciones / {fragment}"
 		},
+		"finalReport": {
+			"label": "Presentar informe final",
+			"meta": "Cronología: {timeline} / sospechoso: {suspect} / contradicciones: {contradiction} / conexiones: {connections} / fragmento: {fragment}"
+		},
 		"recoverMaintenance": {
 			"label": "Recuperar registros de mantenimiento",
 			"meta": "{count}/{required} fragmentos del relé recuperados"
 		},
+		"mirrorDocuments": {
+			"label": "Revisar documentos MIRROR",
+			"meta": "{count}/{required} documentos revisados"
+		},
+		"mirrorCommunications": {
+			"label": "Revisar comunicaciones MIRROR",
+			"meta": "{count}/{required} correos e hilos revisados"
+		},
+		"mirrorLogs": {
+			"label": "Auditar logs de MIRROR",
+			"meta": "{count}/{required} logs revisados"
+		},
+		"mirrorEvidence": {
+			"label": "Reunir evidencias MIRROR",
+			"meta": "{count}/{required} evidencias MIRROR desbloqueadas"
+		},
 		"meta": {
+			"confirmed": "confirmado",
+			"pending": "pendiente",
 			"fragmentLocked": "El fragmento cifrado sigue inaccesible",
 			"fragmentPending": "Fragmento cifrado pendiente",
 			"fragmentOpen": "Usa la pista de contraseña recuperada",
 			"fragmentCompleted": "Fragmento cifrado 01 recuperado"
 		},
-		"guidance": "Completa objetivos leyendo pistas, desbloqueando archivos y creando deducciones válidas."
+		"guidance": "Completa objetivos leyendo pistas, desbloqueando archivos y creando deducciones válidas.",
+		"mirrorTimeline": {
+			"label": "Reconstruir cronología MIRROR",
+			"meta": "{count}/{required} eventos MIRROR descubiertos"
+		},
+		"mirrorContradictions": {
+			"label": "Confirmar contradicciones MIRROR",
+			"meta": "{count}/{required} contradicciones confirmadas"
+		},
+		"mirrorConnections": {
+			"label": "Verificar conexiones MIRROR",
+			"meta": "{count}/{required} conexiones canónicas"
+		},
+		"mirrorSuspect": {
+			"label": "Identificar autor de la purga MIRROR",
+			"meta": "{count}/{required} acusación aceptada"
+		},
+		"mirrorFinalReport": {
+			"label": "Presentar informe final MIRROR",
+			"meta": "Cronología: {timeline} / sospechoso: {suspect} / contradicciones: {contradiction} / conexiones: {connections}"
+		}
 	},
 	"files": {
 		"serverRoomAudioTranscript": {
 			"title": "Transcripción de audio de la sala de servidores",
-			"content": "Transcripción acústica recuperada: tres golpes, pausa de un segundo, tres golpes y después una respuesta de baja frecuencia detrás de la pared de la sala de servidores. El patrón repetido queda anotado como KNOCK-3 por el indexador local."
+			"content": "Transcripción acústica recuperada: tres golpes, pausa de un segundo, tres golpes y después una respuesta de baja frecuencia detrás de la pared de la sala de servidores. El patrón repetido queda anotado como KNOCK-3 por el indexador local.\n\nNota de terminal: el canal cifrado acepta decrypt fragment 01 KNOCK-3."
 		},
 		"eastArchiveAccessMap": {
 			"title": "Mapa de acceso del Archivo Este",
@@ -332,6 +540,74 @@
 			"messages": {
 				"first": "Si el relay se apaga, no mires fuera. La fuente de la señal sigue dentro de Helix.",
 				"second": "Entonces el apagón no fue un fallo. Fue contención."
+			}
+		}
+	},
+	"mirror": {
+		"documents": {
+			"charter": {
+				"title": "Fragmento de estatuto MIRROR",
+				"content": "Fragmento de estatuto recuperado: MIRROR se describe como un sistema anonimizado de análisis conductual para modelado de seguridad del personal.\n\nLas cláusulas supervivientes no encajan con esa descripción. El índice de sujetos referencia movimiento de credenciales, sesiones de terminal, respuesta de cámaras, tono de chats internos, desviación de turnos y confianza biométrica. El proyecto no guardaba agregados anónimos. Mapeaba conducta viva de empleados en perfiles predictivos.\n\nNota de archivo: la cobertura legal se guardaba en el Archivo Este. El acceso operativo seguía vinculado al clúster de la sala de servidores."
+			},
+			"auditHold": {
+				"title": "Aviso de retención de auditoría",
+				"content": "Retención de preservación: los registros de auditoría MIRROR, mapas de sujetos, manifiestos de exportación y firmas de acceso deben permanecer intactos hasta completar la revisión.\n\nNo se autoriza purga, sobrescritura, transferencia ni compactación de índice mientras este aviso siga activo. Los tokens administrativos no pueden saltarse la retención sin una anulación registrada por el comité.\n\nEstado: retención activa. Anulación del comité: no encontrada."
+			},
+			"subjectMap": {
+				"title": "Mapa de sujetos MIRROR",
+				"content": "Mapa de sujetos recuperado del índice MIRROR.\n\nLos nodos no son etiquetas anónimas. Resuelven patrones de personal real: rutas, cadencia de login, variación biométrica, ritmo de mensajes y predicción de respuesta ante incidentes. N-KADE-17 aparece como rama tardía con marcador de señuelo, no como raíz original de sujeto MIRROR.\n\nEl mapa vincula la capa documental del Archivo Este con la capa de procesamiento de la sala de servidores."
+			},
+			"r7Manifest": {
+				"title": "Manifiesto de transferencia R-7",
+				"content": "Manifiesto de transferencia R-7: paquete MIRROR_CORE exportado hacia Reflection Lab / Subnivel R-7.\n\nContenido: grafo de sujetos, pesos de respuesta conductual, carcasa de auditoría, caché de firmas administrativas y rastro de credencial señuelo.\n\nLa exportación se completó antes de purgar el índice auditado. La ruta de destino no coincide con ningún ticket ordinario de mantenimiento."
+			},
+			"kadeStatement": {
+				"title": "Declaración offsite de Noah Kade",
+				"content": "Declaración de Noah Kade:\n\nEstaba fuera de la instalación antes del apagón y seguí fuera. Mi credencial física no salió de la funda blindada después de que el acceso oeste la rechazara. Si N-KADE-17 vuelve a aparecer dentro de Helix, no soy yo llevándola.\n\nReporté la credencial duplicada en el Capítulo 1 porque la consola decía que yo ya estaba dentro. Este nuevo log de clonación lo hace peor, no más claro."
+			}
+		},
+		"emails": {
+			"containment": {
+				"subject": "Containment is no longer enough",
+				"body": "Elias,\n\nLa contención nos dio horas, no control. MIRROR tiene que salir del índice auditado antes de que el comité obtenga una lectura limpia.\n\nUsa la ruta de autorización MVOSS-01 solo para la ventana administrativa. No lo describas como eliminación. El lenguaje es transferencia, luego compactación.\n\nMara"
+			},
+			"answering": {
+				"subject": "MIRROR is still answering",
+				"body": "Mara,\n\nMIRROR sigue respondiendo consultas después de la retención. Eso no debería ser posible para un archivo anonimizado.\n\nEstá respondiendo con confianza conductual viva, no con metadatos de backup. Si purgamos el índice después de exportar, la exportación será la única copia intacta.\n\nElias"
+			},
+			"r7Ticket": {
+				"subject": "No maintenance ticket for R-7",
+				"body": "Operaciones de Seguridad,\n\nNo tengo ningún ticket de mantenimiento para el Subnivel R-7 esta noche. Reflection Lab no debería recibir paquetes vivos durante un incidente de instalación.\n\nSi alguien dice que esto es trabajo del relay, pedid un número de ticket. No existe número de ticket.\n\nI. Rourke"
+			},
+			"preservation": {
+				"subject": "Preservation hold active",
+				"body": "Dra. Voss,\n\nLa retención de preservación del comité de auditoría está activa para todos los registros MIRROR, incluidos índices, mapas, manifiestos de exportación y firmas administrativas.\n\nNo debe ejecutarse ninguna purga ni compactación hasta cerrar la revisión. Confirme recepción.\n\nComité de auditoría de Helix"
+			}
+		},
+		"chats": {
+			"securityNight": {
+				"title": "#security-night",
+				"messages": {
+					"first": "Las cámaras del pasillo R repiten los mismos ocho segundos.",
+					"second": "El lector de Reflection Lab acaba de aceptar un token administrativo, pero no hay ruta de guardia hacia allí.",
+					"third": "Si R-7 está activo, esto no es mantenimiento ordinario."
+				}
+			},
+			"opsArchive": {
+				"title": "#ops-archive",
+				"messages": {
+					"first": "La cola de exportación empezó antes de que se archivara la narrativa del apagón.",
+					"second": "La etiqueta del paquete es MIRROR_CORE, no diagnósticos del relay.",
+					"third": "La retención de auditoría sigue activa. Quien inició esto está ignorando al comité."
+				}
+			},
+			"renPrivate": {
+				"title": "Ren-A.Ren",
+				"messages": {
+					"first": "MIRROR no es un backup. Los backups no predicen cómo responde una persona antes de que responda.",
+					"second": "Entonces preserva el aviso de retención. La contradicción importa más que el ruido.",
+					"third": "N-KADE-17 aparece después del marcador de exportación. Eso parece un rastro señuelo."
+				}
 			}
 		}
 	},
@@ -446,10 +722,14 @@
 		"lockedHint": "Lee archivos, chats, media y logs importantes para revelar conexiones.",
 		"views": {
 			"files": "Fichas",
+			"timeline": "Cronología",
+			"contradictions": "Contradicciones",
+			"suspects": "Sospechosos",
 			"connections": "Conexiones",
 			"notes": "Notas",
 			"deductions": "Deducciones",
-			"summary": "Resumen"
+			"summary": "Resumen",
+			"review": "Informe final"
 		},
 		"status": {
 			"found": "encontrada",
@@ -477,7 +757,20 @@
 			"recoveredFragment": "fragmento recuperado",
 			"partial": "parcial",
 			"recovery": "recuperación",
-			"maintenance": "mantenimiento"
+			"maintenance": "mantenimiento",
+			"mirror": "MIRROR",
+			"manifest": "manifiesto",
+			"profile": "perfil",
+			"admin": "admin",
+			"purge": "purga",
+			"subjects": "sujetos",
+			"reflectionLab": "Reflection Lab",
+			"r7": "R-7",
+			"decoy": "señuelo",
+			"export": "exportación",
+			"audit": "auditoría",
+			"retention": "retención",
+			"statement": "declaración"
 		},
 		"items": {
 			"serverRoomKnockPattern": {
@@ -581,11 +874,554 @@
 					"report": "Documentos / Informe de mantenimiento del relé de energía",
 					"fragments": "Laboratorio de Recuperación / Fragmentos 12, 18, 21"
 				}
+			},
+			"mirrorManifestCore": {
+				"title": "Núcleo de manifiesto MIRROR",
+				"description": "El fragmento de estatuto identifica MIRROR como un sistema de perfiles conductuales, no como un archivo neutral.",
+				"longDescription": "El estatuto recuperado habla de análisis anonimizado, pero los campos supervivientes referencian conducta viva de empleados y patrones predictivos de respuesta. Es la pista central que demuestra que MIRROR era más profundo que el apagón.",
+				"source": "Fragmento de estatuto MIRROR",
+				"forensicNotes": "Trátalo como evidencia raíz del capítulo. Replantea Helix desde investigación del apagón hacia encubrimiento de un proyecto oculto.",
+				"relatedFiles": {
+					"charter": "Documentos / Fragmento de estatuto MIRROR",
+					"renThread": "Chats / Ren-A.Ren"
+				}
+			},
+			"mirrorAdminToken": {
+				"title": "Token administrativo MVOSS-01",
+				"description": "La ruta de purga está firmada con MVOSS-01, vinculando autoridad administrativa con la limpieza de MIRROR.",
+				"longDescription": "PURGE-771 muestra que el índice auditado fue eliminado mediante un token administrativo asociado a Mara Voss. El token importa porque la retención de auditoría seguía activa.",
+				"source": "Sistema / PURGE-771",
+				"forensicNotes": "Esta evidencia no prueba el motivo por sí sola, pero da a la purga una ruta de autorización nominal.",
+				"relatedFiles": {
+					"purge": "Sistema / PURGE-771",
+					"containment": "Correos / Containment is no longer enough"
+				}
+			},
+			"mirrorBehavioralSubjectMap": {
+				"title": "Mapa de sujetos conductuales",
+				"description": "El mapa de sujetos resuelve a conducta de empleados reales en lugar de grupos de muestra anónimos.",
+				"longDescription": "El mapa combina rutas, cadencia de login, variación biométrica y ritmo de mensajes. Respaldará la conclusión de que MIRROR construía perfiles predictivos de empleados.",
+				"source": "Mapa de sujetos MIRROR",
+				"forensicNotes": "Cruza esta evidencia con MIRROR-114 para separar documentación estática de sincronización viva.",
+				"relatedFiles": {
+					"subjectMap": "Documentos / Mapa de sujetos MIRROR",
+					"mirror114": "Sistema / MIRROR-114"
+				}
+			},
+			"reflectionLabAccessTrace": {
+				"title": "Traza de acceso Reflection Lab",
+				"description": "Reflection Lab / Subnivel R-7 recibió acceso administrativo durante la ventana de transferencia MIRROR.",
+				"longDescription": "La traza conecta una instalación oculta con la ruta de exportación. Explica dónde continuó MIRROR cuando los registros del Archivo Este dejaron de bastar.",
+				"source": "Sistema / ACCESS-509",
+				"forensicNotes": "R-7 no está respaldado por un ticket ordinario de mantenimiento, así que la ruta parece operativa y no rutinaria.",
+				"relatedFiles": {
+					"access509": "Sistema / ACCESS-509",
+					"r7Manifest": "Documentos / Manifiesto de transferencia R-7"
+				}
+			},
+			"nKade17CloneRecord": {
+				"title": "Registro de clonación N-KADE-17",
+				"description": "La credencial N-KADE-17 fue clonada temporalmente después del marcador de exportación MIRROR.",
+				"longDescription": "El registro de clonación convierte el rastro de credencial en un señuelo probable. Aparece tarde en la secuencia y contradice la declaración offsite de Noah Kade.",
+				"source": "Sistema / DECOY-017",
+				"forensicNotes": "Esto desvía la sospecha de Noah Kade como autor principal del Capítulo 2.",
+				"relatedFiles": {
+					"decoy017": "Sistema / DECOY-017",
+					"kadeStatement": "Documentos / Declaración offsite de Noah Kade"
+				}
+			},
+			"mirrorExportPackage": {
+				"title": "Paquete de exportación MIRROR",
+				"description": "MIRROR_CORE fue exportado hacia Reflection Lab antes de purgar el índice auditado.",
+				"longDescription": "EXPORT-332 y el manifiesto R-7 muestran que el apagón ocultó movimiento del proyecto, no solo destrucción. El paquete superviviente pasó a ser la copia intacta.",
+				"source": "Sistema / EXPORT-332",
+				"forensicNotes": "El orden exportación-antes-de-purga será importante para validar la cronología futura.",
+				"relatedFiles": {
+					"export332": "Sistema / EXPORT-332",
+					"r7Manifest": "Documentos / Manifiesto de transferencia R-7"
+				}
+			},
+			"auditRetentionOrder": {
+				"title": "Orden de retención de auditoría",
+				"description": "La retención del comité de auditoría prohibía purgas de MIRROR mientras el proyecto estuviera bajo revisión.",
+				"longDescription": "La retención convierte la purga posterior en una contradicción, no en limpieza ordinaria. Establece que los registros MIRROR estaban protegidos cuando el índice fue eliminado.",
+				"source": "Aviso de retención de auditoría",
+				"forensicNotes": "Es el contrapeso legal y administrativo más fuerte frente a la acción de purga.",
+				"relatedFiles": {
+					"auditHold": "Documentos / Aviso de retención de auditoría",
+					"hold208": "Sistema / HOLD-208"
+				}
+			},
+			"r7TransferManifest": {
+				"title": "Manifiesto de transferencia R-7",
+				"description": "El manifiesto nombra Reflection Lab / Subnivel R-7 como destino de MIRROR_CORE.",
+				"longDescription": "El manifiesto es la parte documental del rastro de exportación. Confirma que el log de exportación no era tráfico abstracto: correspondía a una ruta física de transferencia hacia Reflection Lab / Subnivel R-7.",
+				"source": "Documentos / Manifiesto de transferencia R-7",
+				"forensicNotes": "Úsalo con EXPORT-332 para probar que el paquete se movió antes de la purga.",
+				"relatedFiles": {
+					"manifest": "Documentos / Manifiesto de transferencia R-7",
+					"export332": "Sistema / EXPORT-332"
+				}
+			},
+			"mirrorPurgeRecord": {
+				"title": "Registro de purga MIRROR",
+				"description": "PURGE-771 registra la eliminación del índice auditado de MIRROR bajo autorización MVOSS-01.",
+				"longDescription": "El registro de purga es la prueba de sistema de que datos protegidos fueron destruidos. Es decisivo al combinarlo con la orden de retención activa o con el token administrativo MVOSS-01.",
+				"source": "Sistema / PURGE-771",
+				"forensicNotes": "La purga ocurre después de la exportación y mientras la retención sigue activa.",
+				"relatedFiles": {
+					"purge771": "Sistema / PURGE-771",
+					"auditHold": "Documentos / Aviso de retención de auditoría"
+				}
+			},
+			"nKadeOffsiteStatement": {
+				"title": "Declaración offsite de Noah Kade",
+				"description": "Noah Kade declara que estaba fuera mientras N-KADE-17 era clonada dentro de la ventana operativa.",
+				"longDescription": "La declaración importa porque DECOY-017 muestra una clonación temporal de credencial, no un login normal. Juntas, las piezas enmarcan N-KADE-17 como señuelo en esta fase.",
+				"source": "Documentos / Declaración offsite de Noah Kade",
+				"forensicNotes": "Úsala con el registro de clonación para no tratar la credencial como prueba directa contra Noah Kade.",
+				"relatedFiles": {
+					"statement": "Documentos / Declaración offsite de Noah Kade",
+					"decoy017": "Sistema / DECOY-017"
+				}
+			}
+		}
+	},
+	"timeline": {
+		"title": "Cronología",
+		"heading": "Cronología del caso",
+		"body": "Ordena los eventos utilizando la información descubierta en documentos, correos y registros.",
+		"progress": "eventos descubiertos",
+		"unlockedTitle": "Eventos descubiertos",
+		"lockedTitle": "Eventos bloqueados",
+		"empty": "No hay eventos descubiertos.",
+		"emptyHint": "Lee correos, logs del sistema y evidencias relevantes para desbloquear tarjetas de cronología.",
+		"allUnlocked": "Todos los eventos de cronología descubiertos.",
+		"status": {
+			"locked": "bloqueado"
+		},
+		"actions": {
+			"moveUp": "Subir evento",
+			"moveDown": "Bajar evento",
+			"validate": "Validar cronología"
+		},
+		"validation": {
+			"ready": "Todos los eventos recuperados están disponibles.",
+			"locked": "Recupera todos los eventos de cronología antes de validar.",
+			"completed": "Cronología validada",
+			"rejectedHint": "Algunos eventos no respetan la secuencia temporal recuperada."
+		},
+		"events": {
+			"maintenanceWindowPrepared": {
+				"title": "Ventana de mantenimiento preparada",
+				"time": "19:45",
+				"source": "Correo / Ventana de mantenimiento de red",
+				"description": "Despacho preparó el aviso oficial de mantenimiento de red."
+			},
+			"sublevelCOccupancySpike": {
+				"title": "Ocupación del subnivel C cambia de 0 a 44",
+				"time": "22:49",
+				"source": "Sistema / OCC-204",
+				"description": "La telemetría de ocupación cambió sin movimiento de puertas asociado."
+			},
+			"eastArchiveContradictoryAccess": {
+				"title": "Acceso al Archivo Este con vectores contradictorios",
+				"time": "22:58",
+				"source": "Sistema / DOOR-441",
+				"description": "El evento de puerta registra vectores de acceso opuestos en la misma marca temporal."
+			},
+			"nKadeLoginC17": {
+				"title": "Login de N-KADE-17 desde terminal C-17",
+				"time": "22:59",
+				"source": "Sistema / AUTH-102",
+				"description": "La credencial N-KADE-17 se autenticó desde la terminal interna C-17."
+			},
+			"cameraIntegrityFailure": {
+				"title": "Fallo de integridad en cámaras",
+				"time": "23:03",
+				"source": "Sistema / CAM-500",
+				"description": "Los paquetes de cámara fallaron comprobaciones de integridad durante el acceso no autorizado."
+			},
+			"externalRelayConnectionLoss": {
+				"title": "Pérdida de conexión con el relay externo",
+				"time": "23:17",
+				"source": "Sistema / NET-900",
+				"description": "Helix Labs perdió la conexión con el relay externo."
+			},
+			"mirrorAuditHoldActive": {
+				"title": "Retención de auditoría sobre MIRROR activada",
+				"source": "Documentos / Aviso de retención de auditoría",
+				"description": "El comité de auditoría puso índices, mapas, manifiestos y firmas de MIRROR bajo retención."
+			},
+			"mirrorLiveProfileSync": {
+				"title": "MIRROR continúa sincronizando perfiles vivos",
+				"source": "Sistema / MIRROR-114",
+				"description": "El grafo MIRROR siguió sincronizando perfiles conductuales personales tras activarse la retención."
+			},
+			"mvossPurgeWindowAuthorized": {
+				"title": "Token MVOSS-01 autoriza una ventana de purga",
+				"source": "Sistema / PURGE-771",
+				"description": "Un token administrativo vinculado a Mara Voss autorizó la ruta de purga de MIRROR."
+			},
+			"mirrorPackageExportedR7": {
+				"title": "Paquete MIRROR exportado hacia Reflection Lab / Subnivel R-7",
+				"source": "Sistema / EXPORT-332",
+				"description": "MIRROR_CORE se movió hacia la ruta oculta de Reflection Lab antes de que el índice fuera eliminado."
+			},
+			"nKade17DecoyCloned": {
+				"title": "Credencial N-KADE-17 clonada como señuelo operativo",
+				"source": "Sistema / DECOY-017",
+				"description": "Una clonación temporal generó un rastro falso de N-KADE-17 después del marcador de exportación."
+			},
+			"mirrorAuditedIndexPurged": {
+				"title": "Índice auditado de MIRROR eliminado después de la exportación",
+				"source": "Sistema / PURGE-771",
+				"description": "El índice auditado fue eliminado solo después de que el paquete MIRROR ya hubiera salido hacia R-7."
+			}
+		}
+	},
+	"contradictions": {
+		"title": "Contradicciones",
+		"heading": "Revisión de contradicciones",
+		"body": "Encuentra dos fuentes que no puedan ser ciertas al mismo tiempo o que revelen un conflicto.",
+		"progress": "contradicciones",
+		"sourceTypes": {
+			"document": "documento",
+			"log": "log del sistema",
+			"evidence": "evidencia"
+		},
+		"labels": {
+			"sourceA": "Documento A",
+			"sourceB": "Documento B"
+		},
+		"actions": {
+			"clear": "Limpiar",
+			"submit": "Confirmar contradicción"
+		},
+		"sources": {
+			"title": "Fuentes disponibles",
+			"empty": "No hay fuentes de contradicción disponibles.",
+			"emptyHint": "Lee documentos, logs y evidencias relevantes antes de probar contradicciones.",
+			"initialIncidentBrief": {
+				"title": "Informe inicial del incidente",
+				"shortLabel": "Informe inicial",
+				"datum": "La ventana de mantenimiento estaba programada para terminar a las 23:00."
+			},
+			"net900": {
+				"title": "Log crítico NET-900",
+				"shortLabel": "NET-900",
+				"datum": "La conexión con el relé externo se perdió a las 23:17."
+			},
+			"employeeRosterDelta": {
+				"title": "Delta de plantilla de empleados",
+				"shortLabel": "Delta de plantilla",
+				"datum": "N-KADE-17 aparece fuera del contexto de turno esperado."
+			},
+			"loginAnomalyNKade17": {
+				"title": "Anomalía de login N-KADE-17",
+				"shortLabel": "Anomalía de login N-KADE-17",
+				"datum": "La credencial inició sesión desde la terminal C-17."
+			},
+			"mirrorCharter": {
+				"title": "Fragmento de estatuto MIRROR",
+				"shortLabel": "Estatuto MIRROR",
+				"datum": "El estatuto presenta MIRROR como análisis conductual anonimizado."
+			},
+			"mirror114": {
+				"title": "Log MIRROR-114",
+				"shortLabel": "MIRROR-114",
+				"datum": "El grafo de perfiles continuó sincronizando perfiles personales vivos."
+			},
+			"mirrorAuditHold": {
+				"title": "Aviso de retención de auditoría",
+				"shortLabel": "Retención de auditoría",
+				"datum": "La retención prohibía eliminar índices, mapas, manifiestos y firmas de MIRROR."
+			},
+			"purge771": {
+				"title": "Log PURGE-771",
+				"shortLabel": "PURGE-771",
+				"datum": "El índice auditado de MIRROR fue purgado bajo autorización MVOSS-01."
+			},
+			"kadeOffsiteStatement": {
+				"title": "Declaración offsite de Noah Kade",
+				"shortLabel": "Declaración de Kade",
+				"datum": "Noah Kade declara que estaba fuera de Helix durante la ventana operativa."
+			},
+			"decoy017": {
+				"title": "Log DECOY-017",
+				"shortLabel": "DECOY-017",
+				"datum": "N-KADE-17 fue clonada temporalmente como credencial señuelo."
+			}
+		},
+		"review": {
+			"title": "Prueba de relación",
+			"selectTwo": "Selecciona dos fuentes para probar una contradicción.",
+			"genericQuestion": "¿Qué contradicción existe entre estas fuentes?"
+		},
+		"confirmed": {
+			"title": "Contradicciones confirmadas",
+			"empty": "No hay contradicciones confirmadas.",
+			"persisted": "Persistida"
+		},
+		"generic": {
+			"explanations": {
+				"timingConflict": "La línea temporal parece incoherente.",
+				"identityConflict": "Los registros de identidad parecen incoherentes.",
+				"systemFault": "La discrepancia probablemente es un fallo genérico del sistema."
+			}
+		},
+		"items": {
+			"maintenanceWindowOverrun": {
+				"title": "Conflicto temporal de mantenimiento",
+				"question": "¿Por qué esto es sospechoso?",
+				"explanations": {
+					"sameMinute": "Porque el relé y el aviso de mantenimiento usan el mismo marcador de minuto.",
+					"afterOfficialWindow": "Porque el relé cayó después de la ventana oficial de mantenimiento, cuando el sistema ya debía estar estable.",
+					"normalRetry": "Porque los sistemas de relé suelen reintentar durante diecisiete minutos."
+				}
+			},
+			"kadeCredentialActive": {
+				"title": "Contradicción operativa de N-KADE-17",
+				"question": "¿Qué contradicción existe?",
+				"explanations": {
+					"activeOffshift": "La credencial aparece activa cuando el empleado no debía estar operativo.",
+					"rosterTypo": "La plantilla solo contiene una errata sin importancia.",
+					"sameBuilding": "La contradicción es solo que C-17 está dentro del mismo edificio."
+				}
+			},
+			"mirrorAnonymizedLiveSync": {
+				"title": "Contradicción de anonimización MIRROR",
+				"question": "¿Qué revela este conflicto?",
+				"explanations": {
+					"charterVsLiveProfiles": "El estatuto describe análisis anonimizado, pero el log demuestra sincronización viva de perfiles personales.",
+					"sameDataOwner": "Los dos registros solo comparten propietario de datos.",
+					"archivalIndexOnly": "El log solo confirma un índice archivado estático."
+				}
+			},
+			"auditHoldPurgeConflict": {
+				"title": "Conflicto entre retención y purga",
+				"question": "¿Por qué estos registros son incompatibles?",
+				"explanations": {
+					"holdForbidsPurge": "La retención prohibía borrar registros, pero el índice auditado de MIRROR fue eliminado.",
+					"holdExpiredFirst": "La retención expiró antes de la purga.",
+					"purgeWasBackup": "La purga fue solo una copia de seguridad normal."
+				}
+			},
+			"kadeOffsiteDecoyConflict": {
+				"title": "Contradicción de señuelo N-KADE-17",
+				"question": "¿Qué prueba la contradicción?",
+				"explanations": {
+					"offsiteVsClonedCredential": "Noah Kade no podía iniciar la operación desde Helix, pero su credencial fue clonada temporalmente.",
+					"noahAuthorizedPurge": "Noah Kade autorizó personalmente la purga de MIRROR.",
+					"statementProvesLogin": "La declaración prueba que el login era normal."
+				}
+			}
+		}
+	},
+	"suspects": {
+		"title": "Sospechosos",
+		"heading": "Acusación razonada",
+		"body": "Selecciona al sospechoso principal cuando tengas pruebas suficientes.",
+		"progress": "intentos restantes",
+		"lockedFact": "Dato aún no descubierto",
+		"status": {
+			"discovered": "descubierto",
+			"undiscovered": "sin descubrir"
+		},
+		"attempts": {
+			"remaining": "quedan {remaining}/{max} intentos",
+			"exhausted": "Sin intentos restantes"
+		},
+		"actions": {
+			"submit": "Enviar acusación"
+		},
+		"accusation": {
+			"title": "Acusación",
+			"chooseReason": "{count} datos conocidos disponibles. Elige el motivo que los explica.",
+			"needsFacts": "Descubre al menos un dato antes de enviar una acusación."
+		},
+		"feedback": {
+			"acceptedTitle": "Acusación aceptada",
+			"accepted": "Acusación aceptada: la credencial, el estado fuera de turno y el login en C-17 respaldan la implicación interna.",
+			"rejected": "Acusación rechazada: los datos conocidos no prueban esa relación.",
+			"wrongSuspect": "Acusación rechazada: este sospechoso no está vinculado con suficiente fuerza a la anomalía de credencial.",
+			"wrongReason": "Acusación rechazada: el motivo seleccionado no explica los datos conocidos.",
+			"insufficientEvidence": "Acusación rechazada: recupera los datos de credencial, terminal y turno antes de presentar este motivo.",
+			"unknown": "Acusación rechazada: sospechoso no disponible.",
+			"unknownReason": "Acusación rechazada: motivo no disponible.",
+			"exhausted": "Intentos de acusación agotados. Revisa la ayuda o reinicia desde una copia limpia si hace falta.",
+			"mirrorAccepted": "Acusación aceptada: MVOSS-01, la retención activa y la secuencia de exportación vinculan a Mara Voss con la purga."
+		},
+		"sources": {
+			"duplicateCredential": "Evidencia / Credencial duplicada",
+			"auth102": "Sistema / AUTH-102",
+			"employeeRoster": "Documentos / Delta de plantilla de empleados",
+			"maintenanceWindow": "Correos / Ventana de mantenimiento de red",
+			"net900": "Sistema / NET-900",
+			"cam500": "Sistema / CAM-500",
+			"eastArchiveNote": "Documentos / Nota de seguridad: Archivo Este",
+			"renReply": "Correos / Re: Revisión de contención movida a las 23:40",
+			"initialBrief": "Documentos / Informe inicial del incidente",
+			"relayReport": "Documentos / Informe de fallo del relé",
+			"mirrorAdminToken": "Evidencia / Token administrativo MVOSS-01",
+			"auditRetention": "Evidencia / Orden de retención de auditoría",
+			"export332": "Sistema / EXPORT-332",
+			"mirrorStillAnswering": "Correos / MIRROR is still answering",
+			"mirror114": "Sistema / MIRROR-114",
+			"nKadeCloneRecord": "Evidencia / Registro de clonación N-KADE-17",
+			"kadeOffsiteStatement": "Evidencia / Declaración offsite de Noah Kade",
+			"r7Ticket": "Correos / No maintenance ticket for R-7",
+			"reflectionLabAccessTrace": "Evidencia / Traza de acceso Reflection Lab",
+			"renPrivate": "Chats / Ren-A.Ren"
+		},
+		"items": {
+			"nKade17": {
+				"name": "N-KADE-17",
+				"role": "Técnico de acceso",
+				"question": "¿Por qué sospechas de N-KADE-17?",
+				"facts": {
+					"duplicateCredential": "Credencial duplicada",
+					"terminalC17": "Aparece en terminal C-17",
+					"offShift": "Estaba fuera de turno"
+				},
+				"reasons": {
+					"credentialOffshiftTerminal": "Su credencial aparece activa fuera de turno y desde una terminal relevante.",
+					"helixDirector": "Es el director de Helix Labs.",
+					"wroteAllMail": "Es quien escribió todos los correos."
+				}
+			},
+			"iRourke": {
+				"name": "I. ROURKE",
+				"role": "Supervisora de mantenimiento",
+				"question": "¿Por qué sospechas de I. Rourke?",
+				"facts": {
+					"maintenanceWindow": "Autorizó la ventana de mantenimiento",
+					"relayAccess": "Tenía acceso válido al relay"
+				},
+				"reasons": {
+					"authorizedMaintenance": "Autorizó la ventana de mantenimiento, pero no queda vinculada a C-17.",
+					"cameraOwner": "Era responsable de la red de cámaras.",
+					"archiveOnly": "Solo tenía acceso al Archivo Este."
+				}
+			},
+			"mVelasco": {
+				"name": "M. VELASCO",
+				"role": "Seguridad interna",
+				"question": "¿Por qué sospechas de M. Velasco?",
+				"facts": {
+					"cameraFailure": "Reportó el fallo de cámaras",
+					"noEastArchive": "No tenía acceso al Archivo Este"
+				},
+				"reasons": {
+					"reportedCameras": "Reportó el fallo de cámaras, pero no encaja con el patrón de acceso.",
+					"relayOwner": "Controlaba el relay externo.",
+					"credentialClone": "Su credencial fue clonada en C-17."
+				}
+			},
+			"aRen": {
+				"name": "A. REN",
+				"role": "Analista de sistemas",
+				"question": "¿Por qué sospechas de A. Ren?",
+				"facts": {
+					"priorAnomalies": "Detectó anomalías previas",
+					"externalWarning": "Intentó enviar un aviso externo"
+				},
+				"reasons": {
+					"detectedAnomalies": "Detectó anomalías, pero los registros no sitúan su credencial en C-17.",
+					"maintenanceAuthority": "Autorizó el mantenimiento del relay.",
+					"archiveKeys": "Tenía las llaves del archivo."
+				}
+			},
+			"eMori": {
+				"name": "E. MORI",
+				"role": "Archivista del Archivo Este",
+				"question": "¿Por qué sospechas de E. Mori?",
+				"facts": {
+					"archiveAccess": "Tenía acceso autorizado al archivo",
+					"noRelayPermission": "Sin permisos sobre relay externo"
+				},
+				"reasons": {
+					"archiveAccess": "Tenía acceso al archivo, pero no ruta hacia el relay.",
+					"relayControl": "Controlaba el relay externo.",
+					"offshiftTerminal": "Estaba fuera de turno en la terminal C-17."
+				}
+			},
+			"maraVoss": {
+				"name": "Dr. Mara Voss",
+				"role": "Directora de operaciones",
+				"question": "¿Por qué sospechas de Dr. Mara Voss?",
+				"facts": {
+					"mvossToken": "MVOSS-01 autorizó la ruta de purga",
+					"auditHoldActive": "La retención de auditoría seguía activa",
+					"mirrorExportedR7": "MIRROR fue exportado a R-7 antes de la purga"
+				},
+				"reasons": {
+					"mvossTokenPurgeDuringHold": "Su token MVOSS-01 autorizó la purga del índice MIRROR mientras la retención seguía activa.",
+					"reportedMirrorRisk": "Informó del riesgo MIRROR, pero eso no la vincula a la purga.",
+					"ownedReflectionLab": "Poseer Reflection Lab por sí solo prueba la purga."
+				}
+			},
+			"eliasRen": {
+				"name": "Elias Ren",
+				"role": "Analista de sistemas",
+				"question": "¿Por qué sospechas de Elias Ren?",
+				"facts": {
+					"mirrorStillAnswering": "Avisó de que MIRROR seguía respondiendo",
+					"liveSyncLog": "MIRROR-114 muestra sincronización viva"
+				},
+				"reasons": {
+					"raisedSyncAlert": "Elevó la alerta de sincronización viva, pero no está vinculado a MVOSS-01.",
+					"authorizedPurgeToken": "Autorizó el token de purga.",
+					"createdDecoyCredential": "Creó el señuelo N-KADE-17."
+				}
+			},
+			"noahKade": {
+				"name": "Noah Kade",
+				"role": "Técnico de acceso",
+				"question": "¿Por qué sospechas de Noah Kade?",
+				"facts": {
+					"credentialCloned": "N-KADE-17 fue clonada",
+					"offsiteStatement": "Noah Kade estaba fuera"
+				},
+				"reasons": {
+					"credentialWasDecoy": "El rastro de credencial funciona como señuelo, no como prueba directa contra Noah.",
+					"purgedMirrorIndex": "Purgó el índice MIRROR.",
+					"movedPackageR7": "Movió el paquete MIRROR a R-7."
+				}
+			},
+			"iRourkeMirror": {
+				"name": "I. Rourke",
+				"role": "Supervisión de mantenimiento",
+				"question": "¿Por qué sospechas de I. Rourke?",
+				"facts": {
+					"noMaintenanceTicket": "No existía ticket de mantenimiento para R-7",
+					"r7RouteKnowledge": "Se descubrió traza de ruta a Reflection Lab"
+				},
+				"reasons": {
+					"foundR7Gap": "Rourke expone la brecha R-7, pero no está vinculado al token de purga.",
+					"authorizedMirrorPurge": "Rourke autorizó la purga MIRROR.",
+					"ownsMvossToken": "Rourke posee MVOSS-01."
+				}
+			},
+			"aRenMirror": {
+				"name": "A. Ren",
+				"role": "Auditoría interna / sistemas",
+				"question": "¿Por qué sospechas de A. Ren?",
+				"facts": {
+					"auditHoldActive": "La retención de auditoría estaba activa",
+					"privateThread": "El hilo Ren-A.Ren explica la retención"
+				},
+				"reasons": {
+					"interpretedAuditHold": "A. Ren ayuda a interpretar la retención, pero no está vinculado a MVOSS-01.",
+					"hadMvossToken": "A. Ren tenía el token de Mara Voss.",
+					"clonedNKade": "A. Ren clonó N-KADE-17."
+				}
 			}
 		}
 	},
 	"connections": {
 		"title": "Tablero de Conexiones",
+		"body": "Conecta únicamente evidencias que juntas demuestren una deducción concreta.",
 		"create": "Conectar",
 		"cooldown": "Recalibrando",
 		"clearSelection": "Limpiar selección",
@@ -607,10 +1443,15 @@
 			"sameFileType": "Son del mismo tipo de archivo."
 		},
 		"reasons": {
-			"accessPhrase": "KNOCK-3 era una frase de acceso escondida en la nota recuperada.",
-			"duplicateLogin": "La misma credencial aparece en una ubicación imposible.",
-			"archiveRoute": "Ambas pruebas indican una ruta física alternativa.",
-			"maintenanceRelay": "El fallo del relay coincide con una manipulación durante mantenimiento."
+			"accessPhrase": "KNOCK-3 era una frase de acceso.",
+			"duplicateLogin": "La misma credencial aparece vinculada a una sesión imposible.",
+			"archiveRoute": "Existía una ruta física alternativa hacia el Archivo Este.",
+			"maintenanceRelay": "El fallo del relay coincide con una manipulación durante mantenimiento.",
+			"mirrorProfileMap": "MIRROR construía perfiles conductuales de empleados reales.",
+			"auditHoldPurge": "Alguien borró evidencia protegida por auditoría.",
+			"r7Export": "El paquete MIRROR fue trasladado a Reflection Lab / Subnivel R-7.",
+			"mvossTokenPurge": "La purga queda vinculada a la autorización administrativa de Mara Voss.",
+			"nKadeDecoy": "N-KADE-17 funcionó como señuelo."
 		}
 	},
 	"notes": {
@@ -638,7 +1479,7 @@
 		"locked": "bloqueada",
 		"unlocked": "desbloqueada",
 		"lockedTitle": "Deducción bloqueada",
-		"lockedDescription": "Crea la conexión correcta entre evidencias para resolver esta deducción.",
+		"lockedDescription": "Completa la acción del caso relacionada para resolver esta deducción.",
 		"unknownEvidence": "Evidencia no descubierta",
 		"items": {
 			"accessPhrase": {
@@ -646,31 +1487,216 @@
 				"description": "El ritmo KNOCK-3 no es solo una pista; es la frase que abre el fragmento cifrado 01."
 			},
 			"internalInvolvement": {
-				"title": "La brecha necesitó acceso interno",
+				"title": "N-KADE-17 es el sospechoso interno respaldado",
+				"description": "La credencial duplicada, el estado fuera de turno y el login en C-17 señalan a N-KADE-17 como la pista más fuerte de implicación interna."
+			},
+			"archiveRouteAccess": {
+				"title": "La brecha necesitó una ruta oculta al archivo",
 				"description": "La brecha del archivo este y el mapa de acceso oculto apuntan a una ruta física que requería conocimiento interno."
 			},
 			"maintenanceReroute": {
 				"title": "El apagón siguió una redirección de mantenimiento",
 				"description": "El informe de fallo del relé y el registro de mantenimiento reconstruido muestran que el corte se enrutó desde dentro de Helix."
+			},
+			"maintenanceWindowOverrun": {
+				"title": "El relé cayó después de la ventana oficial de mantenimiento",
+				"description": "El informe inicial y NET-900 entran en conflicto: el relé cayó después de que el mantenimiento debiera haber terminado y el sistema debiera estar estable."
+			},
+			"credentialOperationalMismatch": {
+				"title": "N-KADE-17 estuvo activa fuera de su contexto operativo esperado",
+				"description": "El contexto de plantilla y la anomalía de login en C-17 muestran que la credencial estaba operativa cuando no debía estarlo."
+			},
+			"blackoutTimelineReconstructed": {
+				"title": "La cronología del apagón quedó reconstruida",
+				"description": "Los eventos recuperados encajan en una secuencia que muestra preparación, acceso anómalo, fallo de cámaras y pérdida del relay externo."
+			},
+			"mirrorBuiltEmployeeBehavioralProfiles": {
+				"title": "MIRROR construía perfiles conductuales de empleados",
+				"description": "El estatuto y el mapa de sujetos muestran que MIRROR usaba comportamiento real de empleados, no muestras anónimas."
+			},
+			"auditProtectedEvidenceDestroyed": {
+				"title": "Evidencia protegida por auditoría fue destruida",
+				"description": "La retención activa y PURGE-771 prueban que alguien borró registros MIRROR protegidos."
+			},
+			"mirrorMovedToReflectionLab": {
+				"title": "MIRROR fue movido a Reflection Lab / R-7",
+				"description": "El manifiesto de transferencia y EXPORT-332 muestran que el paquete pasó a la instalación oculta R-7."
+			},
+			"maraVossAuthorizedPurge": {
+				"title": "Mara Voss queda vinculada a la autorización de purga",
+				"description": "MVOSS-01 y PURGE-771 conectan la ruta de borrado con Mara Voss."
+			},
+			"nKade17DecoyTrail": {
+				"title": "N-KADE-17 era un rastro señuelo",
+				"description": "El registro de clonación y la declaración offsite muestran que N-KADE-17 se usó para desviar sospechas."
+			},
+			"mirrorUsedLiveProfiles": {
+				"title": "MIRROR usaba perfiles personales vivos",
+				"description": "MIRROR-114 contradice el estatuto al demostrar sincronización viva de perfiles."
+			},
+			"protectedEvidenceWasDestroyed": {
+				"title": "Registros MIRROR protegidos fueron destruidos",
+				"description": "La purga violó una retención de auditoría activa."
+			},
+			"nKade17WasDecoy": {
+				"title": "N-KADE-17 no era el actor principal de esta fase",
+				"description": "La credencial fue clonada mientras Noah Kade tenía evidencia offsite."
+			},
+			"mirrorSequenceReconstructed": {
+				"title": "La secuencia operativa de MIRROR fue reconstruida",
+				"description": "Retención, sincronización viva, autorización de purga, exportación, clonación señuelo y borrado del índice forman una secuencia deliberada."
+			},
+			"mirrorCoverupAuthor": {
+				"title": "La autorización de purga apunta a Mara Voss",
+				"description": "El token de Mara Voss autorizó la purga del índice mientras la evidencia MIRROR protegida seguía bajo retención."
+			}
+		}
+	},
+	"caseReview": {
+		"title": "Informe final del Capítulo 1",
+		"heading": "Informe final del Capítulo 1",
+		"body": "Presenta conclusiones respaldadas por evidencias verificadas.",
+		"progress": "preguntas respondidas",
+		"questionLabel": "{number}.",
+		"status": {
+			"pending": "pendiente",
+			"accepted": "aceptada",
+			"locked": "bloqueada"
+		},
+		"attempts": {
+			"remaining": "quedan {remaining}/{max} intentos",
+			"exhausted": "Sin intentos restantes",
+			"resolved": "Resuelto"
+		},
+		"actions": {
+			"submit": "Presentar informe"
+		},
+		"feedback": {
+			"accepted": "Informe final aceptado. Capítulo 1 resuelto.",
+			"rejected": "Informe rechazado: algunas conclusiones no están respaldadas.",
+			"exhausted": "No quedan intentos para el informe final."
+		},
+		"questions": {
+			"blackoutCause": {
+				"title": "¿Qué provocó el apagón?",
+				"choices": {
+					"towerFailure": "Un fallo aislado de la torre relay externa.",
+					"maintenanceRelayManipulation": "Manipulación del relay externo durante mantenimiento.",
+					"cameraCorruption": "Corrupción de cámaras que se propagó a la red."
+				}
+			},
+			"keyZone": {
+				"title": "¿Qué zona fue clave?",
+				"choices": {
+					"sublevelC": "Sensores de ocupación del subnivel C.",
+					"eastArchiveServerRoom": "Archivo Este y sala de servidores.",
+					"eastArchive": "Ruta de acceso del Archivo Este.",
+					"serverRoom": "Sala de servidores.",
+					"externalRelay": "Relay externo / ruta H-0."
+				}
+			},
+			"suspiciousCredential": {
+				"title": "¿Qué credencial es sospechosa?",
+				"choices": {
+					"signal000": "SIGNAL-000.",
+					"nKade17": "N-KADE-17.",
+					"iRourke": "I-ROURKE-09."
+				}
+			},
+			"internalAccessProof": {
+				"title": "¿Qué prueba demuestra acceso interno?",
+				"choices": {
+					"cameraStatic": "Solo la estática de cámaras.",
+					"duplicateCredentialLoginAnomaly": "Credencial duplicada + anomalía de login.",
+					"doorConflictOnly": "Solo el conflicto de puerta del Archivo Este."
+				}
+			},
+			"incidentIntent": {
+				"title": "¿El incidente parece accidental o deliberado?",
+				"choices": {
+					"accidental": "Accidental.",
+					"deliberate": "Deliberado.",
+					"undetermined": "Indeterminado."
+				}
+			},
+			"mirrorRealFunction": {
+				"title": "¿Qué función real tenía MIRROR?",
+				"choices": {
+					"archivalDeduplication": "Deduplicaba archivos antiguos.",
+					"liveBehavioralEmployeeProfiles": "Construía perfiles conductuales vivos de empleados.",
+					"anonymousPowerDiagnostics": "Analizaba diagnósticos anónimos del relay."
+				}
+			},
+			"hiddenOperation": {
+				"title": "¿Qué operación se ocultó?",
+				"choices": {
+					"mirrorExportR7AndIndexPurge": "Exportación del paquete MIRROR y borrado posterior del índice.",
+					"cameraRollbackOnly": "Solo una reversión de cámaras.",
+					"auditHoldRelease": "Una liberación normal de retención de auditoría."
+				}
+			},
+			"directPurgeActor": {
+				"title": "¿Quién queda vinculado al borrado?",
+				"choices": {
+					"eliasRenMirror114": "Elias Ren por MIRROR-114.",
+					"maraVossMvoss01": "Dr. Mara Voss por MVOSS-01.",
+					"noahKadeDecoy017": "Noah Kade por DECOY-017."
+				}
+			},
+			"nKadeDecoyProof": {
+				"title": "¿Qué prueba que N-KADE-17 era un señuelo?",
+				"choices": {
+					"cloneRecordOffsiteStatement": "Registro de clonación + declaración offsite.",
+					"rosterDeltaAuth102": "Delta de plantilla + AUTH-102.",
+					"accessMapDoor441": "Mapa de acceso + DOOR-441."
+				}
+			},
+			"mirrorContinuationSite": {
+				"title": "¿Qué instalación confirma la continuidad del proyecto?",
+				"choices": {
+					"eastArchiveOnly": "Solo Archivo Este.",
+					"reflectionLabR7": "Reflection Lab / Subnivel R-7.",
+					"externalRelayCore": "Núcleo del relay externo."
+				}
+			},
+			"dataDestructionClassification": {
+				"title": "¿Cómo debe clasificarse la destrucción de datos?",
+				"choices": {
+					"routineRetentionCleanup": "Limpieza rutinaria de retención.",
+					"deliberateCoverup": "Encubrimiento deliberado.",
+					"accidentalIndexCorruption": "Corrupción accidental del índice."
+				}
 			}
 		}
 	},
 	"chapterSummary": {
-		"eyebrow": "Resumen del Capítulo 1",
-		"title": "Resumen del Capítulo 1",
-		"points": {
-			"communication": "Helix Labs perdió comunicación.",
-			"unauthorized": "Hubo acceso no autorizado dentro de la instalación.",
-			"serverRoom": "La sala de servidores está relacionada con la frase recuperada.",
-			"deliberate": "El apagón parece deliberado.",
-			"internal": "Alguien con acceso interno pudo estar implicado."
+		"eyebrow": "Informe final aceptado",
+		"title": "Capítulo 1 resuelto",
+		"status": "Resolución del caso",
+		"summary": "El apagón de Helix fue deliberado. El atacante usó la ventana de mantenimiento, la ruta del Archivo Este, la frase de acceso de la sala de servidores y la anomalía de credencial N-KADE-17 para forzar el fallo del relay externo.",
+		"fields": {
+			"summary": "Resumen del caso",
+			"suspect": "Sospechoso identificado",
+			"cause": "Causa del apagón",
+			"integrity": "Integridad restante"
 		},
-		"hook": "La secuencia es más clara, pero la fuente dentro de Helix no ha sido identificada. El capítulo 2 queda abierto.",
-		"chapterTwoUnavailable": "Capítulo 2 aún no disponible.",
+		"values": {
+			"suspect": "N-KADE-17",
+			"cause": "Manipulación del relay externo durante mantenimiento."
+		},
+		"points": {
+			"communication": "El apagón fue provocado por la manipulación del relay externo durante mantenimiento.",
+			"unauthorized": "El Archivo Este, la sala de servidores y la ruta del relay externo forman la ruta clave de acceso.",
+			"serverRoom": "N-KADE-17 es la credencial sospechosa.",
+			"deliberate": "La credencial duplicada + la anomalía de login demuestran acceso interno.",
+			"internal": "El incidente parece deliberado, no accidental."
+		},
+		"hook": "Tu informe demuestra que el corte no fue un fallo pasivo. Alguien aprovechó la ventana de mantenimiento, el acceso interno y el rastro de una credencial duplicada para redirigir Helix por la ruta del relay.",
+		"chapterTwoUnavailable": "La resolución del Capítulo 1 ha quedado registrada.",
 		"actions": {
 			"close": "Cerrar resumen del capítulo",
 			"continue": "Continuar investigación",
-			"chapterTwo": "Ir al Capítulo 2"
+			"chapterTwo": "Volver al menú"
 		}
 	},
 	"logs": {
@@ -700,7 +1726,7 @@
 			"INFO": "INFO",
 			"WARN": "AVISO",
 			"ERROR": "ERROR",
-			"CRITICAL": "CRITICO"
+			"CRITICAL": "CRÍTICO"
 		},
 		"sources": {
 			"auth-gateway": "pasarela auth",
@@ -714,7 +1740,17 @@
 			"cipher-gate": "puerta de cifrado",
 			"connection-board": "tablero de conexiones",
 			"deduction-engine": "motor de deducciones",
-			"recovery-lab": "laboratorio de recuperación"
+			"recovery-lab": "laboratorio de recuperación",
+			"case-integrity": "integridad del caso",
+			"case-review": "revisión del caso",
+			"contradiction-engine": "motor de contradicciones",
+			"timeline-engine": "motor de cronología",
+			"suspect-board": "tablero de sospechosos",
+			"credential-trace": "rastreo de credencial",
+			"mirror-core": "núcleo MIRROR",
+			"audit-vault": "bóveda de auditoría",
+			"export-daemon": "demonio de exportación",
+			"reflection-access": "acceso Reflection"
 		},
 		"titles": {
 			"AUTH-102": "Anomalía de inicio de sesión N-KADE-17",
@@ -732,11 +1768,31 @@
 			"CON-422": "Conexión rechazada",
 			"CON-429": "Conexiones especulativas descartadas",
 			"DED-210": "Deducción desbloqueada",
-			"CH-101": "Resumen de capítulo desbloqueado",
+			"CH-101": "Informe final desbloqueado",
+			"CH-200": "Capítulo 1 resuelto",
 			"REC-120": "Fragmento de recuperación indexado",
 			"REC-404": "Recuperación bloqueada",
 			"REC-409": "Orden de ensamblaje rechazado",
-			"REC-500": "Documento reconstruido"
+			"REC-500": "Documento reconstruido",
+			"INT-000": "Investigación fallida",
+			"INT-200": "Conclusión aceptada",
+			"INT-422": "Conclusión rechazada",
+			"CONTRA-200": "Contradicción confirmada",
+			"CONTRA-422": "Contradicción rechazada",
+			"TIME-200": "Cronología confirmada",
+			"TIME-422": "Cronología rechazada",
+			"SUS-200": "Acusación aceptada",
+			"SUS-422": "Acusación rechazada",
+			"TRACE-200": "Rastreo de credencial completado",
+			"MIRROR-114": "Sincronización viva de perfiles MIRROR",
+			"HOLD-208": "Retención de auditoría activa",
+			"PURGE-771": "Purga del índice auditado MIRROR",
+			"EXPORT-332": "Exportación del paquete MIRROR",
+			"ACCESS-509": "Acceso a Reflection Lab",
+			"DECOY-017": "Clon señuelo N-KADE-17",
+			"CH2-101": "Informe final de Proyecto MIRROR desbloqueado",
+			"CH2-200": "Proyecto MIRROR resuelto",
+			"SUS-MIRROR-200": "Acusación MIRROR aceptada"
 		},
 		"messages": {
 			"AUTH-102": "Inicio de sesión detectado: n.kade desde la terminal C-17.",
@@ -755,11 +1811,36 @@
 			"CON-422": "Conexión rechazada: la relación no está suficientemente justificada.",
 			"CON-429": "El tablero de conexiones descartó vínculos especulativos tras varios intentos fallidos.",
 			"DED-210": "El motor de deducciones confirmó una relación válida entre evidencias.",
-			"CH-101": "Umbral de reconstrucción del Capítulo 1 alcanzado.",
+			"CH-101": "Informe final del Capítulo 1 desbloqueado. Esperando presentación del investigador.",
+			"CH-200": "Capítulo 1 resuelto. Informe final aceptado.",
 			"REC-120": "El Laboratorio de Recuperación indexó un fragmento recuperado.",
 			"REC-404": "Acción de recuperación bloqueada por prerrequisito ausente.",
 			"REC-409": "Orden de ensamblaje de fragmentos rechazado.",
-			"REC-500": "Informe de mantenimiento del relé de energía reconstruido."
+			"REC-500": "Informe de mantenimiento del relé de energía reconstruido.",
+			"INT-000": "Investigación fallida: la integridad del caso llegó al 0%.",
+			"INT-200": "La revisión del caso aceptó una conclusión respaldada.",
+			"INT-422": "Conclusión rechazada: evidencia insuficiente. Integridad reducida en {amount}%.",
+			"INT-CON": "Contradicción sin resolver: la evidencia seleccionada no explica el conflicto.",
+			"INT-ACC": "Acusación rechazada: la evidencia no respalda ese sospechoso.",
+			"INT-FIN": "Informe rechazado: algunas conclusiones no están respaldadas.",
+			"INT-PUZ": "Demasiadas respuestas incorrectas redujeron la integridad del caso en {amount}%.",
+			"CONTRA-200": "Contradicción confirmada: {contradiction}.",
+			"CONTRA-422": "Contradicción rechazada: la relación seleccionada no quedó probada.",
+			"TIME-200": "Cronología del apagón validada.",
+			"TIME-422": "Cronología rechazada: algunos eventos no respetan la secuencia temporal recuperada.",
+			"SUS-200": "Acusación razonada aceptada: N-KADE-17 queda vinculada al evento de credencial fuera de turno en C-17.",
+			"SUS-422": "Acusación rechazada: los datos conocidos no respaldan el sospechoso o motivo seleccionado.",
+			"TRACE-200": "El rastreo de credencial confirmó N-KADE-17 como hilo de acceso duplicado.",
+			"MIRROR-114": "El grafo de perfiles MIRROR continuó sincronización viva después de la retención de auditoría.",
+			"HOLD-208": "Retención de auditoría activa para índices, mapas, manifiestos y firmas administrativas de MIRROR.",
+			"PURGE-771": "Índice auditado de MIRROR purgado mediante token administrativo MVOSS-01.",
+			"EXPORT-332": "Paquete MIRROR_CORE exportado hacia Reflection Lab / Subnivel R-7.",
+			"ACCESS-509": "Acceso administrativo aceptado en la ruta Reflection Lab R-7.",
+			"DECOY-017": "Clon temporal de credencial generado para N-KADE-17 después del marcador de exportación.",
+			"CH2-101": "Informe final de Proyecto MIRROR desbloqueado. Esperando presentación del investigador.",
+			"CH2-200": "Proyecto MIRROR resuelto. Informe final aceptado.",
+			"TIME-MIRROR-200": "Cronología de Proyecto MIRROR validada.",
+			"SUS-MIRROR-200": "Acusación razonada aceptada: MVOSS-01 vincula a Mara Voss con la purga MIRROR."
 		}
 	},
 	"values": {
@@ -797,6 +1878,27 @@
 		}
 	},
 	"dataTexts": {
+		"Proyecto MIRROR": "Proyecto MIRROR",
+		"The blackout was only cover. The recovered archive now points to MIRROR, an internal Helix project that kept answering after the incident.": "El apagón solo era cobertura. El archivo recuperado ahora apunta a MIRROR, un proyecto interno de Helix que siguió respondiendo después del incidente.",
+		"Helix Ethics Office": "Oficina de ética de Helix",
+		"Helix Audit Committee": "Comité de auditoría de Helix",
+		"Behavioral Systems Archive": "Archivo de sistemas conductuales",
+		"Helix Logistics": "Logística de Helix",
+		"Noah Kade": "Noah Kade",
+		"I. Rourke": "I. Rourke",
+		"A. Ren": "A. Ren",
+		"mirror": "MIRROR",
+		"charter": "estatuto",
+		"behavioral profiles": "perfiles conductuales",
+		"audit": "auditoría",
+		"retention": "retención",
+		"subjects": "sujetos",
+		"r-7": "R-7",
+		"reflection lab": "Reflection Lab",
+		"export": "exportación",
+		"n-kade-17": "N-KADE-17",
+		"offsite": "fuera de instalación",
+		"statement": "declaración",
 		"The Helix Incident": "El Incidente Helix",
 		"Helix Labs lost all communication with its employees after a staged maintenance window. The remaining system image contains emails, chats, files, media captures, and logs that suggest the blackout was deliberate.": "Helix Labs perdió toda comunicación con sus empleados tras una ventana de mantenimiento preparada. La imagen restante del sistema contiene correos, chats, archivos, capturas multimedia y logs que sugieren que el apagón fue deliberado.",
 		"Containment review moved to 23:40": "Revisión de contención movida a las 23:40",
@@ -813,10 +1915,13 @@
 		"Security Operations": "Operaciones de Seguridad",
 		"Initial Incident Brief": "Informe inicial del incidente",
 		"At 23:17 local facility time, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?": "A las 23:17, hora local de la instalación, Helix Labs dejó de responder a todos los intentos de comunicación externa. La telemetría de red muestra una degradación gradual en lugar de una caída única. La autenticación interna permaneció activa durante nueve minutos después del apagón externo.\n\nPreguntas abiertas: por qué la credencial N-KADE-17 se autenticó desde una terminal fuera de línea, y por qué se sobrescribieron los sensores de ocupación en el subnivel C?",
+		"The official maintenance window was scheduled to end at 23:00 local facility time. At 23:17, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?": "La ventana oficial de mantenimiento estaba programada para terminar a las 23:00, hora local de la instalación. A las 23:17, Helix Labs dejó de responder a todos los intentos de comunicación externa. La telemetría de red muestra una degradación gradual en lugar de una caída única. La autenticación interna permaneció activa durante nueve minutos después del apagón externo.\n\nPreguntas abiertas: por qué la credencial N-KADE-17 se autenticó desde una terminal fuera de línea, y por qué se sobrescribieron los sensores de ocupación en el subnivel C?",
+		"The official maintenance window was scheduled to end at 23:00 local facility time. At 23:17, Helix Labs stopped responding to all external communication attempts. Network telemetry shows a gradual degradation rather than a single outage. Internal authentication remained active for nine minutes after the external blackout.\n\nOpen questions: why did credential N-KADE-17 authenticate from an offline terminal, and why were occupancy sensors overwritten in sublevel C?\n\nTerminal note: credential traces use trace credential N-KADE-17 after the auth anomaly is isolated.": "La ventana oficial de mantenimiento estaba programada para terminar a las 23:00, hora local de la instalación. A las 23:17, Helix Labs dejó de responder a todos los intentos de comunicación externa. La telemetría de red muestra una degradación gradual en lugar de una caída única. La autenticación interna permaneció activa durante nueve minutos después del apagón externo.\n\nPreguntas abiertas: ¿por qué la credencial N-KADE-17 se autenticó desde una terminal fuera de línea, y por qué se sobrescribieron los sensores de ocupación en el subnivel C?\n\nNota de terminal: los rastreos de credencial usan trace credential N-KADE-17 después de aislar la anomalía auth.",
 		"Security Note: East Archive": "Nota de seguridad: Archivo Este",
 		"The east archive door should remain sealed until biometric records can be manually verified. If the door log is accurate, someone opened it from both sides within the same second.": "La puerta del archivo este debe permanecer sellada hasta que los registros biométricos puedan verificarse manualmente. Si el log de puerta es correcto, alguien la abrió desde ambos lados en el mismo segundo.",
 		"Employee Roster Delta": "Delta de plantilla de empleados",
 		"Night shift roster lists 43 employees onsite. Badge telemetry lists 44. One unknown credential appears only as SIGNAL-000 and has no matching personnel record.": "La plantilla del turno de noche lista 43 empleados en sitio. La telemetría de credenciales lista 44. Una credencial desconocida aparece solo como SIGNAL-000 y no tiene registro de personal asociado.",
+		"Night shift roster lists 43 employees onsite. N-KADE-17 is marked off duty and outside active operations. Badge telemetry lists 44 active credentials. One unknown credential appears only as SIGNAL-000 and has no matching personnel record.": "La plantilla del turno de noche lista 43 empleados en sitio. N-KADE-17 figura fuera de turno y fuera de operaciones activas. La telemetría de credenciales lista 44 credenciales activas. Una credencial desconocida aparece solo como SIGNAL-000 y no tiene registro de personal asociado.",
 		"Recovered Sticky Note": "Nota adhesiva recuperada",
 		"Three knocks from the server room. One reply from the wall. The lights know before we do.": "Tres golpes desde la sala de servidores. Una respuesta desde la pared. Las luces lo saben antes que nosotros.",
 		"Elias Ren": "Elias Ren",
@@ -930,6 +2035,37 @@
 			"reset": "Reiniciar investigación",
 			"confirmReset": "Confirmar reinicio",
 			"cancelReset": "Cancelar"
+		}
+	},
+	"caseReviewMirror": {
+		"title": "Informe final de Proyecto MIRROR",
+		"heading": "Informe final de Proyecto MIRROR",
+		"body": "Presenta conclusiones respaldadas por evidencias MIRROR verificadas.",
+		"feedback": {
+			"accepted": "Informe final aceptado. Proyecto MIRROR queda resuelto.",
+			"rejected": "Informe rechazado: algunas conclusiones de MIRROR no están respaldadas.",
+			"exhausted": "No quedan intentos para el informe final de Proyecto MIRROR."
+		}
+	},
+	"chapterSummaryMirror": {
+		"eyebrow": "Informe final aceptado",
+		"title": "Proyecto MIRROR resuelto",
+		"status": "Resolución del caso",
+		"summary": "El apagón era una distracción. MIRROR construía perfiles conductuales vivos de empleados; después, su paquete fue exportado a Reflection Lab / Subnivel R-7 antes de purgar el índice auditado.",
+		"fields": {
+			"summary": "Resumen del caso",
+			"suspect": "Sospechoso identificado",
+			"cause": "Operación ocultada",
+			"integrity": "Integridad restante"
+		},
+		"values": {
+			"suspect": "Dr. Mara Voss",
+			"cause": "Exportación de MIRROR a R-7 seguida de purga deliberada del índice."
+		},
+		"actions": {
+			"close": "Cerrar resumen de fase",
+			"continue": "Continuar el caso",
+			"chapterTwo": "Volver al menú"
 		}
 	}
 }

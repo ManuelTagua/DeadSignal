@@ -33,7 +33,7 @@
 		if (item.titleKey) return $t(item.titleKey);
 		if (selectedModule === "EvidenceBoard") return $t(item.titleKey);
 		if (selectedModule === "RecoveryLab") return item.titleKey ? $t(item.titleKey) : $dataText(item.title);
-		if (selectedModule === "Emails") return $dataText(item.subject);
+		if (selectedModule === "Emails") return item.subjectKey ? $t(item.subjectKey) : $dataText(item.subject);
 		if (selectedModule === "Chats") return $dataText(`#${item.channel}`);
 		if (selectedModule === "System") return $t(`logs.titles.${item.code}`);
 		return $dataText(item.title);
@@ -47,7 +47,11 @@
 			if (item.kind === "document") return `${$t("recovery.labels.reconstructed")} / ${item.integrity}%`;
 			return `${$t("recovery.labels.corrupted")} / ${item.integrity}%`;
 		}
-		if (selectedModule === "Emails") return `${$dataText(item.fromName)} -> ${$dataText(item.toName)}`;
+		if (selectedModule === "Emails") {
+			const fromName = item.fromNameKey ? $t(item.fromNameKey) : $dataText(item.fromName);
+			const toName = item.toNameKey ? $t(item.toNameKey) : $dataText(item.toName);
+			return `${fromName} -> ${toName}`;
+		}
 		if (selectedModule === "Chats" && (item.contentCategory ?? item.category) === "Encrypted Chat") {
 			return $t("values.chatTypes.Encrypted Chat");
 		}

@@ -14,7 +14,7 @@ export const VIRTUAL_DOCUMENTS = [
 		createdAt: "2041-10-09T03:23:00.000Z",
 		isFlagged: true,
 		unlockTag: "server-room-knock-pattern",
-		evidenceTags: ["server-room-knock-pattern", "encrypted-fragment-password-hint"]
+		evidenceTags: ["server-room-knock-pattern", "encrypted-fragment-password-hint", "terminal-decrypt-fragment"]
 	},
 	{
 		virtualId: "east-archive-access-map",

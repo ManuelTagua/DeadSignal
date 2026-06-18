@@ -4,14 +4,14 @@
 	import { t } from "$lib/i18n";
 	import { formatTimestamp } from "$lib/utils/format";
 
-	let { evidences = [], connections = [], onCreateConnection = () => {} } = $props();
+	let { evidences = [], connections = [], deductionDefinitions = DEDUCTION_DEFINITIONS, onCreateConnection = () => {} } = $props();
 
 	let selectedEvidenceIds = $state(/** @type {string[]} */ ([]));
 	let pendingConnection = $state(/** @type {{ firstEvidenceId: string, secondEvidenceId: string } | null} */ (null));
 	let connectionCooldown = $state(false);
 
 	const evidenceById = $derived(new Map(evidences.map((evidence) => [baseEvidenceId(evidence), evidence])));
-	const deductionById = $derived(new Map(DEDUCTION_DEFINITIONS.map((deduction) => [deduction.id, deduction])));
+	const deductionById = $derived(new Map(deductionDefinitions.map((deduction) => [deduction.id, deduction])));
 	const positionsById = $derived(
 		new Map(evidences.map((evidence, index) => [baseEvidenceId(evidence), positionForIndex(index)]))
 	);
@@ -125,9 +125,12 @@
 <section class="grid gap-4 xl:grid-cols-[minmax(0,1fr)_280px]">
 	<div class="rounded border border-cyan-300/15 bg-black/25">
 		<div class="flex flex-wrap items-center justify-between gap-3 border-b border-cyan-300/10 p-3">
-			<div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-white/40">
-				<GitBranch size={13} />
-				<span>{$t("connections.title")}</span>
+			<div class="min-w-0">
+				<div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-white/40">
+					<GitBranch size={13} />
+					<span>{$t("connections.title")}</span>
+				</div>
+				<p class="mt-2 max-w-2xl text-xs leading-5 text-white/55">{$t("connections.body")}</p>
 			</div>
 			<div class="flex items-center gap-2">
 				{#if selectedEvidenceIds.length}
@@ -178,15 +181,16 @@
 					<button
 						type="button"
 						class={isSelected(evidence)
-							? "absolute grid w-[190px] -translate-x-1/2 -translate-y-1/2 gap-2 rounded border border-emerald-300/45 bg-emerald-300/10 p-3 text-left shadow-[0_0_24px_rgba(52,211,153,0.12)]"
-							: "absolute grid w-[190px] -translate-x-1/2 -translate-y-1/2 gap-2 rounded border border-cyan-300/20 bg-[#050708]/95 p-3 text-left hover:border-cyan-200/50 hover:bg-cyan-300/5"}
+							? "absolute grid min-h-[108px] w-[220px] -translate-x-1/2 -translate-y-1/2 gap-2 rounded border border-emerald-300/45 bg-emerald-300/10 p-3 text-left shadow-[0_0_24px_rgba(52,211,153,0.12)]"
+							: "absolute grid min-h-[108px] w-[220px] -translate-x-1/2 -translate-y-1/2 gap-2 rounded border border-cyan-300/20 bg-[#050708]/95 p-3 text-left hover:border-cyan-200/50 hover:bg-cyan-300/5"}
 						style={`left: ${position.x}%; top: ${position.y}%`}
 						aria-pressed={isSelected(evidence)}
+						title={`${$t(evidence.titleKey)} / ${$t(evidence.sourceKey)}`}
 						onclick={() => toggleEvidence(evidence)}
 					>
 						<span class="text-[9px] uppercase tracking-[0.16em] text-white/35">{$t("labels.evidenceStatus")}</span>
-						<span class="text-xs font-semibold leading-4 text-white">{$t(evidence.titleKey)}</span>
-						<span class="truncate text-[10px] uppercase tracking-[0.12em] text-cyan-100/70">{$t(evidence.sourceKey)}</span>
+						<span class="text-xs font-semibold leading-5 text-white">{$t(evidence.titleKey)}</span>
+						<span class="text-[10px] uppercase leading-4 tracking-[0.12em] text-cyan-100/70">{$t(evidence.sourceKey)}</span>
 					</button>
 				{/each}
 			{:else}

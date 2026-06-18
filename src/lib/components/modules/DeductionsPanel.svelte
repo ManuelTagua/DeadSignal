@@ -3,7 +3,7 @@
 	import { DEDUCTION_DEFINITIONS } from "$lib/game/deductions";
 	import { t } from "$lib/i18n";
 
-	let { unlockedDeductions = {}, evidenceTitles = {} } = $props();
+	let { unlockedDeductions = {}, evidenceTitles = {}, deductionDefinitions = DEDUCTION_DEFINITIONS } = $props();
 
 	/** @param {string} deductionId */
 	function isUnlocked(deductionId) {
@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="grid gap-3 xl:grid-cols-2">
-		{#each DEDUCTION_DEFINITIONS as deduction}
+		{#each deductionDefinitions as deduction}
 			<article
 				class={isUnlocked(deduction.id)
 					? "rounded border border-emerald-300/35 bg-emerald-300/10 p-4"

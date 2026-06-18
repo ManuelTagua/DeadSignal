@@ -3,10 +3,18 @@
 	import { SUPPORTED_LANGUAGES, currentLanguage, dataText, setLanguage, t } from "$lib/i18n";
 	import { formatTime } from "$lib/utils/format";
 
-	let { title = "DeadSignal", status = "DEGRADED", caseTitle = "", onOpenHelp = () => {} } = $props();
+	let {
+		title = "DeadSignal",
+		status = "DEGRADED",
+		caseTitle = "",
+		caseIntegrity = { value: 100, status: "stable" },
+		onOpenHelp = () => {}
+	} = $props();
 
 	let simulatedClock = $state(new Date("2041-10-09T03:12:00.000Z"));
 	const clockLabel = $derived(formatTime(simulatedClock));
+	const integrityValue = $derived(Math.max(0, Math.min(100, Math.round(caseIntegrity?.value ?? 100))));
+	const integrityStatus = $derived(caseIntegrity?.status ?? "stable");
 
 	$effect(() => {
 		const timer = setInterval(() => {
@@ -15,6 +23,14 @@
 
 		return () => clearInterval(timer);
 	});
+
+	/** @param {string} state */
+	function integrityClass(state) {
+		if (state === "failed") return "border-cyan-100/45 bg-cyan-100/10 text-cyan-50";
+		if (state === "critical") return "border-cyan-100/35 bg-cyan-100/[0.07] text-cyan-50";
+		if (state === "compromised") return "border-cyan-300/25 bg-cyan-300/10 text-cyan-50";
+		return "border-emerald-300/20 bg-black/30 text-white/60";
+	}
 </script>
 
 <header class="dead-panel grid min-h-12 grid-cols-1 gap-2 border-x-0 border-t-0 px-3 py-2 sm:grid-cols-[1fr_auto] sm:items-center lg:px-4">
@@ -58,6 +74,10 @@
 		<div class="flex items-center gap-2 rounded border border-emerald-300/20 bg-black/30 px-2 py-1">
 			<Activity size={13} class="text-emerald-200" />
 			<span>{$t(`status.${status}`)}</span>
+		</div>
+		<div class={`flex items-center gap-2 rounded border px-2 py-1 ${integrityClass(integrityStatus)}`}>
+			<ShieldAlert size={13} class={integrityStatus === "stable" ? "text-emerald-200" : "text-cyan-50"} />
+			<span>{integrityValue}% / {$t(`caseIntegrity.states.${integrityStatus}`)}</span>
 		</div>
 		<div class="flex items-center gap-2 rounded border border-cyan-300/20 bg-black/30 px-2 py-1">
 			<ShieldAlert size={13} class="text-cyan-100" />

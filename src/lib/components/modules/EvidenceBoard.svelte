@@ -1,12 +1,15 @@
 <script>
-	import { ClipboardList, GitBranch, Lightbulb, LockKeyhole, NotebookText, RadioTower } from "@lucide/svelte";
+	import { ClipboardCheck, ClipboardList, GitBranch, GitCompareArrows, Lightbulb, LockKeyhole, NotebookText, Route, Users } from "@lucide/svelte";
 	import { t } from "$lib/i18n";
-	import ChapterSummary from "$lib/components/modules/ChapterSummary.svelte";
+	import CaseReviewPanel from "$lib/components/modules/CaseReviewPanel.svelte";
 	import ConnectionBoard from "$lib/components/modules/ConnectionBoard.svelte";
+	import ContradictionsPanel from "$lib/components/modules/ContradictionsPanel.svelte";
 	import DeductionsPanel from "$lib/components/modules/DeductionsPanel.svelte";
 	import EvidenceCard from "$lib/components/modules/EvidenceCard.svelte";
 	import EvidenceDetail from "$lib/components/modules/EvidenceDetail.svelte";
 	import InvestigatorNotes from "$lib/components/modules/InvestigatorNotes.svelte";
+	import SuspectsPanel from "$lib/components/modules/SuspectsPanel.svelte";
+	import TimelinePanel from "$lib/components/modules/TimelinePanel.svelte";
 
 	let {
 		evidences = [],
@@ -15,15 +18,41 @@
 		connections = [],
 		notes = [],
 		unlockedDeductions = {},
+		deductionDefinitions = [],
+		timelineEvents = [],
+		totalTimelineEvents = 0,
+		timelinePreferredOrder = [],
+		timelineState = {},
+		contradictionSources = [],
+		contradictions = [],
+		requiredContradictionIds = [],
+		contradictionForSelectedSources = /** @type {(sourceIds: string[]) => Record<string, any> | null} */ (() => null),
+		contradictionSourceForId = /** @type {(sourceId: string) => Record<string, any> | null} */ (() => null),
+		confirmedContradictions = {},
+		suspects = [],
+		suspectAccusation = {},
+		decisionAttempts = {},
+		completedDecisions = {},
+		finalReportDecisionId = /** @type {string} */ ("chapter-1-final-report"),
+		finalReportQuestions = [],
+		finalReportCopyKeyPrefix = "caseReview",
+		activeChapterId = "chapter-1",
 		caseStats = {
 			evidenceDiscovered: 0,
 			evidenceTotal: 0,
 			caseCompletionPercent: 0,
 			chapterProgressPercent: 0
 		},
-		chapterSummaryUnlocked = false,
+		mechanicsEnabled = true,
+		finalReportUnlocked = false,
+		chapter1Resolved = false,
 		onSelectEvidence = () => {},
-		onCreateConnection = () => {}
+		onCreateConnection = () => {},
+		onSetTimelineOrder = () => {},
+		onValidateTimeline = () => {},
+		onSubmitContradiction = () => {},
+		onSubmitAccusation = () => {},
+		onSubmitFinalReport = () => {}
 	} = $props();
 
 	let activeView = $state("files");
@@ -31,15 +60,23 @@
 	const evidenceTitles = $derived(
 		Object.fromEntries(evidences.map((evidence) => [evidence.evidenceId, $t(evidence.titleKey)]))
 	);
-	const baseViews = [
+	const fileView = { id: "files", labelKey: "evidence.views.files", icon: ClipboardList };
+	const mechanicViews = [
 		{ id: "files", labelKey: "evidence.views.files", icon: ClipboardList },
+		{ id: "timeline", labelKey: "evidence.views.timeline", icon: Route },
+		{ id: "contradictions", labelKey: "evidence.views.contradictions", icon: GitCompareArrows },
+		{ id: "suspects", labelKey: "evidence.views.suspects", icon: Users },
 		{ id: "connections", labelKey: "evidence.views.connections", icon: GitBranch },
 		{ id: "notes", labelKey: "evidence.views.notes", icon: NotebookText },
 		{ id: "deductions", labelKey: "evidence.views.deductions", icon: Lightbulb }
 	];
+	const baseViews = $derived(mechanicsEnabled ? mechanicViews : [fileView]);
 	const views = $derived(
-		chapterSummaryUnlocked
-			? [...baseViews, { id: "summary", labelKey: "evidence.views.summary", icon: RadioTower }]
+		mechanicsEnabled && (finalReportUnlocked || chapter1Resolved)
+			? [
+					...baseViews,
+					...(finalReportUnlocked ? [{ id: "review", labelKey: "evidence.views.review", icon: ClipboardCheck }] : [])
+				]
 			: baseViews
 	);
 
@@ -47,6 +84,12 @@
 	function isActiveEvidence(evidence) {
 		return evidence.id === activeEvidenceId;
 	}
+
+	$effect(() => {
+		if (!mechanicsEnabled && activeView !== "files") {
+			activeView = "files";
+		}
+	});
 
 	/** @param {number} value */
 	function boundedPercent(value) {
@@ -109,13 +152,41 @@
 	<div class="min-h-0 flex-1 overflow-y-auto p-4">
 		<div class="grid gap-4">
 			{#if activeView === "connections"}
-				<ConnectionBoard {evidences} {connections} {onCreateConnection} />
+				<ConnectionBoard {evidences} {connections} {deductionDefinitions} {onCreateConnection} />
+			{:else if activeView === "timeline"}
+				<TimelinePanel
+					events={timelineEvents}
+					totalEvents={totalTimelineEvents}
+					preferredOrder={timelinePreferredOrder}
+					{timelineState}
+					{onSetTimelineOrder}
+					{onValidateTimeline}
+				/>
+			{:else if activeView === "contradictions"}
+				<ContradictionsPanel
+					sources={contradictionSources}
+					{contradictions}
+					{requiredContradictionIds}
+					{contradictionForSelectedSources}
+					sourceForId={contradictionSourceForId}
+					{confirmedContradictions}
+					{onSubmitContradiction}
+				/>
+			{:else if activeView === "suspects"}
+				<SuspectsPanel {suspects} accusationState={suspectAccusation} {onSubmitAccusation} />
 			{:else if activeView === "notes"}
-				<InvestigatorNotes {notes} />
+				<InvestigatorNotes {notes} chapterId={activeChapterId} />
 			{:else if activeView === "deductions"}
-				<DeductionsPanel {unlockedDeductions} {evidenceTitles} />
-			{:else if activeView === "summary" && chapterSummaryUnlocked}
-				<ChapterSummary />
+				<DeductionsPanel {unlockedDeductions} {evidenceTitles} {deductionDefinitions} />
+			{:else if activeView === "review" && finalReportUnlocked}
+				<CaseReviewPanel
+					{decisionAttempts}
+					{completedDecisions}
+					decisionId={finalReportDecisionId}
+					questions={finalReportQuestions}
+					copyKeyPrefix={finalReportCopyKeyPrefix}
+					{onSubmitFinalReport}
+				/>
 			{:else if evidences.length}
 				<div class="grid gap-4 2xl:grid-cols-[360px_minmax(0,1fr)]">
 					<div class="grid content-start gap-3">

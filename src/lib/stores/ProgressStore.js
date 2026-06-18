@@ -29,7 +29,7 @@ export function resetProgress() {
 	progress.set(createDefaultProgress());
 }
 
-/** @param {{ id: string, title: string, category: string, important: boolean, evidenceTags: string[] }} item */
+/** @param {{ id: string, title: string, category: string, important: boolean, evidenceTags: string[], chapterId?: string }} item */
 export function markItemRead(item) {
 	progress.update((state) => {
 		const existing = state.items[item.id];
@@ -87,9 +87,10 @@ export function hasReadEvidenceTag(state, tag) {
 /**
  * @param {Record<string, any>} state
  * @param {string} category
+ * @param {string | null} chapterId
  */
-export function countReadImportantByCategory(state, category) {
-	return readItems(state).filter((item) => item.category === category && item.important).length;
+export function countReadImportantByCategory(state, category, chapterId = null) {
+	return readItems(state).filter((item) => item.category === category && item.important && itemMatchesChapter(item, chapterId)).length;
 }
 
 function loadProgress() {
@@ -131,6 +132,15 @@ export function isFileUnlocked(state, fileId) {
 /** @param {string[]} tags */
 function tagsRecord(tags = []) {
 	return Object.fromEntries(tags.map((tag) => [tag, true]));
+}
+
+/**
+ * @param {Record<string, any>} item
+ * @param {string | null} chapterId
+ */
+function itemMatchesChapter(item, chapterId) {
+	if (!chapterId) return true;
+	return (item.chapterId ?? "chapter-1") === chapterId;
 }
 
 /** @param {Record<string, any>} state */

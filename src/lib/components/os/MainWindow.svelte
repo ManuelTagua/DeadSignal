@@ -18,12 +18,42 @@
 		connections = [],
 		notes = [],
 		unlockedDeductions = {},
+		deductionDefinitions = [],
+		timelineEvents = [],
+		totalTimelineEvents = 0,
+		timelinePreferredOrder = [],
+		timelineState = {},
+		contradictionSources = [],
+		contradictions = [],
+		requiredContradictionIds = [],
+		contradictionForSelectedSources = () => null,
+		contradictionSourceForId = () => null,
+		confirmedContradictions = {},
+		suspects = [],
+		suspectAccusation = {},
+		decisionAttempts = {},
+		completedDecisions = {},
+		finalReportDecisionId = "chapter-1-final-report",
+		finalReportQuestions = [],
+		finalReportCopyKeyPrefix = "caseReview",
+		activeChapterId = "chapter-1",
 		caseStats = {},
-		chapterSummaryUnlocked = false,
+		mechanicsEnabled = true,
+		finalReportUnlocked = false,
+		chapter1Resolved = false,
 		recoveryState = {},
 		terminalEvidences = [],
+		terminalTimelineEvents = [],
+		terminalContradictions = [],
+		terminalSuspects = [],
+		terminalSearchItems = [],
+		terminalHiddenCommands = {},
 		onSelectEvidence = () => {},
 		onCreateConnection = () => {},
+		onSetTimelineOrder = () => {},
+		onValidateTimeline = () => {},
+		onSubmitContradiction = () => {},
+		onSubmitAccusation = () => {},
 		onRecoveryScan = () => {},
 		onRecoveryRepair = () => {},
 		onRecoveryDeepRecovery = () => {},
@@ -33,8 +63,11 @@
 		onTerminalScan = () => false,
 		onTerminalRecover = () => ({}),
 		onTerminalRepair = () => ({}),
+		onTerminalTrace = () => ({}),
+		onTerminalDecrypt = () => ({}),
 		recoveryFragments = [],
-		onTerminalCommand = () => {}
+		onTerminalCommand = () => {},
+		onSubmitFinalReport = () => {}
 	} = $props();
 
 	const windowSubtitleKey = $derived(`mainWindow.subtitles.${selectedModule}`);
@@ -75,19 +108,52 @@
 				{connections}
 				{notes}
 				{unlockedDeductions}
+				{deductionDefinitions}
+				{timelineEvents}
+				{totalTimelineEvents}
+				{timelinePreferredOrder}
+				{timelineState}
+				{contradictionSources}
+				{contradictions}
+				{requiredContradictionIds}
+				{contradictionForSelectedSources}
+				{contradictionSourceForId}
+				{confirmedContradictions}
+				{suspects}
+				{suspectAccusation}
+				{decisionAttempts}
+				{completedDecisions}
+				{finalReportDecisionId}
+				{finalReportQuestions}
+				{finalReportCopyKeyPrefix}
+				{activeChapterId}
 				{caseStats}
-				{chapterSummaryUnlocked}
+				{mechanicsEnabled}
+				{finalReportUnlocked}
+				{chapter1Resolved}
 				{onSelectEvidence}
 				{onCreateConnection}
+				{onSetTimelineOrder}
+				{onValidateTimeline}
+				{onSubmitContradiction}
+				{onSubmitAccusation}
+				{onSubmitFinalReport}
 			/>
 		{:else if selectedModule === "Terminal"}
 			<Terminal
 				evidences={terminalEvidences}
+				timelineEvents={terminalTimelineEvents}
+				confirmedContradictions={terminalContradictions}
+				suspects={terminalSuspects}
+				searchItems={terminalSearchItems}
+				hiddenCommands={terminalHiddenCommands}
 				{recoveryFragments}
 				onUnlock={onTerminalUnlock}
 				onScan={onTerminalScan}
 				onRecover={onTerminalRecover}
 				onRepair={onTerminalRepair}
+				onTrace={onTerminalTrace}
+				onDecrypt={onTerminalDecrypt}
 				onCommand={onTerminalCommand}
 			/>
 		{:else}

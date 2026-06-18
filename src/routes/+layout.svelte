@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { initLanguage } from '$lib/i18n';
+	import { initChapter } from '$lib/stores/ChapterStore';
 	import { initInvestigation } from '$lib/stores/InvestigationStore';
 	import { initProgress } from '$lib/stores/ProgressStore';
 	import { initRecovery } from '$lib/stores/RecoveryStore';
@@ -11,6 +12,7 @@
 
 	onMount(() => {
 		initLanguage();
+		initChapter();
 		initInvestigation();
 		initProgress();
 		initRecovery();

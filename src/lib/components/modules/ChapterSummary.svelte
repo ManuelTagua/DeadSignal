@@ -11,6 +11,9 @@
 		<div class="min-w-0">
 			<p class="text-[10px] uppercase tracking-[0.2em] text-emerald-100/75">{$t("chapterSummary.eyebrow")}</p>
 			<h3 class="mt-1 text-lg font-semibold text-white">{$t("chapterSummary.title")}</h3>
+			<p class="mt-2 inline-flex rounded border border-emerald-300/25 bg-emerald-300/10 px-2 py-1 text-[10px] uppercase tracking-[0.16em] text-emerald-50">
+				{$t("chapterSummary.status")}
+			</p>
 			<div class="mt-3 grid gap-2 text-sm leading-6 text-white/70 sm:grid-cols-2">
 				{#each ["communication", "unauthorized", "serverRoom", "deliberate", "internal"] as item}
 					<div class="rounded border border-white/10 bg-black/25 px-3 py-2">

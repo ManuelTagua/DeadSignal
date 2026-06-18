@@ -4,7 +4,7 @@
 	import { t } from "$lib/i18n";
 	import { formatTimestamp } from "$lib/utils/format";
 
-	let { notes = [] } = $props();
+	let { notes = [], chapterId = "chapter-1" } = $props();
 
 	let draftBody = $state("");
 	let draftTags = $state("");
@@ -21,11 +21,11 @@
 		};
 
 		if (isEditing && editingNoteId) {
-			if (updateNote(editingNoteId, payload)) resetDraft();
+			if (updateNote(editingNoteId, payload, chapterId)) resetDraft();
 			return;
 		}
 
-		if (createNote(payload)) resetDraft();
+		if (createNote(payload, chapterId)) resetDraft();
 	}
 
 	/** @param {Record<string, any>} note */
@@ -37,7 +37,7 @@
 
 	/** @param {string} noteId */
 	function removeNote(noteId) {
-		deleteNote(noteId);
+		deleteNote(noteId, chapterId);
 		if (editingNoteId === noteId) resetDraft();
 	}
 
