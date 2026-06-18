@@ -2,7 +2,7 @@
 	import { onMount } from "svelte";
 	import { ClipboardCheck, DatabaseZap, Fingerprint, GitBranch, GitCompareArrows, KeyRound, Lightbulb, RadioReceiver, Route, Users, Wrench } from "@lucide/svelte";
 	import { FOLDERS } from "$lib/config/folders";
-	import { CHAPTERS, CHAPTER_1_ID, CHAPTER_2_ID, caseFileForChapter, casePathSlug, chapterIsUnlocked } from "$lib/game/chapters";
+	import { CHAPTERS, CHAPTER_1_ID, CHAPTER_2_ID, CHAPTER_3_ID, caseFileForChapter, casePathSlug, chapterIsUnlocked } from "$lib/game/chapters";
 	import {
 		contradictionForSources,
 		contradictionSourceDefinitionsForChapter,
@@ -57,6 +57,7 @@
 	} from "$lib/game/caseReview";
 	import AccessModal from "$lib/components/modules/AccessModal.svelte";
 	import ChapterSummaryModal from "$lib/components/modules/ChapterSummaryModal.svelte";
+	import FinalGameSummary from "$lib/components/modules/FinalGameSummary.svelte";
 	import CaseFailureModal from "$lib/components/os/CaseFailureModal.svelte";
 	import ChapterSwitcher from "$lib/components/os/ChapterSwitcher.svelte";
 	import FileExplorer from "$lib/components/os/FileExplorer.svelte";
@@ -120,6 +121,7 @@
 	const caseFile = $derived(caseFileForChapter(baseCaseFile, $activeChapterId));
 	const activeChapterIsHelix = $derived($activeChapterId === CHAPTER_1_ID);
 	const activeChapterIsMirror = $derived($activeChapterId === CHAPTER_2_ID);
+	const activeChapterIsReflection = $derived($activeChapterId === CHAPTER_3_ID);
 	let selectedModule = $state("Documents");
 	/** @type {string | null} */
 	let selectedItemId = $state(null);
@@ -136,18 +138,20 @@
 	let helpOpen = $state(false);
 	let chapterSummaryOpen = $state(false);
 	let chapterSummaryKey = $state("chapterSummary");
+	let finalArchiveOpen = $state(false);
 
 	const activeInvestigation = $derived(investigationForChapter($investigation, $activeChapterId));
 	const helixInvestigation = $derived(investigationForChapter($investigation, CHAPTER_1_ID));
 	const mirrorInvestigation = $derived(investigationForChapter($investigation, CHAPTER_2_ID));
+	const reflectionInvestigation = $derived(investigationForChapter($investigation, CHAPTER_3_ID));
 	const chapterEvidenceDefinitions = $derived(evidenceDefinitionsForChapter($activeChapterId));
 	const evidenceItems = $derived(unlockedEvidence($progress, $activeChapterId));
 	const importantLogsRead = $derived(countReadImportantByCategory($progress, "System", $activeChapterId));
 	const duplicateCredentialUnlocked = $derived(evidenceItems.some(hasDuplicateCredentialEvidence));
 	const duplicateCredentialTraced = $derived(Boolean(helixInvestigation.milestones?.["duplicate-credential-traced"]));
-	const eastArchiveCompleted = $derived(hasReadEvidenceTag($progress, "east-archive-breach"));
+	const eastArchiveCompleted = $derived(hasReadEvidenceTag($progress, "east-archive-breach", CHAPTER_1_ID));
 	const encryptedFragmentUnlocked = $derived(isFileUnlocked($progress, PASSWORD_FRAGMENT_ID));
-	const encryptedFragmentHintUnlocked = $derived(hasReadEvidenceTag($progress, "server-room-knock-pattern"));
+	const encryptedFragmentHintUnlocked = $derived(hasReadEvidenceTag($progress, "server-room-knock-pattern", CHAPTER_1_ID));
 	const timelineEventDefinitions = $derived(timelineEventsForChapter($activeChapterId));
 	const totalTimelineEvents = $derived(timelineEventDefinitions.length);
 	const timelinePreferredOrder = $derived(initialTimelineOrderForChapter($activeChapterId));
@@ -165,7 +169,9 @@
 	const finalReportDecisionId = $derived(finalReportDecisionIdForChapter($activeChapterId));
 	const finalReportDecision = $derived(finalReportDecisionForChapter($activeChapterId));
 	const finalReportQuestions = $derived(finalReportQuestionsForChapter($activeChapterId));
-	const finalReportCopyKeyPrefix = $derived(activeChapterIsMirror ? "caseReviewMirror" : "caseReview");
+	const finalReportCopyKeyPrefix = $derived(
+		activeChapterIsReflection ? "caseReviewReflection" : activeChapterIsMirror ? "caseReviewMirror" : "caseReview"
+	);
 	const verifiedConnectionCount = $derived(countCorrectConnections(activeInvestigation.connections, $activeChapterId));
 	const requiredVerifiedConnectionCount = $derived(countRequiredChapterConnections(activeInvestigation.connections, $activeChapterId));
 	const requiredDeductionsCount = $derived(countRequiredDeductions(activeInvestigation.unlockedDeductions));
@@ -189,7 +195,15 @@
 	const chapter2Resolved = $derived(
 		Boolean(mirrorInvestigation.completedDecisions?.["chapter-2-final-report"] || mirrorInvestigation.milestones?.["chapter-2-completed"])
 	);
-	const activeChapterResolved = $derived(activeChapterIsMirror ? chapter2Resolved : chapter1Resolved);
+	const chapter3Resolved = $derived(
+		Boolean(
+			reflectionInvestigation.completedDecisions?.["chapter-3-final-report"] ||
+				reflectionInvestigation.milestones?.["chapter-3-completed"]
+		)
+	);
+	const activeChapterResolved = $derived(
+		activeChapterIsReflection ? chapter3Resolved : activeChapterIsMirror ? chapter2Resolved : chapter1Resolved
+	);
 	const finalReportUnlocked = $derived(activeChapterResolved || finalReportCriteria.every(Boolean));
 	const chapterProgressCriteria = $derived([...finalReportCriteria, activeChapterResolved]);
 	const chapterProgressPercent = $derived(
@@ -259,8 +273,8 @@
 	const terminalSuspects = $derived(suspects.filter((suspect) => suspect.discovered));
 	const terminalSearchItems = $derived(buildTerminalSearchItems());
 	const terminalHiddenCommands = $derived({
-		traceCredential: activeChapterIsHelix && hasReadEvidenceTag($progress, "terminal-trace-credential"),
-		decryptFragment: activeChapterIsHelix && hasReadEvidenceTag($progress, "terminal-decrypt-fragment")
+		traceCredential: activeChapterIsHelix && hasReadEvidenceTag($progress, "terminal-trace-credential", CHAPTER_1_ID),
+		decryptFragment: activeChapterIsHelix && hasReadEvidenceTag($progress, "terminal-decrypt-fragment", CHAPTER_1_ID)
 	});
 	const activeConnections = $derived(activeInvestigation.connections);
 	const activeNotes = $derived(activeInvestigation.notes);
@@ -309,7 +323,7 @@
 		fragment: encryptedFragmentUnlocked ? $t("objectives.meta.confirmed") : $t("objectives.meta.pending")
 	});
 
-	const objectives = $derived(activeChapterIsMirror ? mirrorObjectives() : [
+	const objectives = $derived(activeChapterIsReflection ? reflectionObjectives() : activeChapterIsMirror ? mirrorObjectives() : [
 		{
 			id: "blackout-timeline",
 			labelKey: "objectives.blackout.label",
@@ -485,7 +499,7 @@
 	$effect(() => {
 		if (!activeItem || selectedModule === "EvidenceBoard") return;
 		if (activeItem.locked) return;
-		if (activeItem.read) return;
+		if (activeItem.read && itemEvidenceTagsAreDiscovered(activeItem)) return;
 
 		if (selectedModule === "RecoveryLab") {
 			markActiveItemRead();
@@ -555,9 +569,11 @@
 						? "recover-maintenance-records"
 						: deduction.id === "archive-route-access"
 							? "connect-related-evidence"
-							: activeChapterIsMirror
-								? "mirror-connect-evidence"
-								: "identify-internal-involvement";
+							: activeChapterIsReflection
+								? "reflection-connections"
+								: activeChapterIsMirror
+									? "mirror-connect-evidence"
+									: "identify-internal-involvement";
 			setTransient("objective", objectiveId);
 			pushNotification({
 				type: "objective",
@@ -576,20 +592,32 @@
 
 	$effect(() => {
 		if (!finalReportUnlocked || activeChapterResolved) return;
-		const milestoneId = activeChapterIsMirror ? "chapter-2-final-report-unlocked" : "chapter-1-final-report-unlocked";
+		const milestoneId = activeChapterIsReflection
+			? "chapter-3-final-report-unlocked"
+			: activeChapterIsMirror
+				? "chapter-2-final-report-unlocked"
+				: "chapter-1-final-report-unlocked";
 		if (!markMilestone(milestoneId, $activeChapterId)) return;
 
-		setTransient("objective", activeChapterIsMirror ? "mirror-final-report" : "present-final-report");
+		setTransient("objective", finalReportObjectiveId());
 		pushNotification({
 			type: "objective",
 			titleKey: "notifications.finalReportUnlocked.title",
-			messageKey: activeChapterIsMirror ? "notifications.finalReportUnlocked.mirrorMessage" : "notifications.finalReportUnlocked.message"
+			messageKey: activeChapterIsReflection
+				? "notifications.finalReportUnlocked.reflectionMessage"
+				: activeChapterIsMirror
+					? "notifications.finalReportUnlocked.mirrorMessage"
+					: "notifications.finalReportUnlocked.message"
 		});
 		addSessionLog({
 			level: "WARN",
 			source: "deduction-engine",
-			code: "CH-101",
-			messageKey: activeChapterIsMirror ? "logs.messages.CH2-101" : "logs.messages.CH-101"
+			code: activeChapterIsReflection ? "CH3-101" : activeChapterIsMirror ? "CH2-101" : "CH-101",
+			messageKey: activeChapterIsReflection
+				? "logs.messages.CH3-101"
+				: activeChapterIsMirror
+					? "logs.messages.CH2-101"
+					: "logs.messages.CH-101"
 		});
 	});
 
@@ -788,6 +816,7 @@
 	}
 
 	function calculateCaseCompletion() {
+		if (activeChapterIsReflection) return calculateReflectionProgress();
 		if (activeChapterIsMirror) return calculateMirrorProgress();
 
 		const checkpoints = [
@@ -810,6 +839,21 @@
 
 	function calculateMirrorProgress() {
 		if (chapter2Resolved) return 100;
+
+		const checkpoints = [
+			timelineCompleted ? 1 : 0,
+			suspectAccusationAccepted ? 1 : 0,
+			Math.min(confirmedContradictionCount / requiredContradictionIds.length, 1),
+			Math.min(requiredVerifiedConnectionCount / requiredConnectionIds.length, 1),
+			Math.min(requiredDeductionsCount / requiredDeductionIds.length, 1),
+			finalReportUnlocked ? 1 : 0
+		];
+
+		return (checkpoints.reduce((total, value) => total + value, 0) / checkpoints.length) * 100;
+	}
+
+	function calculateReflectionProgress() {
+		if (chapter3Resolved) return 100;
 
 		const checkpoints = [
 			timelineCompleted ? 1 : 0,
@@ -893,6 +937,84 @@
 				metaParams: finalReportMeta,
 				icon: ClipboardCheck,
 				state: chapter2Resolved
+					? "completed"
+					: finalReportUnlocked && selectedModule === "EvidenceBoard"
+						? "active"
+						: finalReportUnlocked
+							? "open"
+							: "locked"
+			}
+		];
+	}
+
+	function reflectionObjectives() {
+		return [
+			{
+				id: "reflection-timeline",
+				labelKey: "objectives.reflectionTimeline.label",
+				metaKey: "objectives.reflectionTimeline.meta",
+				metaParams: {
+					count: timelineEvents.filter((event) => event.unlocked).length,
+					required: totalTimelineEvents
+				},
+				icon: Route,
+				state: timelineCompleted
+					? "completed"
+					: selectedModule === "EvidenceBoard" && timelineEvents.some((event) => event.unlocked)
+						? "active"
+						: "open"
+			},
+			{
+				id: "reflection-contradictions",
+				labelKey: "objectives.reflectionContradictions.label",
+				metaKey: "objectives.reflectionContradictions.meta",
+				metaParams: { count: confirmedContradictionCount, required: requiredContradictionIds.length },
+				icon: GitCompareArrows,
+				state:
+					confirmedContradictionCount >= requiredContradictionIds.length
+						? "completed"
+						: selectedModule === "EvidenceBoard" && contradictionSources.length >= 2
+							? "active"
+							: contradictionSources.length >= 2
+								? "open"
+								: "locked"
+			},
+			{
+				id: "reflection-connections",
+				labelKey: "objectives.reflectionConnections.label",
+				metaKey: "objectives.reflectionConnections.meta",
+				metaParams: { count: requiredVerifiedConnectionCount, required: requiredConnectionIds.length },
+				icon: GitBranch,
+				state:
+					requiredVerifiedConnectionCount >= requiredConnectionIds.length
+						? "completed"
+						: evidenceItems.length >= 2 && selectedModule === "EvidenceBoard"
+							? "active"
+							: evidenceItems.length >= 2
+								? "open"
+								: "locked"
+			},
+			{
+				id: "reflection-suspect",
+				labelKey: "objectives.reflectionSuspect.label",
+				metaKey: "objectives.reflectionSuspect.meta",
+				metaParams: { count: suspectAccusationAccepted ? 1 : 0, required: 1 },
+				icon: Users,
+				state: suspectAccusationAccepted
+					? "completed"
+					: suspects.some((suspect) => suspect.discovered) && selectedModule === "EvidenceBoard"
+						? "active"
+						: suspects.some((suspect) => suspect.discovered)
+							? "open"
+							: "locked"
+			},
+			{
+				id: "reflection-final-report",
+				labelKey: "objectives.reflectionFinalReport.label",
+				metaKey: "objectives.reflectionFinalReport.meta",
+				metaParams: finalReportMeta,
+				icon: ClipboardCheck,
+				state: chapter3Resolved
 					? "completed"
 					: finalReportUnlocked && selectedModule === "EvidenceBoard"
 						? "active"
@@ -1018,6 +1140,7 @@
 	 * @param {Record<string, any>} item
 	 */
 	function sourceMatchesItem(source, item) {
+		if (source.match?.subject && item.subject === source.match.subject) return true;
 		if (source.match?.title && item.title === source.match.title) return true;
 		if (source.match?.code && item.code === source.match.code) return true;
 		if (source.match?.evidenceId && item.evidenceId === source.match.evidenceId) return true;
@@ -1046,7 +1169,17 @@
 
 	/** @param {Record<string, any>} evidence */
 	function isNewEvidenceDefinition(evidence) {
-		return !hasReadEvidenceTag($progress, evidence.unlockTag);
+		return !hasReadEvidenceTag($progress, evidence.unlockTag, $activeChapterId);
+	}
+
+	/** @param {Record<string, any>} item */
+	function itemEvidenceTagsAreDiscovered(item) {
+		const unlockTags = item.evidenceTags
+			.map(evidenceDefinitionForTag)
+			.filter(Boolean)
+			.map(/** @param {Record<string, any>} evidence */ (evidence) => evidence.unlockTag);
+
+		return unlockTags.length === 0 || unlockTags.every(/** @param {string} tag */ (tag) => hasReadEvidenceTag($progress, tag, $activeChapterId));
 	}
 
 	/**
@@ -1157,7 +1290,7 @@
 
 	/** @param {Record<string, any>} item */
 	function isVirtualDocumentUnlocked(item) {
-		if (item.unlockTag) return hasReadEvidenceTag($progress, item.unlockTag);
+		if (item.unlockTag) return hasReadEvidenceTag($progress, item.unlockTag, CHAPTER_1_ID);
 		if (item.unlockAfterImportantLogs) return importantLogsRead >= item.unlockAfterImportantLogs;
 		return true;
 	}
@@ -1198,7 +1331,7 @@
 	 */
 	function enrichItem(item, moduleId) {
 		const record = progressRecordFor(item, moduleId);
-		const stored = $progress.items[record.id];
+		const stored = storedProgressFor(record);
 
 		return {
 			...item,
@@ -1207,7 +1340,7 @@
 			contentCategory: item.category,
 			locked: Boolean(item.locked),
 			passwordProtected: Boolean(item.passwordProtected),
-			read: Boolean(stored?.read)
+			read: Boolean(stored?.read && storedProgressMatchesActiveChapter(stored))
 		};
 	}
 
@@ -1217,14 +1350,33 @@
 	 */
 	function progressRecordFor(item, moduleId) {
 		const itemKey = item.virtualId ?? item.id;
+		const legacyId = `${moduleId}:${moduleId === "Chats" ? (item.channel ?? itemKey) : itemKey}`;
 
 		return {
-			id: `${moduleId}:${moduleId === "Chats" ? (item.channel ?? itemKey) : itemKey}`,
+			id: chapterScopedProgressId(legacyId),
+			legacyId,
+			chapterId: $activeChapterId,
 			title: titleForItem(item, moduleId),
 			category: moduleId,
 			important: importantForItem(item, moduleId),
 			evidenceTags: evidenceTagsForItem(item, moduleId)
 		};
+	}
+
+	/** @param {string} legacyId */
+	function chapterScopedProgressId(legacyId) {
+		if ($activeChapterId === CHAPTER_1_ID) return legacyId;
+		return `${$activeChapterId}:${legacyId}`;
+	}
+
+	/** @param {Record<string, any>} record */
+	function storedProgressFor(record) {
+		return $progress.items[record.id] ?? (record.legacyId ? $progress.items[record.legacyId] : null);
+	}
+
+	/** @param {Record<string, any> | null | undefined} item */
+	function storedProgressMatchesActiveChapter(item) {
+		return (item?.chapterId ?? CHAPTER_1_ID) === $activeChapterId;
 	}
 
 	/**
@@ -1414,6 +1566,7 @@
 		hiddenRelayRecovered = false;
 		chapterSummaryOpen = false;
 		chapterSummaryKey = "chapterSummary";
+		finalArchiveOpen = false;
 		localStorage.setItem(HELP_SEEN_KEY, "true");
 	}
 
@@ -1465,7 +1618,7 @@
 		const result = completeTimeline(activeTimelineDeductionId, $activeChapterId);
 		if (!result.created) return { ...result, order: cleanOrder };
 
-		setTransient("objective", activeChapterIsMirror ? "mirror-timeline" : "blackout-timeline");
+		setTransient("objective", activeChapterIsReflection ? "reflection-timeline" : activeChapterIsMirror ? "mirror-timeline" : "blackout-timeline");
 		pushNotification({
 			type: "objective",
 			titleKey: "notifications.timelineConfirmed.title",
@@ -1479,8 +1632,12 @@
 		addSessionLog({
 			level: "INFO",
 			source: "timeline-engine",
-			code: "TIME-200",
-			messageKey: activeChapterIsMirror ? "logs.messages.TIME-MIRROR-200" : "logs.messages.TIME-200"
+			code: activeChapterIsReflection ? "TIME-REFLECTION-200" : "TIME-200",
+			messageKey: activeChapterIsReflection
+				? "logs.messages.TIME-REFLECTION-200"
+				: activeChapterIsMirror
+					? "logs.messages.TIME-MIRROR-200"
+					: "logs.messages.TIME-200"
 		});
 		addSessionLog({
 			level: "INFO",
@@ -1561,7 +1718,10 @@
 			messageKey: "logs.messages.DED-210"
 		});
 
-		setTransient("objective", activeChapterIsMirror ? "mirror-contradictions" : "detect-case-contradictions");
+		setTransient(
+			"objective",
+			activeChapterIsReflection ? "reflection-contradictions" : activeChapterIsMirror ? "mirror-contradictions" : "detect-case-contradictions"
+		);
 
 		if (nextContradictionCount >= requiredContradictionIds.length) {
 			pushNotification({
@@ -1629,7 +1789,7 @@
 
 		if (!result.created) return { ...result, hintKey: validation.hintKey };
 
-		setTransient("objective", activeChapterIsMirror ? "mirror-identify-suspect" : "identify-internal-involvement");
+		setTransient("objective", activeChapterIsReflection ? "reflection-suspect" : activeChapterIsMirror ? "mirror-identify-suspect" : "identify-internal-involvement");
 		pushNotification({
 			type: "objective",
 			titleKey: "notifications.suspectAccepted.title",
@@ -1643,8 +1803,12 @@
 		addSessionLog({
 			level: "INFO",
 			source: "suspect-board",
-			code: "SUS-200",
-			messageKey: activeChapterIsMirror ? "logs.messages.SUS-MIRROR-200" : "logs.messages.SUS-200"
+			code: activeChapterIsReflection ? "SUS-REFLECTION-200" : "SUS-200",
+			messageKey: activeChapterIsReflection
+				? "logs.messages.SUS-REFLECTION-200"
+				: activeChapterIsMirror
+					? "logs.messages.SUS-MIRROR-200"
+					: "logs.messages.SUS-200"
 		});
 		addSessionLog({
 			level: "INFO",
@@ -1662,7 +1826,11 @@
 			pushNotification({
 				type: "warning",
 				titleKey: "notifications.finalReportLocked.title",
-				messageKey: activeChapterIsMirror ? "notifications.finalReportLocked.mirrorMessage" : "notifications.finalReportLocked.message"
+				messageKey: activeChapterIsReflection
+					? "notifications.finalReportLocked.reflectionMessage"
+					: activeChapterIsMirror
+						? "notifications.finalReportLocked.mirrorMessage"
+						: "notifications.finalReportLocked.message"
 			});
 
 			return { accepted: false, blocked: true, reason: "final-report-locked" };
@@ -1681,15 +1849,34 @@
 			const result = recordDecisionSuccess(finalReportDecisionId, $activeChapterId);
 
 			if (result.created) {
-				const milestoneId = activeChapterIsMirror ? "chapter-2-completed" : "chapter-1-completed";
+				const milestoneId = activeChapterIsReflection
+					? "chapter-3-completed"
+					: activeChapterIsMirror
+						? "chapter-2-completed"
+						: "chapter-1-completed";
 				markMilestone(milestoneId, $activeChapterId);
-				chapterSummaryKey = activeChapterIsMirror ? "chapterSummaryMirror" : "chapterSummary";
-				chapterSummaryOpen = true;
-				setTransient("objective", activeChapterIsMirror ? "mirror-final-report" : "present-final-report");
+
+				if (activeChapterIsReflection) {
+					chapterSummaryOpen = false;
+					finalArchiveOpen = true;
+				} else {
+					chapterSummaryKey = activeChapterIsMirror ? "chapterSummaryMirror" : "chapterSummary";
+					chapterSummaryOpen = true;
+				}
+
+				setTransient("objective", finalReportObjectiveId());
 				pushNotification({
 					type: "objective",
-					titleKey: activeChapterIsMirror ? "notifications.chapter2Resolved.title" : "notifications.chapterResolved.title",
-					messageKey: activeChapterIsMirror ? "notifications.chapter2Resolved.message" : "notifications.chapterResolved.message"
+					titleKey: activeChapterIsReflection
+						? "notifications.finalGameResolved.title"
+						: activeChapterIsMirror
+							? "notifications.chapter2Resolved.title"
+							: "notifications.chapterResolved.title",
+					messageKey: activeChapterIsReflection
+						? "notifications.finalGameResolved.message"
+						: activeChapterIsMirror
+							? "notifications.chapter2Resolved.message"
+							: "notifications.chapterResolved.message"
 				});
 				pushNotification({
 					type: "objective",
@@ -1699,8 +1886,12 @@
 				addSessionLog({
 					level: "INFO",
 					source: "case-review",
-					code: activeChapterIsMirror ? "CH2-200" : "CH-200",
-					messageKey: activeChapterIsMirror ? "logs.messages.CH2-200" : "logs.messages.CH-200"
+					code: activeChapterIsReflection ? "CH3-200" : activeChapterIsMirror ? "CH2-200" : "CH-200",
+					messageKey: activeChapterIsReflection
+						? "logs.messages.CH3-200"
+						: activeChapterIsMirror
+							? "logs.messages.CH2-200"
+							: "logs.messages.CH-200"
 				});
 			}
 
@@ -1791,9 +1982,9 @@
 
 		if (
 			verifiedConnectionCount + 1 >= requiredConnectionIds.length &&
-			markMilestone(activeChapterIsMirror ? "mirror-connect-evidence" : "connect-related-evidence", $activeChapterId)
+			markMilestone(activeChapterIsReflection ? "reflection-connections" : activeChapterIsMirror ? "mirror-connect-evidence" : "connect-related-evidence", $activeChapterId)
 		) {
-			setTransient("objective", activeChapterIsMirror ? "mirror-connect-evidence" : "connect-related-evidence");
+			setTransient("objective", activeChapterIsReflection ? "reflection-connections" : activeChapterIsMirror ? "mirror-connect-evidence" : "connect-related-evidence");
 			pushNotification({
 				type: "objective",
 				titleKey: "notifications.objectiveCompleted.title",
@@ -1833,7 +2024,7 @@
 		if (result.status === "fragment-recovered") {
 			const fragment = recoveryFragmentFor(result.fragmentId);
 			if (fragment) {
-				markEvidenceTagsDiscovered(fragment.evidenceTags);
+				markEvidenceTagsDiscovered(fragment.evidenceTags, CHAPTER_1_ID);
 				setTransient("evidence", "EvidenceBoard:recovered-fragment-set");
 				setTransient("objective", "recover-maintenance-records");
 				pushNotification({
@@ -1854,7 +2045,7 @@
 			const document = reconstructedRecoveryDocuments({
 				reconstructedDocuments: { [MAINTENANCE_REPORT_ID]: true }
 			})[0];
-			markEvidenceTagsDiscovered(document?.evidenceTags ?? ["power-relay-maintenance-report"]);
+			markEvidenceTagsDiscovered(document?.evidenceTags ?? ["power-relay-maintenance-report"], CHAPTER_1_ID);
 			setTransient("item", `Documents:${MAINTENANCE_REPORT_ID}`);
 			setTransient("evidence", "EvidenceBoard:power-relay-maintenance-report");
 			setTransient("objective", "recover-maintenance-records");
@@ -1927,7 +2118,7 @@
 			};
 		}
 
-		markEvidenceTagsDiscovered(["duplicate-credential", "terminal-trace-credential"]);
+		markEvidenceTagsDiscovered(["duplicate-credential", "terminal-trace-credential"], CHAPTER_1_ID);
 		markMilestone("duplicate-credential-traced");
 		setTransient("objective", "duplicate-credential");
 		setTransient("evidence", "EvidenceBoard:duplicate-credential");
@@ -1976,7 +2167,7 @@
 			};
 		}
 
-		markEvidenceTagsDiscovered(["terminal-decrypt-fragment"]);
+		markEvidenceTagsDiscovered(["terminal-decrypt-fragment"], CHAPTER_1_ID);
 
 		return {
 			key: "terminal.hidden.decryptAccepted",
@@ -2017,6 +2208,22 @@
 			code: "SCAN-778"
 		});
 		return true;
+	}
+
+	function finalReportObjectiveId() {
+		if (activeChapterIsReflection) return "reflection-final-report";
+		if (activeChapterIsMirror) return "mirror-final-report";
+		return "present-final-report";
+	}
+
+	function backToMainMenu() {
+		finalArchiveOpen = false;
+		chapterSummaryOpen = false;
+		setActiveChapter(CHAPTER_1_ID);
+		selectedModule = "Documents";
+		selectedItemId = null;
+		accessItem = null;
+		accessError = false;
 	}
 
 	/** @param {string} tag */
@@ -2131,7 +2338,7 @@
 					{finalReportCopyKeyPrefix}
 					activeChapterId={$activeChapterId}
 					{caseStats}
-					mechanicsEnabled={activeChapterIsHelix || activeChapterIsMirror}
+					mechanicsEnabled={activeChapterIsHelix || activeChapterIsMirror || activeChapterIsReflection}
 					{finalReportUnlocked}
 					chapter1Resolved={activeChapterResolved}
 					recoveryState={$recovery}
@@ -2172,6 +2379,12 @@
 			summaryKey={chapterSummaryKey}
 			caseIntegrityPercent={caseIntegrity.value}
 			onClose={closeChapterSummary}
+		/>
+		<FinalGameSummary
+			open={finalArchiveOpen || (activeChapterIsReflection && chapter3Resolved)}
+			caseIntegrityPercent={caseIntegrity.value}
+			onNewInvestigation={resetInvestigationState}
+			onBackToMenu={backToMainMenu}
 		/>
 		<AccessModal item={accessItem} error={accessError} onSubmit={attemptUnlock} onCancel={closeAccessGate} />
 		<HelpModal open={helpOpen} onClose={closeHelp} onReset={resetInvestigationState} />

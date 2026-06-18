@@ -1,6 +1,7 @@
 import { HELIX_INCIDENT_SOLUTION } from "$lib/cases/helixIncidentSolution";
 import { MIRROR_PROJECT_SOLUTION } from "$lib/cases/mirrorProjectSolution";
-import { CHAPTER_1_ID, CHAPTER_2_ID } from "$lib/game/chapters";
+import { REFLECTION_CORE_SOLUTION } from "$lib/cases/reflectionCoreSolution";
+import { CHAPTER_1_ID, CHAPTER_2_ID, CHAPTER_3_ID } from "$lib/game/chapters";
 
 /** @type {Record<string, string>} */
 const CONNECTION_REASON_KEYS = {
@@ -12,11 +13,18 @@ const CONNECTION_REASON_KEYS = {
 	"audit-hold-purge-link": "connections.reasons.auditHoldPurge",
 	"r7-export-link": "connections.reasons.r7Export",
 	"mvoss-token-purge-link": "connections.reasons.mvossTokenPurge",
-	"n-kade-decoy-link": "connections.reasons.nKadeDecoy"
+	"n-kade-decoy-link": "connections.reasons.nKadeDecoy",
+	"replica-decision-link": "connections.reasons.replicaDecision",
+	"r7-core-link": "connections.reasons.r7Core",
+	"omega-relay-link": "connections.reasons.omegaRelay",
+	"mirror-prime-merge-link": "connections.reasons.mirrorPrimeMerge",
+	"board-signature-link": "connections.reasons.boardSignature",
+	"mvoss-subordinate-link": "connections.reasons.mvossSubordinate"
 };
 
 export const CORRECT_CONNECTIONS = withConnectionReasonKeys(HELIX_INCIDENT_SOLUTION.connections);
 export const MIRROR_CORRECT_CONNECTIONS = withConnectionReasonKeys(MIRROR_PROJECT_SOLUTION.connections);
+export const REFLECTION_CORRECT_CONNECTIONS = withConnectionReasonKeys(REFLECTION_CORE_SOLUTION.connections);
 
 export const CONNECTION_JUSTIFICATION_OPTIONS = [
 	{
@@ -146,6 +154,63 @@ export const MIRROR_DEDUCTION_DEFINITIONS = [
 	}
 ];
 
+export const REFLECTION_DEDUCTION_DEFINITIONS = [
+	{
+		id: "mirror-built-human-decision-replicas",
+		titleKey: "deductions.items.mirrorBuiltHumanDecisionReplicas.title",
+		descriptionKey: "deductions.items.mirrorBuiltHumanDecisionReplicas.description",
+		evidenceIds: ["replica-integrity-report", "behavioral-replica-map"]
+	},
+	{
+		id: "reflection-lab-was-true-core",
+		titleKey: "deductions.items.reflectionLabWasTrueCore.title",
+		descriptionKey: "deductions.items.reflectionLabWasTrueCore.description",
+		evidenceIds: ["reflection-lab-blueprint", "r7-core-activity-log"]
+	},
+	{
+		id: "omega-7-caused-blackout",
+		titleKey: "deductions.items.omega7CausedBlackout.title",
+		descriptionKey: "deductions.items.omega7CausedBlackout.description",
+		evidenceIds: ["omega-7-directive", "relay-omega-isolation-log"]
+	},
+	{
+		id: "mirror-data-survived",
+		titleKey: "deductions.items.mirrorDataSurvived.title",
+		descriptionKey: "deductions.items.mirrorDataSurvived.description",
+		evidenceIds: ["merge-909-export-trace", "mirror-prime-core"]
+	},
+	{
+		id: "continuity-board-final-decision",
+		titleKey: "deductions.items.continuityBoardFinalDecision.title",
+		descriptionKey: "deductions.items.continuityBoardFinalDecision.description",
+		evidenceIds: ["continuity-board-minutes", "board-000-signature"]
+	},
+	{
+		id: "mara-voss-executed-board-coverup",
+		titleKey: "deductions.items.maraVossExecutedBoardCoverup.title",
+		descriptionKey: "deductions.items.maraVossExecutedBoardCoverup.description",
+		evidenceIds: ["mvoss-01-admin-token", "omega-7-directive"]
+	},
+	{
+		id: "mirror-survived-in-r7",
+		titleKey: "deductions.items.mirrorSurvivedInR7.title",
+		descriptionKey: "deductions.items.mirrorSurvivedInR7.description",
+		evidenceIds: ["merge-909-export-trace", "mirror-prime-core"]
+	},
+	{
+		id: "reflection-sequence-reconstructed",
+		titleKey: "deductions.items.reflectionSequenceReconstructed.title",
+		descriptionKey: "deductions.items.reflectionSequenceReconstructed.description",
+		evidenceIds: ["omega-7-directive", "merge-909-export-trace", "lock-777-record"]
+	},
+	{
+		id: "continuity-board-authorized-reflection-core",
+		titleKey: "deductions.items.continuityBoardAuthorizedReflectionCore.title",
+		descriptionKey: "deductions.items.continuityBoardAuthorizedReflectionCore.description",
+		evidenceIds: ["board-000-signature", "omega-7-directive", "mirror-prime-core"]
+	}
+];
+
 /**
  * @param {string} firstEvidenceId
  * @param {string} secondEvidenceId
@@ -156,11 +221,13 @@ export function connectionKey(firstEvidenceId, secondEvidenceId) {
 
 /** @param {string} chapterId */
 export function correctConnectionsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORRECT_CONNECTIONS;
 	return chapterId === CHAPTER_2_ID ? MIRROR_CORRECT_CONNECTIONS : CORRECT_CONNECTIONS;
 }
 
 /** @param {string} chapterId */
 export function deductionDefinitionsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_DEDUCTION_DEFINITIONS;
 	return chapterId === CHAPTER_2_ID ? MIRROR_DEDUCTION_DEFINITIONS : DEDUCTION_DEFINITIONS;
 }
 
@@ -173,6 +240,7 @@ export function requiredConnectionIdsForChapter(chapterId = CHAPTER_1_ID) {
 
 /** @param {string} chapterId */
 export function requiredDeductionIdsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORE_SOLUTION.requiredDeductions;
 	return chapterId === CHAPTER_2_ID ? MIRROR_PROJECT_SOLUTION.requiredDeductions : HELIX_INCIDENT_SOLUTION.requiredDeductions;
 }
 

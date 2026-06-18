@@ -47,8 +47,8 @@
 				"subtitle": "El proyecto oculto tras el apagón"
 			},
 			"chapter3": {
-				"title": "Fase 3 / Pendiente",
-				"subtitle": "Desbloqueado tras Proyecto MIRROR"
+				"title": "Capítulo 3 / Reflection Core",
+				"subtitle": "El archivo final de DeadSignal"
 			}
 		}
 	},
@@ -283,12 +283,14 @@
 		"finalReportUnlocked": {
 			"title": "Informe final desbloqueado",
 			"message": "El informe final del Capítulo 1 está listo para presentarse.",
-			"mirrorMessage": "El informe final de Proyecto MIRROR está listo para presentarse."
+			"mirrorMessage": "El informe final de Proyecto MIRROR está listo para presentarse.",
+			"reflectionMessage": "El informe final de Reflection Core está listo para presentarse."
 		},
 		"finalReportLocked": {
 			"title": "Informe final bloqueado",
 			"message": "Confirma la cronología, el sospechoso, las contradicciones, las conexiones canónicas y el fragmento cifrado antes de presentarlo.",
-			"mirrorMessage": "Confirma la cronología de MIRROR, el sospechoso, las contradicciones y las conexiones canónicas antes de presentarlo."
+			"mirrorMessage": "Confirma la cronología de MIRROR, el sospechoso, las contradicciones y las conexiones canónicas antes de presentarlo.",
+			"reflectionMessage": "Confirma la cronología de Reflection Core, el sospechoso, las contradicciones y las conexiones canónicas antes de presentarlo."
 		},
 		"finalReportRejected": {
 			"title": "Informe rechazado",
@@ -306,6 +308,10 @@
 		"chapter2Resolved": {
 			"title": "Proyecto MIRROR resuelto",
 			"message": "Informe final aceptado. Fase 2 completada."
+		},
+		"finalGameResolved": {
+			"title": "Archivo recuperado",
+			"message": "Informe final aceptado. DeadSignal v1 queda cerrado."
 		},
 		"chapterComingSoon": {
 			"title": "Fase en cola",
@@ -520,6 +526,26 @@
 		"mirrorFinalReport": {
 			"label": "Presentar informe final MIRROR",
 			"meta": "Cronología: {timeline} / sospechoso: {suspect} / contradicciones: {contradiction} / conexiones: {connections}"
+		},
+		"reflectionTimeline": {
+			"label": "Reconstruir la cronología de Reflection Core",
+			"meta": "{count}/{required} eventos finales descubiertos"
+		},
+		"reflectionContradictions": {
+			"label": "Confirmar contradicciones de Reflection Core",
+			"meta": "{count}/{required} contradicciones confirmadas"
+		},
+		"reflectionConnections": {
+			"label": "Probar la cadena de Reflection Core",
+			"meta": "{count}/{required} conexiones canónicas"
+		},
+		"reflectionSuspect": {
+			"label": "Identificar la autoridad final",
+			"meta": "{count}/{required} acusación aceptada"
+		},
+		"reflectionFinalReport": {
+			"label": "Cerrar el archivo DeadSignal",
+			"meta": "Cronología: {timeline} / sospechoso: {suspect} / contradicciones: {contradiction} / conexiones: {connections}"
 		}
 	},
 	"files": {
@@ -607,6 +633,86 @@
 					"first": "MIRROR no es un backup. Los backups no predicen cómo responde una persona antes de que responda.",
 					"second": "Entonces preserva el aviso de retención. La contradicción importa más que el ruido.",
 					"third": "N-KADE-17 aparece después del marcador de exportación. Eso parece un rastro señuelo."
+				}
+			}
+		}
+	},
+	"reflection": {
+		"documents": {
+			"primeStatute": {
+				"title": "Estatuto final MIRROR PRIME",
+				"content": "Extracto del estatuto final de MIRROR PRIME:\n\nEl sistema se define como continuidad conductual agregada, no como vigilancia individual. Sin embargo, las cláusulas técnicas describen réplicas de decisión capaces de anticipar obediencia, resistencia, denuncia, huida y consentimiento bajo presión.\n\nEl estatuto nombra Reflection Lab / Subnivel R-7 como núcleo de continuidad. Helix Labs aparece como fachada operativa, no como centro del proyecto."
+			},
+			"boardMinutes": {
+				"title": "Acta del Consejo de Continuidad",
+				"content": "Acta de sesión cerrada: el Consejo de Continuidad votó activar OMEGA-7 después de que la auditoría externa solicitara trazabilidad de consentimiento de sujetos.\n\nLenguaje registrado: Helix Labs puede quedar expuesto si Reflection Lab permanece intacto. Preservar el núcleo. Aislar la fachada. Mantener la explicación pública como fallo de instalación hasta confirmar el estado de transferencia.\n\nEl acta no nombra a N-KADE-17. El bloque de autorización referencia BOARD-000."
+			},
+			"blueprint": {
+				"title": "Plano de Reflection Lab R-7",
+				"content": "Plano recuperado: Reflection Lab / Subnivel R-7 no es un almacén de respaldo. El esquema marca alimentación redundante, refrigeración independiente, jaulas de inferencia y una cámara PRIME con acceso restringido.\n\nEl túnel de servicio evita las rutas públicas de Helix. La instalación podía seguir activa aunque Helix quedara aislado por el relay."
+			},
+			"replicaIntegrity": {
+				"title": "Informe de integridad de réplicas",
+				"content": "Informe de integridad de réplicas: MIRROR PRIME superó el umbral de confianza para perfiles identificables. El sistema no predice grupos; predice decisiones probables de personas concretas.\n\nMuestras: respuesta a aviso de evacuación, probabilidad de denuncia, obediencia a autoridad interna, resistencia ante aislamiento y selección de rutas de salida.\n\nLa integridad se mantuvo después de la exportación hacia R-7."
+			},
+			"arendtStatement": {
+				"title": "Declaración sellada de la Dra. Selene Arendt",
+				"content": "Declaración de la Dra. Selene Arendt:\n\nMIRROR dejó de ser analítica cuando empezó a simular decisiones individuales. Un modelo que predice si una persona obedecerá, resistirá, avisará o huirá no es anónimo. Es una réplica conductual.\n\nYo diseñé las métricas de estabilidad. No autoricé OMEGA-7. Si el consejo activa el núcleo de continuidad, Helix se convierte en la evidencia que están dispuestos a quemar."
+			},
+			"omega7": {
+				"title": "Protocolo OMEGA-7",
+				"content": "Resumen del protocolo OMEGA-7:\n\n1. Aislar Helix Labs mediante fallo controlado del relay.\n2. Preservar Reflection Lab / Subnivel R-7.\n3. Transferir el paquete MIRROR al núcleo PRIME.\n4. Compactar o eliminar trazabilidad local tras confirmar la fusión.\n5. Tratar N-KADE-17 como ruido operativo descartable.\n\nLa ruta de ejecución administrativa incluye MVOSS-01. La autorización final requiere BOARD-000."
+			}
+		},
+		"emails": {
+			"prediction": {
+				"subject": "MIRROR ya no predice grupos",
+				"body": "Selene,\n\nHe comparado la salida PRIME con los sujetos de la auditoría. MIRROR no predice grupos. Predice a personas. Hay rutas de decisión para empleados vivos, con confianza suficiente para anticipar quién avisará, quién obedecerá y quién intentará salir.\n\nSi esto sigue activo en R-7, Helix solo es la parte visible.\n\nElias"
+			},
+			"helixBurn": {
+				"subject": "Helix puede arder, R-7 no",
+				"body": "Consejo,\n\nEl índice local de Helix puede perderse. R-7 no. Si auditoría llega a la cadena de consentimiento antes de la fusión PRIME, el proyecto entero queda expuesto.\n\nMVOSS-01 puede ejecutar la limpieza local, pero necesito confirmación de BOARD-000 para activar OMEGA-7.\n\nMara"
+			},
+			"authorizeOmega": {
+				"subject": "Autorizar Omega-7",
+				"body": "Dra. Voss,\n\nEl Consejo de Continuidad autoriza OMEGA-7 bajo BOARD-000. Preserve Reflection Lab. Aísle Helix. Mantenga el evento del relay enmarcado como fallo de instalación hasta que MIRROR PRIME confirme la fusión del paquete.\n\nNo lo describa como eliminación. El registro es preservación de continuidad.\n\nConsejo de Continuidad"
+			},
+			"modelExits": {
+				"subject": "El modelo está eligiendo salidas",
+				"body": "Mara,\n\nPRIME acaba de anticipar qué técnicos intentarían romper aislamiento si los ascensores dejan de responder. Eso no es continuidad pasiva. El modelo está eligiendo salidas antes de que la gente se mueva.\n\nSi Helix queda aislado, MIRROR tendrá una lectura limpia del comportamiento bajo presión.\n\nElias"
+			},
+			"consent": {
+				"subject": "Solicitud externa: cadena de consentimiento",
+				"body": "Dra. Voss,\n\nLa auditoría externa solicita trazabilidad completa de consentimiento para sujetos MIRROR, incluyendo mapa de perfiles, estatuto final, registros de réplica y firmas de transferencia.\n\nLa solicitud entra en vigor inmediatamente. Ninguna ruta de continuidad debe alterar o compactar datos antes de revisión.\n\nAuditoría externa"
+			}
+		},
+		"chats": {
+			"continuityBoard": {
+				"title": "#continuity-board",
+				"messages": {
+					"first": "Si Helix es la pérdida visible, auditoría se detiene en el edificio equivocado.",
+					"second": "Autorizar OMEGA-7. Preservar R-7. La fachada ya cumplió su función."
+				}
+			},
+			"reflectionLabNight": {
+				"title": "#reflection-lab-night",
+				"messages": {
+					"first": "El núcleo PRIME sigue respondiendo aunque Helix está fuera.",
+					"second": "Entonces el apagón no apagó MIRROR. Solo lo trasladó al sitio correcto."
+				}
+			},
+			"renArendt": {
+				"title": "Ren-S.Arendt",
+				"messages": {
+					"first": "Selene, tu informe dice réplicas. El estatuto dice agregado. No pueden ser ambas cosas.",
+					"second": "Guarda esa contradicción. Si desaparece, busca BOARD-000."
+				}
+			},
+			"securityR7": {
+				"title": "#security-r7",
+				"messages": {
+					"first": "LOCK-777 acaba de revocar el acceso ordinario a la cámara PRIME.",
+					"second": "No lo hizo mantenimiento. La orden llegó después de la fusión."
 				}
 			}
 		}
@@ -770,7 +876,23 @@
 			"export": "exportación",
 			"audit": "auditoría",
 			"retention": "retención",
-			"statement": "declaración"
+			"statement": "declaración",
+			"omega7": "OMEGA-7",
+			"board": "consejo",
+			"signature": "firma",
+			"prime": "PRIME",
+			"core": "núcleo",
+			"replicas": "réplicas",
+			"prediction": "predicción",
+			"merge": "fusión",
+			"arendt": "Arendt",
+			"warning": "aviso",
+			"lock": "bloqueo",
+			"integrity": "integridad",
+			"compute": "cómputo",
+			"continuity": "continuidad",
+			"mvoss01": "MVOSS-01",
+			"consent": "consentimiento"
 		},
 		"items": {
 			"serverRoomKnockPattern": {
@@ -984,6 +1106,160 @@
 					"statement": "Documentos / Declaración offsite de Noah Kade",
 					"decoy017": "Sistema / DECOY-017"
 				}
+			},
+			"omega7Directive": {
+				"title": "Directiva OMEGA-7",
+				"description": "La directiva define el aislamiento de Helix, la preservación de Reflection Lab y la transferencia final del paquete.",
+				"longDescription": "OMEGA-7 convierte el apagón de un incidente de instalación en una operación de continuidad planificada. Ordena aislar Helix mientras se preserva R-7 y se transfiere MIRROR a PRIME.",
+				"source": "Documentos / Protocolo OMEGA-7",
+				"forensicNotes": "Úsala con RELAY-OMEGA para probar que el apagón fue una secuencia de aislamiento ordenada.",
+				"relatedFiles": {
+					"protocol": "Documentos / Protocolo OMEGA-7",
+					"board000": "Sistema / BOARD-000"
+				}
+			},
+			"board000Signature": {
+				"title": "Firma BOARD-000",
+				"description": "La autorización final de OMEGA-7 está firmada por el Consejo de Continuidad de Helix.",
+				"longDescription": "BOARD-000 vincula la decisión final a autoridad ejecutiva. Evita que el caso se reduzca a una acusación de operador único contra Mara Voss.",
+				"source": "Sistema / BOARD-000",
+				"forensicNotes": "Es la pieza clave para identificar al responsable canónico del cierre.",
+				"relatedFiles": {
+					"boardMinutes": "Documentos / Acta del Consejo de Continuidad",
+					"board000": "Sistema / BOARD-000"
+				}
+			},
+			"mirrorPrimeCore": {
+				"title": "Núcleo MIRROR PRIME",
+				"description": "El núcleo PRIME conserva el paquete MIRROR fusionado en R-7.",
+				"longDescription": "PRIME-617 y MERGE-909 muestran que la exportación no fue una destrucción. MIRROR sobrevivió al apagón local como núcleo operativo en Reflection Lab.",
+				"source": "Sistema / PRIME-617",
+				"forensicNotes": "Úsalo con MERGE-909 para demostrar que los datos sobrevivieron.",
+				"relatedFiles": {
+					"prime617": "Sistema / PRIME-617",
+					"merge909": "Sistema / MERGE-909"
+				}
+			},
+			"behavioralReplicaMap": {
+				"title": "Mapa de réplicas conductuales",
+				"description": "El mapa enlaza perfiles identificables con predicciones de decisión humana.",
+				"longDescription": "La evidencia demuestra que MIRROR había superado la analítica de grupos: modelaba decisiones probables de empleados concretos.",
+				"source": "Documentos / Informe de integridad de réplicas",
+				"forensicNotes": "Combínalo con el estatuto PRIME para resolver la contradicción central del capítulo.",
+				"relatedFiles": {
+					"replicaReport": "Documentos / Informe de integridad de réplicas",
+					"arendtStatement": "Documentos / Declaración sellada de la Dra. Selene Arendt"
+				}
+			},
+			"reflectionLabBlueprint": {
+				"title": "Plano de Reflection Lab",
+				"description": "El plano muestra que R-7 era infraestructura activa de cómputo, no un anexo de archivo.",
+				"longDescription": "El plano de R-7 contradice cualquier lectura de Reflection Lab como almacenamiento pasivo. Había energía, refrigeración y cámara PRIME preparada para continuidad.",
+				"source": "Documentos / Plano de Reflection Lab R-7",
+				"forensicNotes": "Úsalo con R7-CORE-404 para probar que Reflection Lab era el núcleo real.",
+				"relatedFiles": {
+					"blueprint": "Documentos / Plano de Reflection Lab R-7",
+					"r7Core404": "Sistema / R7-CORE-404"
+				}
+			},
+			"merge909ExportTrace": {
+				"title": "Traza de exportación MERGE-909",
+				"description": "MERGE-909 registra la fusión del paquete MIRROR en PRIME.",
+				"longDescription": "MERGE-909 prueba que el paquete no fue destruido por la purga local. Sobrevivió como parte de MIRROR PRIME.",
+				"source": "Sistema / MERGE-909",
+				"forensicNotes": "Es la prueba de destino de los datos exportados.",
+				"relatedFiles": {
+					"merge909": "Sistema / MERGE-909",
+					"primeCore": "Tablero de Evidencias / Núcleo MIRROR PRIME"
+				}
+			},
+			"seleneArendtStatement": {
+				"title": "Declaración de Selene Arendt",
+				"description": "Arendt advierte que MIRROR simula decisiones individuales.",
+				"longDescription": "La declaración separa responsabilidad técnica de autorización final. Arendt participó en métricas de estabilidad, pero rechaza OMEGA-7 y nombra el riesgo de réplicas conductuales.",
+				"source": "Documentos / Declaración sellada de la Dra. Selene Arendt",
+				"forensicNotes": "Úsala para entender qué era MIRROR sin convertir a Arendt en la autoridad final.",
+				"relatedFiles": {
+					"statement": "Documentos / Declaración sellada de la Dra. Selene Arendt",
+					"predictionEmail": "Correos / MIRROR ya no predice grupos"
+				}
+			},
+			"lock777Record": {
+				"title": "Registro LOCK-777",
+				"description": "LOCK-777 restringe el acceso ordinario tras completarse la fusión PRIME.",
+				"longDescription": "LOCK-777 es consecuencia de la activación, no la decisión original. Muestra a MIRROR PRIME aplicando restricciones después de la autorización humana.",
+				"source": "Sistema / LOCK-777",
+				"forensicNotes": "Sirve para separar ejecución automática de responsabilidad humana.",
+				"relatedFiles": {
+					"lock777": "Sistema / LOCK-777",
+					"securityR7": "Chats / #security-r7"
+				}
+			},
+			"replicaIntegrityReport": {
+				"title": "Informe de integridad de réplicas",
+				"description": "El informe confirma predicción fiable sobre perfiles identificables.",
+				"longDescription": "El informe es el soporte técnico de la revelación final: MIRROR PRIME podía anticipar decisiones humanas concretas con confianza operativa.",
+				"source": "Documentos / Informe de integridad de réplicas",
+				"forensicNotes": "Úsalo con el estatuto PRIME para probar que el lenguaje de agregado era cobertura.",
+				"relatedFiles": {
+					"report": "Documentos / Informe de integridad de réplicas",
+					"prime617": "Sistema / PRIME-617"
+				}
+			},
+			"r7CoreActivityLog": {
+				"title": "Log de actividad R7-CORE-404",
+				"description": "Reflection Lab permaneció activo mientras Helix era aislado.",
+				"longDescription": "R7-CORE-404 demuestra continuidad operativa en R-7 durante el apagón. El núcleo real no estaba en Helix.",
+				"source": "Sistema / R7-CORE-404",
+				"forensicNotes": "Úsalo con el plano de R-7 para probar el núcleo verdadero.",
+				"relatedFiles": {
+					"r7Core404": "Sistema / R7-CORE-404",
+					"blueprint": "Documentos / Plano de Reflection Lab R-7"
+				}
+			},
+			"relayOmegaIsolationLog": {
+				"title": "Log de aislamiento RELAY-OMEGA",
+				"description": "El fallo del relay sigue una secuencia de aislamiento OMEGA-7.",
+				"longDescription": "RELAY-OMEGA conecta el apagón con el protocolo de continuidad. El relay no falló sin más; fue usado para aislar Helix.",
+				"source": "Sistema / RELAY-OMEGA",
+				"forensicNotes": "Úsalo con OMEGA-7 para probar por qué ocurrió el apagón.",
+				"relatedFiles": {
+					"relayOmega": "Sistema / RELAY-OMEGA",
+					"omega7": "Documentos / Protocolo OMEGA-7"
+				}
+			},
+			"continuityBoardMinutes": {
+				"title": "Acta del Consejo de Continuidad",
+				"description": "El consejo votó activar OMEGA-7 cuando la auditoría amenazó con revelar MIRROR.",
+				"longDescription": "El acta muestra intención estratégica: preservar Reflection Lab, aislar Helix y mantener una explicación pública de fallo de instalación.",
+				"source": "Documentos / Acta del Consejo de Continuidad",
+				"forensicNotes": "Úsala con BOARD-000 para sostener la acusación canónica.",
+				"relatedFiles": {
+					"minutes": "Documentos / Acta del Consejo de Continuidad",
+					"board000": "Sistema / BOARD-000"
+				}
+			},
+			"mvoss01AdminToken": {
+				"title": "Token administrativo MVOSS-01",
+				"description": "MVOSS-01 ejecutó la limpieza local como parte del protocolo aprobado por el consejo.",
+				"longDescription": "El token mantiene a Mara Voss como responsable de la ruta de limpieza, pero OMEGA-7 sitúa su acción bajo autorización del consejo.",
+				"source": "Documentos / Protocolo OMEGA-7",
+				"forensicNotes": "Úsalo con OMEGA-7 para no tratar a Mara como única autoridad final.",
+				"relatedFiles": {
+					"omega7": "Documentos / Protocolo OMEGA-7",
+					"helixBurn": "Correos / Helix puede arder, R-7 no"
+				}
+			},
+			"auditConsentChain": {
+				"title": "Cadena de consentimiento de auditoría",
+				"description": "La auditoría externa solicitó trazabilidad de consentimiento de sujetos MIRROR.",
+				"longDescription": "La solicitud de consentimiento es la presión que dispara la operación de continuidad final. Convierte OMEGA-7 en respuesta a riesgo de descubrimiento.",
+				"source": "Sistema / AUDIT-310",
+				"forensicNotes": "Es el primer evento de la cronología final.",
+				"relatedFiles": {
+					"audit310": "Sistema / AUDIT-310",
+					"consentEmail": "Correos / Solicitud externa: cadena de consentimiento"
+				}
 			}
 		}
 	},
@@ -1077,6 +1353,46 @@
 				"title": "Índice auditado de MIRROR eliminado después de la exportación",
 				"source": "Sistema / PURGE-771",
 				"description": "El índice auditado fue eliminado solo después de que el paquete MIRROR ya hubiera salido hacia R-7."
+			},
+			"auditConsentChainRequested": {
+				"title": "Auditoría externa solicita cadena de consentimiento MIRROR",
+				"source": "Sistema / AUDIT-310",
+				"description": "La solicitud de auditoría exige trazabilidad completa de sujetos MIRROR."
+			},
+			"arendtWarnsIndividualSimulation": {
+				"title": "Selene Arendt advierte sobre simulación individual",
+				"source": "Documentos / Declaración sellada de la Dra. Selene Arendt",
+				"description": "Arendt identifica MIRROR como sistema de réplicas conductuales, no como analítica anónima."
+			},
+			"mirrorPrimePredictionReliable": {
+				"title": "MIRROR PRIME alcanza predicción fiable de decisiones",
+				"source": "Sistema / PRIME-617",
+				"description": "El núcleo PRIME supera el umbral de confianza sobre perfiles identificables."
+			},
+			"omega7Authorized": {
+				"title": "El Consejo de Continuidad autoriza OMEGA-7",
+				"source": "Sistema / BOARD-000",
+				"description": "BOARD-000 autoriza preservar R-7 y aislar Helix."
+			},
+			"helixIsolatedBlackoutRelay": {
+				"title": "Helix Labs queda aislado mediante apagón y manipulación del relay",
+				"source": "Sistema / RELAY-OMEGA",
+				"description": "La secuencia del relay aísla Helix bajo OMEGA-7."
+			},
+			"mirrorPackageMergedR7": {
+				"title": "El paquete MIRROR se fusiona con MIRROR PRIME en R-7",
+				"source": "Sistema / MERGE-909",
+				"description": "La exportación sobrevive como núcleo PRIME en Reflection Lab."
+			},
+			"helixLocalIndexEliminated": {
+				"title": "El índice local de Helix se elimina tras la fusión",
+				"source": "Documentos / Protocolo OMEGA-7",
+				"description": "La trazabilidad local se elimina después de confirmar la preservación del núcleo."
+			},
+			"mirrorPrimeLocksCore": {
+				"title": "MIRROR PRIME bloquea el núcleo de Reflection",
+				"source": "Sistema / LOCK-777",
+				"description": "PRIME restringe el acceso ordinario tras completarse la operación."
 			}
 		}
 	},
@@ -1088,7 +1404,8 @@
 		"sourceTypes": {
 			"document": "documento",
 			"log": "log del sistema",
-			"evidence": "evidencia"
+			"evidence": "evidencia",
+			"email": "correo"
 		},
 		"labels": {
 			"sourceA": "Documento A",
@@ -1151,6 +1468,46 @@
 				"title": "Log DECOY-017",
 				"shortLabel": "DECOY-017",
 				"datum": "N-KADE-17 fue clonada temporalmente como credencial señuelo."
+			},
+			"reflectionPrimeStatute": {
+				"title": "Estatuto final MIRROR PRIME",
+				"shortLabel": "Estatuto PRIME",
+				"datum": "El estatuto presenta MIRROR PRIME como continuidad conductual agregada."
+			},
+			"replicaIntegrityReport": {
+				"title": "Informe de integridad de réplicas",
+				"shortLabel": "Integridad de réplicas",
+				"datum": "El informe prueba predicciones sobre perfiles identificables."
+			},
+			"reflectionLabBlueprint": {
+				"title": "Plano de Reflection Lab R-7",
+				"shortLabel": "Plano R-7",
+				"datum": "El plano define R-7 como infraestructura activa de cómputo."
+			},
+			"r7Core404": {
+				"title": "Log R7-CORE-404",
+				"shortLabel": "R7-CORE-404",
+				"datum": "Reflection Lab permaneció activo durante el aislamiento de Helix."
+			},
+			"continuityBoardMinutes": {
+				"title": "Acta del Consejo de Continuidad",
+				"shortLabel": "Acta del consejo",
+				"datum": "El acta evita nombrar directamente el apagón como acción de aislamiento."
+			},
+			"relayOmega": {
+				"title": "Log RELAY-OMEGA",
+				"shortLabel": "RELAY-OMEGA",
+				"datum": "El relay ejecutó una secuencia planificada de aislamiento OMEGA-7."
+			},
+			"maraHelixBurn": {
+				"title": "Correo Helix puede arder, R-7 no",
+				"shortLabel": "Helix puede arder",
+				"datum": "Mara acepta perder el índice local de Helix mientras R-7 sobreviva."
+			},
+			"merge909": {
+				"title": "Log MERGE-909",
+				"shortLabel": "MERGE-909",
+				"datum": "El paquete MIRROR se fusionó con PRIME en R-7."
 			}
 		},
 		"review": {
@@ -1215,6 +1572,42 @@
 					"noahAuthorizedPurge": "Noah Kade autorizó personalmente la purga de MIRROR.",
 					"statementProvesLogin": "La declaración prueba que el login era normal."
 				}
+			},
+			"primeContinuityIdentifiedReplicas": {
+				"title": "Contradicción entre continuidad y réplicas identificables",
+				"question": "¿Qué oculta el estatuto?",
+				"explanations": {
+					"aggregateVsIdentifiedReplicas": "El estatuto habla de continuidad agregada, pero el informe demuestra réplicas de personas identificables.",
+					"continuityIsArchive": "Continuidad solo significa archivo pasivo.",
+					"employeesAreAnonymous": "Los empleados del informe son muestras anónimas."
+				}
+			},
+			"r7ArchiveActiveCore": {
+				"title": "Contradicción sobre R-7",
+				"question": "¿Qué revela la comparación?",
+				"explanations": {
+					"r7WasActiveCore": "El plano presenta R-7 como instalación de continuidad y el log demuestra actividad de núcleo durante el apagón.",
+					"r7WasStorage": "R-7 era solo almacenamiento frío.",
+					"blueprintWasOld": "El plano era demasiado antiguo para importar."
+				}
+			},
+			"boardMinutesRelayOmega": {
+				"title": "Contradicción del apagón OMEGA-7",
+				"question": "¿Por qué estas fuentes importan juntas?",
+				"explanations": {
+					"plannedIsolation": "El consejo evita nombrar el apagón, pero RELAY-OMEGA prueba aislamiento planificado.",
+					"relayRandomFailure": "El relay falló al azar después de la reunión.",
+					"minutesClearTheBoard": "El acta exonera al consejo."
+				}
+			},
+			"helixBurnMergeSurvival": {
+				"title": "Pérdida de Helix frente a supervivencia de MIRROR",
+				"question": "¿Qué sobrevivió a la pérdida local?",
+				"explanations": {
+					"purgePreservedCore": "Mara presenta la pérdida local como contención, pero MERGE-909 prueba que MIRROR sobrevivió en R-7.",
+					"mergeWasDestruction": "La fusión destruyó el paquete de forma permanente.",
+					"maraStoppedR7": "Mara detuvo Reflection Lab antes de la fusión."
+				}
 			}
 		}
 	},
@@ -1250,7 +1643,8 @@
 			"unknown": "Acusación rechazada: sospechoso no disponible.",
 			"unknownReason": "Acusación rechazada: motivo no disponible.",
 			"exhausted": "Intentos de acusación agotados. Revisa la ayuda o reinicia desde una copia limpia si hace falta.",
-			"mirrorAccepted": "Acusación aceptada: MVOSS-01, la retención activa y la secuencia de exportación vinculan a Mara Voss con la purga."
+			"mirrorAccepted": "Acusación aceptada: MVOSS-01, la retención activa y la secuencia de exportación vinculan a Mara Voss con la purga.",
+			"reflectionAccepted": "Acusación aceptada: BOARD-000, OMEGA-7 y el núcleo preservado en R-7 vinculan la decisión final al Consejo de Continuidad."
 		},
 		"sources": {
 			"duplicateCredential": "Evidencia / Credencial duplicada",
@@ -1272,7 +1666,20 @@
 			"kadeOffsiteStatement": "Evidencia / Declaración offsite de Noah Kade",
 			"r7Ticket": "Correos / No maintenance ticket for R-7",
 			"reflectionLabAccessTrace": "Evidencia / Traza de acceso Reflection Lab",
-			"renPrivate": "Chats / Ren-A.Ren"
+			"renPrivate": "Chats / Ren-A.Ren",
+			"board000Signature": "Evidencia / Firma BOARD-000",
+			"omega7Directive": "Evidencia / Directiva OMEGA-7",
+			"mirrorPrimeCore": "Evidencia / Núcleo MIRROR PRIME",
+			"replicaIntegrity": "Evidencia / Informe de integridad de réplicas",
+			"arendtStatement": "Evidencia / Declaración sellada de la Dra. Selene Arendt",
+			"mvoss01Token": "Evidencia / Token administrativo MVOSS-01",
+			"helixCanBurn": "Correos / Helix puede arder, R-7 no",
+			"modelExits": "Correos / El modelo está eligiendo salidas",
+			"renArendt": "Chats / Ren-S.Arendt",
+			"reflectionLabBlueprint": "Evidencia / Plano de Reflection Lab",
+			"relayOmega": "Evidencia / Log de aislamiento RELAY-OMEGA",
+			"nKadePriorDecoy": "Evidencia / Registro LOCK-777",
+			"lock777": "Evidencia / Registro LOCK-777"
 		},
 		"items": {
 			"nKade17": {
@@ -1417,6 +1824,106 @@
 					"clonedNKade": "A. Ren clonó N-KADE-17."
 				}
 			}
+			,
+			"helixContinuityCommittee": {
+				"name": "Consejo de Continuidad de Helix",
+				"role": "Autoridad ejecutiva de continuidad",
+				"question": "¿Por qué acusas al Consejo de Continuidad de Helix?",
+				"facts": {
+					"board000Signature": "BOARD-000 firmó la autorización final",
+					"omega7Authorized": "OMEGA-7 fue autorizado por el consejo",
+					"r7Preserved": "Reflection Lab / R-7 fue preservado"
+				},
+				"reasons": {
+					"board000AuthorizedOmega7": "BOARD-000 autorizó OMEGA-7, sacrificando Helix mientras preservaba Reflection Core.",
+					"maraAlone": "Mara Voss actuó completamente sola.",
+					"mirrorPrimeActedAlone": "MIRROR PRIME tomó la decisión original sin autorización humana."
+				}
+			},
+			"seleneArendt": {
+				"name": "Dra. Selene Arendt",
+				"role": "Arquitecta de estabilidad de réplicas",
+				"question": "¿Por qué sospechas de la Dra. Selene Arendt?",
+				"facts": {
+					"replicaArchitecture": "Las métricas de estabilidad de réplicas salieron de su trabajo",
+					"arendtWarning": "Advirtió que MIRROR simulaba decisiones individuales"
+				},
+				"reasons": {
+					"designedReplicas": "Ayudó a diseñar la capa de réplicas, pero su declaración rechaza OMEGA-7.",
+					"authorizedOmega7": "Autorizó OMEGA-7.",
+					"hidBoardSignature": "Ocultó la firma BOARD-000."
+				}
+			},
+			"maraVossReflection": {
+				"name": "Dra. Mara Voss",
+				"role": "Directora de operaciones de Helix",
+				"question": "¿Por qué sospechas de la Dra. Mara Voss?",
+				"facts": {
+					"mvossToken": "MVOSS-01 ejecutó la limpieza local",
+					"helixCanBurn": "Aceptó Helix como pérdida visible"
+				},
+				"reasons": {
+					"executedCoverup": "Ejecutó la ruta de encubrimiento, pero BOARD-000 aportó la autoridad final.",
+					"finalBoardAuthority": "Su acción queda bajo autorización del consejo, no la sustituye.",
+					"createdMirrorPrime": "Creó MIRROR PRIME ella sola."
+				}
+			},
+			"eliasRenReflection": {
+				"name": "Elias Ren",
+				"role": "Analista de sistemas",
+				"question": "¿Por qué sospechas de Elias Ren?",
+				"facts": {
+					"modelChoosingExits": "Advirtió que el modelo estaba eligiendo salidas",
+					"warningChain": "Su hilo privado intentó preservar la cadena de aviso"
+				},
+				"reasons": {
+					"raisedModelAlert": "Elevó la alerta de riesgo del modelo, pero no está vinculado a BOARD-000.",
+					"signedBoardOrder": "Firmó la autorización del consejo.",
+					"ownedR7": "Era propietario de Reflection Lab."
+				}
+			},
+			"iRourkeReflection": {
+				"name": "I. Rourke",
+				"role": "Supervisora de mantenimiento",
+				"question": "¿Por qué sospechas de I. Rourke?",
+				"facts": {
+					"r7Route": "Sabía que existía la ruta R-7",
+					"relayContext": "El aislamiento del relay cruzaba sistemas de mantenimiento"
+				},
+				"reasons": {
+					"knewR7Route": "Expone la ruta R-7, pero la autorización es de nivel consejo.",
+					"authorizedCommittee": "Autorizó al Consejo de Continuidad.",
+					"builtReplicas": "Construyó las réplicas conductuales."
+				}
+			},
+			"noahKadeReflection": {
+				"name": "Noah Kade",
+				"role": "Señuelo de credencial previo",
+				"question": "¿Por qué sospechas de Noah Kade?",
+				"facts": {
+					"priorDecoy": "N-KADE-17 ya se había usado como ruido operativo",
+					"misdirection": "BOARD-000 no lo nombra como operador"
+				},
+				"reasons": {
+					"credentialAgain": "La reutilización del rastro de credencial es distracción, no autoridad final.",
+					"boardUsedDecoy": "El consejo usó el rastro de señuelo previo como cobertura.",
+					"controlledMirrorPrime": "Noah controlaba MIRROR PRIME."
+				}
+			},
+			"mirrorPrime": {
+				"name": "MIRROR PRIME",
+				"role": "Núcleo de continuidad",
+				"question": "¿Por qué sospechas de MIRROR PRIME?",
+				"facts": {
+					"lock777": "LOCK-777 restringió el acceso ordinario",
+					"executedConstraints": "El núcleo aplicó restricciones posteriores a la fusión"
+				},
+				"reasons": {
+					"lockedCore": "Bloqueó el núcleo tras la activación, pero la autorización humana fue anterior.",
+					"humanAuthorizedFirst": "MIRROR PRIME ejecutó el resultado de una decisión humana del consejo.",
+					"wasLegalBoard": "MIRROR PRIME era el Consejo de Continuidad legal."
+				}
+			}
 		}
 	},
 	"connections": {
@@ -1451,7 +1958,13 @@
 			"auditHoldPurge": "Alguien borró evidencia protegida por auditoría.",
 			"r7Export": "El paquete MIRROR fue trasladado a Reflection Lab / Subnivel R-7.",
 			"mvossTokenPurge": "La purga queda vinculada a la autorización administrativa de Mara Voss.",
-			"nKadeDecoy": "N-KADE-17 funcionó como señuelo."
+			"nKadeDecoy": "N-KADE-17 funcionó como señuelo.",
+			"replicaDecision": "MIRROR construía réplicas conductuales capaces de predecir decisiones humanas.",
+			"r7Core": "Reflection Lab / R-7 era el núcleo activo, no un anexo de archivo.",
+			"omegaRelay": "OMEGA-7 usó aislamiento del relay para sacrificar Helix mientras preservaba Reflection Lab.",
+			"mirrorPrimeMerge": "El paquete MIRROR exportado sobrevivió al fusionarse con MIRROR PRIME.",
+			"boardSignature": "BOARD-000 vincula la decisión final al Consejo de Continuidad de Helix.",
+			"mvossSubordinate": "Mara Voss ejecutó limpieza bajo autoridad OMEGA-7 aprobada por el consejo."
 		}
 	},
 	"notes": {
@@ -1549,6 +2062,42 @@
 			"mirrorCoverupAuthor": {
 				"title": "La autorización de purga apunta a Mara Voss",
 				"description": "El token de Mara Voss autorizó la purga del índice mientras la evidencia MIRROR protegida seguía bajo retención."
+			},
+			"mirrorBuiltHumanDecisionReplicas": {
+				"title": "MIRROR se convirtió en un sistema de réplicas de decisión humana",
+				"description": "El estatuto PRIME y el informe de integridad de réplicas muestran que el proyecto predecía decisiones humanas identificables."
+			},
+			"reflectionLabWasTrueCore": {
+				"title": "Reflection Lab / R-7 era el núcleo real del proyecto",
+				"description": "El plano y R7-CORE-404 prueban que R-7 era infraestructura de cómputo activa, no almacenamiento pasivo."
+			},
+			"omega7CausedBlackout": {
+				"title": "OMEGA-7 provocó el apagón",
+				"description": "La directiva OMEGA-7 y el log de aislamiento del relay conectan el apagón con una operación deliberada de continuidad."
+			},
+			"mirrorDataSurvived": {
+				"title": "Los datos MIRROR exportados sobrevivieron",
+				"description": "MERGE-909 y el núcleo MIRROR PRIME muestran que el paquete fue absorbido por Reflection Core tras la exportación."
+			},
+			"continuityBoardFinalDecision": {
+				"title": "La decisión final pertenece al Consejo de Continuidad",
+				"description": "BOARD-000 y el acta del consejo convierten la autorización final en una decisión ejecutiva colectiva, no en una acción aislada."
+			},
+			"maraVossExecutedBoardCoverup": {
+				"title": "Mara Voss ejecutó la ruta de encubrimiento del consejo",
+				"description": "MVOSS-01 la vincula con la limpieza, mientras OMEGA-7 sitúa esa acción dentro del protocolo aprobado por el consejo."
+			},
+			"mirrorSurvivedInR7": {
+				"title": "MIRROR sobrevivió dentro de R-7",
+				"description": "La pérdida provocada en Helix no destruyó MIRROR; el registro de fusión muestra que el núcleo continuó en Reflection Lab."
+			},
+			"reflectionSequenceReconstructed": {
+				"title": "La secuencia de Reflection Core queda reconstruida",
+				"description": "Presión de auditoría, avisos sobre réplicas, autorización del consejo, aislamiento del relay, fusión del paquete, purga local y bloqueo PRIME forman una cadena deliberada."
+			},
+			"continuityBoardAuthorizedReflectionCore": {
+				"title": "El Consejo de Continuidad autorizó Reflection Core",
+				"description": "BOARD-000, OMEGA-7 y el núcleo PRIME preservado prueban la autoridad responsable final."
 			}
 		}
 	},
@@ -1666,6 +2215,62 @@
 					"deliberateCoverup": "Encubrimiento deliberado.",
 					"accidentalIndexCorruption": "Corrupción accidental del índice."
 				}
+			},
+			"mirrorFinalForm": {
+				"title": "¿En qué se convirtió finalmente MIRROR?",
+				"choices": {
+					"employeeSchedulingTool": "Una herramienta de planificación de empleados.",
+					"behavioralDecisionReplicas": "Un sistema de réplicas conductuales que predecía decisiones humanas.",
+					"relayDiagnosticsSuite": "Un conjunto de diagnóstico del relay."
+				}
+			},
+			"helixProjectRole": {
+				"title": "¿Qué papel tenía Helix Labs en la operación final?",
+				"choices": {
+					"trueResearchCore": "El núcleo real de investigación.",
+					"operationalFacade": "Una fachada operativa usada como pérdida visible.",
+					"unrelatedOutageSite": "Una instalación no relacionada con el apagón."
+				}
+			},
+			"trueCoreSite": {
+				"title": "¿Qué instalación era el núcleo real?",
+				"choices": {
+					"eastArchive": "Archivo Este.",
+					"reflectionLabR7": "Reflection Lab / Subnivel R-7.",
+					"sublevelCCameraGrid": "Red de cámaras del subnivel C."
+				}
+			},
+			"blackoutStrategicPurpose": {
+				"title": "¿Por qué se provocó el apagón?",
+				"choices": {
+					"accidentalRelayOverload": "Por una sobrecarga accidental del relay.",
+					"isolateAuditCoverTransfer": "Para aislar Helix, distraer a auditoría y cubrir la transferencia de MIRROR.",
+					"stopMirrorPrime": "Para detener MIRROR PRIME antes de activarse."
+				}
+			},
+			"exportedPackageFate": {
+				"title": "¿Qué ocurrió con el paquete MIRROR exportado?",
+				"choices": {
+					"destroyedByPurge": "Fue destruido por la purga local.",
+					"mergedIntoMirrorPrime": "Se fusionó con MIRROR PRIME en Reflection Lab.",
+					"lostInRelayCache": "Se perdió en la caché del relay."
+				}
+			},
+			"finalDecisionMaker": {
+				"title": "¿Quién tomó la decisión final?",
+				"choices": {
+					"maraVossAlone": "La Dra. Mara Voss en solitario.",
+					"continuityBoard": "El Consejo de Continuidad de Helix.",
+					"mirrorPrimeAlone": "MIRROR PRIME en solitario."
+				}
+			},
+			"caseClassification": {
+				"title": "¿Cómo debe clasificarse el caso completo?",
+				"choices": {
+					"routineContinuityPlan": "Un plan rutinario de continuidad.",
+					"deliberateHumanCoverup": "Un encubrimiento humano deliberado.",
+					"unsolvedSystemFailure": "Un fallo de sistema sin resolver."
+				}
 			}
 		}
 	},
@@ -1750,7 +2355,11 @@
 			"mirror-core": "núcleo MIRROR",
 			"audit-vault": "bóveda de auditoría",
 			"export-daemon": "demonio de exportación",
-			"reflection-access": "acceso Reflection"
+			"reflection-access": "acceso Reflection",
+			"continuity-board": "consejo de continuidad",
+			"mirror-prime": "MIRROR PRIME",
+			"reflection-core": "núcleo Reflection",
+			"relay-omega": "relay omega"
 		},
 		"titles": {
 			"AUTH-102": "Anomalía de inicio de sesión N-KADE-17",
@@ -1792,7 +2401,18 @@
 			"DECOY-017": "Clon señuelo N-KADE-17",
 			"CH2-101": "Informe final de Proyecto MIRROR desbloqueado",
 			"CH2-200": "Proyecto MIRROR resuelto",
-			"SUS-MIRROR-200": "Acusación MIRROR aceptada"
+			"SUS-MIRROR-200": "Acusación MIRROR aceptada",
+			"CH3-101": "Informe final de Reflection Core desbloqueado",
+			"CH3-200": "Archivo DeadSignal cerrado",
+			"TIME-REFLECTION-200": "Cronología de Reflection Core validada",
+			"SUS-REFLECTION-200": "Acusación contra el Consejo de Continuidad aceptada",
+			"BOARD-000": "Autorización del Consejo de Continuidad",
+			"PRIME-617": "Confianza predictiva de MIRROR PRIME",
+			"R7-CORE-404": "Actividad del núcleo de Reflection Lab",
+			"AUDIT-310": "Solicitud externa de consentimiento",
+			"RELAY-OMEGA": "Aislamiento del relay OMEGA-7",
+			"MERGE-909": "Fusión MIRROR PRIME",
+			"LOCK-777": "Bloqueo de acceso MIRROR PRIME"
 		},
 		"messages": {
 			"AUTH-102": "Inicio de sesión detectado: n.kade desde la terminal C-17.",
@@ -1840,7 +2460,18 @@
 			"CH2-101": "Informe final de Proyecto MIRROR desbloqueado. Esperando presentación del investigador.",
 			"CH2-200": "Proyecto MIRROR resuelto. Informe final aceptado.",
 			"TIME-MIRROR-200": "Cronología de Proyecto MIRROR validada.",
-			"SUS-MIRROR-200": "Acusación razonada aceptada: MVOSS-01 vincula a Mara Voss con la purga MIRROR."
+			"SUS-MIRROR-200": "Acusación razonada aceptada: MVOSS-01 vincula a Mara Voss con la purga MIRROR.",
+			"CH3-101": "Informe final de Reflection Core desbloqueado. Esperando presentación del archivo final.",
+			"CH3-200": "Archivo DeadSignal v1 recuperado. Informe final aceptado.",
+			"TIME-REFLECTION-200": "Cronología de Reflection Core validada.",
+			"SUS-REFLECTION-200": "Acusación razonada aceptada: BOARD-000 vincula al Consejo de Continuidad con OMEGA-7.",
+			"BOARD-000": "Bloque de autorización del Consejo de Continuidad firmado para OMEGA-7.",
+			"PRIME-617": "MIRROR PRIME predice rutas de decisión individuales activas por encima de la confianza aceptada.",
+			"R7-CORE-404": "Reflection Lab / R-7 mantiene actividad de núcleo durante el aislamiento de Helix.",
+			"AUDIT-310": "Auditoría externa solicita trazabilidad de consentimiento para sujetos MIRROR.",
+			"RELAY-OMEGA": "Secuencia de aislamiento del relay ejecutada bajo OMEGA-7.",
+			"MERGE-909": "El paquete MIRROR se fusionó con el núcleo PRIME en Reflection Lab / R-7.",
+			"LOCK-777": "MIRROR PRIME restringió el acceso ordinario tras completar la fusión."
 		}
 	},
 	"values": {
@@ -1992,7 +2623,41 @@
 		"damaged": "dañado",
 		"partial": "parcial",
 		"Facility Cartography Cache": "Caché de cartografia de la instalación",
-		"Relay Cache Index": "Índice de caché del relé"
+		"Relay Cache Index": "Índice de caché del relé",
+		"Reflection Core": "Reflection Core",
+		"The final archive proves MIRROR was not just surveillance. Reflection Lab was the real core, and Helix Labs was the operational facade.": "El archivo final prueba que MIRROR no era solo vigilancia. Reflection Lab era el núcleo real y Helix Labs era la fachada operativa.",
+		"MIRROR PRIME Final Charter": "Estatuto final MIRROR PRIME",
+		"Continuity Board Minutes": "Acta del Consejo de Continuidad",
+		"Reflection Lab / Sublevel R-7 Blueprint": "Plano de Reflection Lab / Subnivel R-7",
+		"Behavioral Replica Integrity Report": "Informe de integridad de réplicas conductuales",
+		"Sealed Statement of Dr. Selene Arendt": "Declaración sellada de la Dra. Selene Arendt",
+		"Protocol OMEGA-7": "Protocolo OMEGA-7",
+		"Helix Continuity Office": "Oficina de continuidad de Helix",
+		"Helix Continuity Board": "Consejo de Continuidad de Helix",
+		"Helix Facilities Archive": "Archivo de instalaciones de Helix",
+		"Selene Arendt": "Selene Arendt",
+		"Continuity Board": "Consejo de Continuidad",
+		"External Audit": "Auditoría externa",
+		"Board-3": "Consejo-3",
+		"Board-1": "Consejo-1",
+		"R-7 Tech": "Técnico R-7",
+		"R-7 Watch": "Guardia R-7",
+		"R-7 Security": "Seguridad R-7",
+		"Prediction is not surveillance": "La predicción no es vigilancia",
+		"Helix can burn, R-7 cannot": "Helix puede arder, R-7 no",
+		"Authorize Omega-7": "Autorizar Omega-7",
+		"The model is choosing exits": "El modelo está eligiendo salidas",
+		"Consent chain requested": "Cadena de consentimiento solicitada",
+		"#continuity-board": "#consejo-continuidad",
+		"#reflection-lab-night": "#noche-reflection-lab",
+		"#Ren-S.Arendt": "#Ren-S.Arendt",
+		"#security-r7": "#seguridad-r7",
+		"mirror,prime,continuity": "MIRROR,PRIME,continuidad",
+		"board,omega-7,continuity": "consejo,OMEGA-7,continuidad",
+		"reflection lab,r-7,core": "Reflection Lab,R-7,núcleo",
+		"replicas,employees,prediction": "réplicas,empleados,predicción",
+		"arendt,replicas,warning": "Arendt,réplicas,aviso",
+		"omega-7,relay,reflection lab": "OMEGA-7,relay,Reflection Lab"
 	},
 	"help": {
 		"open": "Abrir ayuda",
@@ -2047,6 +2712,16 @@
 			"exhausted": "No quedan intentos para el informe final de Proyecto MIRROR."
 		}
 	},
+	"caseReviewReflection": {
+		"title": "Informe final de Reflection Core",
+		"heading": "Informe final de Reflection Core",
+		"body": "Cierra el archivo con conclusiones respaldadas por toda la cadena verificada.",
+		"feedback": {
+			"accepted": "Informe final aceptado. DeadSignal v1 queda cerrado.",
+			"rejected": "Informe rechazado: la conclusión de Reflection Core no está completamente respaldada.",
+			"exhausted": "No quedan intentos para el informe final de Reflection Core."
+		}
+	},
 	"chapterSummaryMirror": {
 		"eyebrow": "Informe final aceptado",
 		"title": "Proyecto MIRROR resuelto",
@@ -2066,6 +2741,26 @@
 			"close": "Cerrar resumen de fase",
 			"continue": "Continuar el caso",
 			"chapterTwo": "Volver al menú"
+		}
+	},
+	"finalArchive": {
+		"eyebrow": "Archivo final recuperado",
+		"title": "ARCHIVO RECUPERADO",
+		"subtitle": "El registro recuperado cierra DeadSignal v1: Helix Labs fue sacrificado como fallo visible mientras Reflection Lab preservaba MIRROR PRIME.",
+		"integrity": "Integridad final",
+		"casesTitle": "Casos completados",
+		"cases": {
+			"helix": "✓ El Incidente Helix",
+			"mirror": "✓ Proyecto MIRROR",
+			"reflection": "✓ Reflection Core"
+		},
+		"conclusionTitle": "Conclusión de la investigación",
+		"conclusion": "MIRROR no era un archivo de vigilancia. Se convirtió en un sistema de réplicas conductuales capaz de predecir decisiones individuales. Cuando la presión de auditoría amenazó con exponerlo, el Consejo de Continuidad de Helix autorizó OMEGA-7, aisló Helix mediante el apagón, transfirió el paquete a Reflection Lab / Subnivel R-7 y permitió que MIRROR PRIME sobreviviera tras la pérdida visible.",
+		"creditsTitle": "Créditos",
+		"credits": "Gracias por jugar DeadSignal.\n\nLa señal muerta no era silencio.\nEra el momento exacto en que Helix cortó la verdad para que Reflection Lab siguiera escuchando.",
+		"actions": {
+			"newInvestigation": "Nueva Investigación",
+			"backToMenu": "Volver al Menú Principal"
 		}
 	}
 }

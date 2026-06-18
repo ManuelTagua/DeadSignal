@@ -1,5 +1,7 @@
 import { MIRROR_PROJECT_CASE_FILE } from "$lib/cases/mirrorProjectContent";
 import { MIRROR_PROJECT_SOLUTION } from "$lib/cases/mirrorProjectSolution";
+import { REFLECTION_CORE_CASE_FILE } from "$lib/cases/reflectionCoreContent";
+import { REFLECTION_CORE_SOLUTION } from "$lib/cases/reflectionCoreSolution";
 
 export const CHAPTER_1_ID = "chapter-1";
 export const CHAPTER_2_ID = "chapter-2";
@@ -12,7 +14,8 @@ export const CHAPTERS = [
 		order: 1,
 		titleKey: "chapters.items.helix.title",
 		subtitleKey: "chapters.items.helix.subtitle",
-		statusKey: "chapters.status.available"
+		statusKey: "chapters.status.available",
+		comingSoon: false
 	},
 	{
 		id: CHAPTER_2_ID,
@@ -20,16 +23,17 @@ export const CHAPTERS = [
 		order: 2,
 		titleKey: "chapters.items.mirror.title",
 		subtitleKey: "chapters.items.mirror.subtitle",
-		statusKey: "chapters.status.locked"
+		statusKey: "chapters.status.locked",
+		comingSoon: false
 	},
 	{
 		id: CHAPTER_3_ID,
-		caseId: "future-chapter-3",
+		caseId: REFLECTION_CORE_SOLUTION.id,
 		order: 3,
 		titleKey: "chapters.items.chapter3.title",
 		subtitleKey: "chapters.items.chapter3.subtitle",
-		statusKey: "chapters.status.comingSoon",
-		comingSoon: true
+		statusKey: "chapters.status.locked",
+		comingSoon: false
 	}
 ];
 
@@ -50,7 +54,7 @@ export function chapterIsUnlocked(chapterId, state = {}) {
  */
 export function caseFileForChapter(helixCaseFile, chapterId) {
 	if (chapterId === CHAPTER_2_ID) return MIRROR_PROJECT_CASE_FILE;
-	if (chapterId === CHAPTER_3_ID) return null;
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORE_CASE_FILE;
 	return helixCaseFile;
 }
 

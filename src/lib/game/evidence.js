@@ -1,4 +1,4 @@
-import { CHAPTER_1_ID, CHAPTER_2_ID } from "$lib/game/chapters";
+import { CHAPTER_1_ID, CHAPTER_2_ID, CHAPTER_3_ID } from "$lib/game/chapters";
 import { PASSWORD_FRAGMENT_ID } from "$lib/game/files";
 import { hasReadEvidenceTag, isFileUnlocked } from "$lib/stores/ProgressStore";
 
@@ -300,6 +300,230 @@ export const EVIDENCE_DEFINITIONS = [
 		statusKey: "evidence.status.found",
 		unlockTag: "audit-retention-order",
 		tagKeys: ["evidence.tags.audit", "evidence.tags.retention", "evidence.tags.mirror"]
+	},
+	{
+		id: "omega-7-directive",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.omega7Directive.title",
+		descriptionKey: "evidence.items.omega7Directive.description",
+		longDescriptionKey: "evidence.items.omega7Directive.longDescription",
+		sourceKey: "evidence.items.omega7Directive.source",
+		forensicNotesKey: "evidence.items.omega7Directive.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.omega7Directive.relatedFiles.protocol",
+			"evidence.items.omega7Directive.relatedFiles.board000"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "omega-7-directive",
+		tagKeys: ["evidence.tags.omega7", "evidence.tags.board", "evidence.tags.blackout"]
+	},
+	{
+		id: "board-000-signature",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.board000Signature.title",
+		descriptionKey: "evidence.items.board000Signature.description",
+		longDescriptionKey: "evidence.items.board000Signature.longDescription",
+		sourceKey: "evidence.items.board000Signature.source",
+		forensicNotesKey: "evidence.items.board000Signature.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.board000Signature.relatedFiles.boardMinutes",
+			"evidence.items.board000Signature.relatedFiles.board000"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "board-000-signature",
+		tagKeys: ["evidence.tags.board", "evidence.tags.signature", "evidence.tags.omega7"]
+	},
+	{
+		id: "mirror-prime-core",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.mirrorPrimeCore.title",
+		descriptionKey: "evidence.items.mirrorPrimeCore.description",
+		longDescriptionKey: "evidence.items.mirrorPrimeCore.longDescription",
+		sourceKey: "evidence.items.mirrorPrimeCore.source",
+		forensicNotesKey: "evidence.items.mirrorPrimeCore.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.mirrorPrimeCore.relatedFiles.prime617",
+			"evidence.items.mirrorPrimeCore.relatedFiles.merge909"
+		],
+		statusKey: "evidence.status.found",
+		unlockTag: "mirror-prime-core",
+		tagKeys: ["evidence.tags.mirror", "evidence.tags.prime", "evidence.tags.core"]
+	},
+	{
+		id: "behavioral-replica-map",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.behavioralReplicaMap.title",
+		descriptionKey: "evidence.items.behavioralReplicaMap.description",
+		longDescriptionKey: "evidence.items.behavioralReplicaMap.longDescription",
+		sourceKey: "evidence.items.behavioralReplicaMap.source",
+		forensicNotesKey: "evidence.items.behavioralReplicaMap.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.behavioralReplicaMap.relatedFiles.replicaReport",
+			"evidence.items.behavioralReplicaMap.relatedFiles.arendtStatement"
+		],
+		statusKey: "evidence.status.found",
+		unlockTag: "behavioral-replica-map",
+		tagKeys: ["evidence.tags.replicas", "evidence.tags.profile", "evidence.tags.prediction"]
+	},
+	{
+		id: "reflection-lab-blueprint",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.reflectionLabBlueprint.title",
+		descriptionKey: "evidence.items.reflectionLabBlueprint.description",
+		longDescriptionKey: "evidence.items.reflectionLabBlueprint.longDescription",
+		sourceKey: "evidence.items.reflectionLabBlueprint.source",
+		forensicNotesKey: "evidence.items.reflectionLabBlueprint.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.reflectionLabBlueprint.relatedFiles.blueprint",
+			"evidence.items.reflectionLabBlueprint.relatedFiles.r7Core404"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "reflection-lab-blueprint",
+		tagKeys: ["evidence.tags.reflectionLab", "evidence.tags.r7", "evidence.tags.core"]
+	},
+	{
+		id: "merge-909-export-trace",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.merge909ExportTrace.title",
+		descriptionKey: "evidence.items.merge909ExportTrace.description",
+		longDescriptionKey: "evidence.items.merge909ExportTrace.longDescription",
+		sourceKey: "evidence.items.merge909ExportTrace.source",
+		forensicNotesKey: "evidence.items.merge909ExportTrace.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.merge909ExportTrace.relatedFiles.merge909",
+			"evidence.items.merge909ExportTrace.relatedFiles.primeCore"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "merge-909-export-trace",
+		tagKeys: ["evidence.tags.export", "evidence.tags.merge", "evidence.tags.r7"]
+	},
+	{
+		id: "selene-arendt-statement",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.seleneArendtStatement.title",
+		descriptionKey: "evidence.items.seleneArendtStatement.description",
+		longDescriptionKey: "evidence.items.seleneArendtStatement.longDescription",
+		sourceKey: "evidence.items.seleneArendtStatement.source",
+		forensicNotesKey: "evidence.items.seleneArendtStatement.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.seleneArendtStatement.relatedFiles.statement",
+			"evidence.items.seleneArendtStatement.relatedFiles.predictionEmail"
+		],
+		statusKey: "evidence.status.found",
+		unlockTag: "selene-arendt-statement",
+		tagKeys: ["evidence.tags.arendt", "evidence.tags.replicas", "evidence.tags.warning"]
+	},
+	{
+		id: "lock-777-record",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.lock777Record.title",
+		descriptionKey: "evidence.items.lock777Record.description",
+		longDescriptionKey: "evidence.items.lock777Record.longDescription",
+		sourceKey: "evidence.items.lock777Record.source",
+		forensicNotesKey: "evidence.items.lock777Record.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.lock777Record.relatedFiles.lock777",
+			"evidence.items.lock777Record.relatedFiles.securityR7"
+		],
+		statusKey: "evidence.status.found",
+		unlockTag: "lock-777-record",
+		tagKeys: ["evidence.tags.lock", "evidence.tags.mirror", "evidence.tags.core"]
+	},
+	{
+		id: "replica-integrity-report",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.replicaIntegrityReport.title",
+		descriptionKey: "evidence.items.replicaIntegrityReport.description",
+		longDescriptionKey: "evidence.items.replicaIntegrityReport.longDescription",
+		sourceKey: "evidence.items.replicaIntegrityReport.source",
+		forensicNotesKey: "evidence.items.replicaIntegrityReport.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.replicaIntegrityReport.relatedFiles.report",
+			"evidence.items.replicaIntegrityReport.relatedFiles.prime617"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "replica-integrity-report",
+		tagKeys: ["evidence.tags.replicas", "evidence.tags.integrity", "evidence.tags.prediction"]
+	},
+	{
+		id: "r7-core-activity-log",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.r7CoreActivityLog.title",
+		descriptionKey: "evidence.items.r7CoreActivityLog.description",
+		longDescriptionKey: "evidence.items.r7CoreActivityLog.longDescription",
+		sourceKey: "evidence.items.r7CoreActivityLog.source",
+		forensicNotesKey: "evidence.items.r7CoreActivityLog.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.r7CoreActivityLog.relatedFiles.r7Core404",
+			"evidence.items.r7CoreActivityLog.relatedFiles.blueprint"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "r7-core-activity-log",
+		tagKeys: ["evidence.tags.r7", "evidence.tags.core", "evidence.tags.compute"]
+	},
+	{
+		id: "relay-omega-isolation-log",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.relayOmegaIsolationLog.title",
+		descriptionKey: "evidence.items.relayOmegaIsolationLog.description",
+		longDescriptionKey: "evidence.items.relayOmegaIsolationLog.longDescription",
+		sourceKey: "evidence.items.relayOmegaIsolationLog.source",
+		forensicNotesKey: "evidence.items.relayOmegaIsolationLog.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.relayOmegaIsolationLog.relatedFiles.relayOmega",
+			"evidence.items.relayOmegaIsolationLog.relatedFiles.omega7"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "relay-omega-isolation-log",
+		tagKeys: ["evidence.tags.relay", "evidence.tags.omega7", "evidence.tags.blackout"]
+	},
+	{
+		id: "continuity-board-minutes",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.continuityBoardMinutes.title",
+		descriptionKey: "evidence.items.continuityBoardMinutes.description",
+		longDescriptionKey: "evidence.items.continuityBoardMinutes.longDescription",
+		sourceKey: "evidence.items.continuityBoardMinutes.source",
+		forensicNotesKey: "evidence.items.continuityBoardMinutes.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.continuityBoardMinutes.relatedFiles.minutes",
+			"evidence.items.continuityBoardMinutes.relatedFiles.board000"
+		],
+		statusKey: "evidence.status.corroborated",
+		unlockTag: "continuity-board-minutes",
+		tagKeys: ["evidence.tags.board", "evidence.tags.continuity", "evidence.tags.omega7"]
+	},
+	{
+		id: "mvoss-01-admin-token",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.mvoss01AdminToken.title",
+		descriptionKey: "evidence.items.mvoss01AdminToken.description",
+		longDescriptionKey: "evidence.items.mvoss01AdminToken.longDescription",
+		sourceKey: "evidence.items.mvoss01AdminToken.source",
+		forensicNotesKey: "evidence.items.mvoss01AdminToken.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.mvoss01AdminToken.relatedFiles.omega7",
+			"evidence.items.mvoss01AdminToken.relatedFiles.helixBurn"
+		],
+		statusKey: "evidence.status.found",
+		unlockTag: "mvoss-01-admin-token",
+		tagKeys: ["evidence.tags.admin", "evidence.tags.mvoss01", "evidence.tags.purge"]
+	},
+	{
+		id: "audit-consent-chain",
+		chapterId: CHAPTER_3_ID,
+		titleKey: "evidence.items.auditConsentChain.title",
+		descriptionKey: "evidence.items.auditConsentChain.description",
+		longDescriptionKey: "evidence.items.auditConsentChain.longDescription",
+		sourceKey: "evidence.items.auditConsentChain.source",
+		forensicNotesKey: "evidence.items.auditConsentChain.forensicNotes",
+		relatedFileKeys: [
+			"evidence.items.auditConsentChain.relatedFiles.audit310",
+			"evidence.items.auditConsentChain.relatedFiles.consentEmail"
+		],
+		statusKey: "evidence.status.found",
+		unlockTag: "audit-consent-chain",
+		tagKeys: ["evidence.tags.audit", "evidence.tags.consent", "evidence.tags.replicas"]
 	}
 ];
 
@@ -308,7 +532,7 @@ export const EVIDENCE_DEFINITIONS = [
  * @param {string} chapterId
  */
 export function unlockedEvidence(progressState, chapterId = CHAPTER_1_ID) {
-	return evidenceDefinitionsForChapter(chapterId).filter((evidence) => isEvidenceUnlocked(progressState, evidence)).map(
+	return evidenceDefinitionsForChapter(chapterId).filter((evidence) => isEvidenceUnlocked(progressState, evidence, chapterId)).map(
 		(evidence) => ({
 			...evidence,
 			id: `EvidenceBoard:${evidence.id}`,
@@ -329,9 +553,10 @@ export function evidenceDefinitionsForChapter(chapterId = CHAPTER_1_ID) {
 /**
  * @param {Record<string, any>} progressState
  * @param {Record<string, any>} evidence
+ * @param {string} chapterId
  */
-function isEvidenceUnlocked(progressState, evidence) {
+function isEvidenceUnlocked(progressState, evidence, chapterId = CHAPTER_1_ID) {
 	if (evidence.unlockFileId && isFileUnlocked(progressState, evidence.unlockFileId)) return true;
-	if (evidence.unlockTag && hasReadEvidenceTag(progressState, evidence.unlockTag)) return true;
+	if (evidence.unlockTag && hasReadEvidenceTag(progressState, evidence.unlockTag, chapterId)) return true;
 	return false;
 }

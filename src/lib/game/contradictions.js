@@ -1,7 +1,8 @@
 import { CASE_INTEGRITY_PENALTIES } from "$lib/stores/InvestigationStore";
 import { HELIX_INCIDENT_SOLUTION } from "$lib/cases/helixIncidentSolution";
 import { MIRROR_PROJECT_SOLUTION } from "$lib/cases/mirrorProjectSolution";
-import { CHAPTER_1_ID, CHAPTER_2_ID } from "$lib/game/chapters";
+import { REFLECTION_CORE_SOLUTION } from "$lib/cases/reflectionCoreSolution";
+import { CHAPTER_1_ID, CHAPTER_2_ID, CHAPTER_3_ID } from "$lib/game/chapters";
 
 export const REQUIRED_CHAPTER_CONTRADICTION_IDS = HELIX_INCIDENT_SOLUTION.contradictions.map((contradiction) => contradiction.id);
 
@@ -101,6 +102,81 @@ export const MIRROR_CONTRADICTION_SOURCE_DEFINITIONS = [
 	}
 ];
 
+export const REFLECTION_CONTRADICTION_SOURCE_DEFINITIONS = [
+	{
+		id: "document:reflection-prime-statute",
+		type: "document",
+		moduleId: "Documents",
+		match: { title: "MIRROR PRIME Final Charter" },
+		titleKey: "contradictions.sources.reflectionPrimeStatute.title",
+		shortLabelKey: "contradictions.sources.reflectionPrimeStatute.shortLabel",
+		datumKey: "contradictions.sources.reflectionPrimeStatute.datum"
+	},
+	{
+		id: "document:replica-integrity-report",
+		type: "document",
+		moduleId: "Documents",
+		match: { title: "Behavioral Replica Integrity Report" },
+		titleKey: "contradictions.sources.replicaIntegrityReport.title",
+		shortLabelKey: "contradictions.sources.replicaIntegrityReport.shortLabel",
+		datumKey: "contradictions.sources.replicaIntegrityReport.datum"
+	},
+	{
+		id: "document:reflection-lab-blueprint",
+		type: "document",
+		moduleId: "Documents",
+		match: { title: "Reflection Lab / Sublevel R-7 Blueprint" },
+		titleKey: "contradictions.sources.reflectionLabBlueprint.title",
+		shortLabelKey: "contradictions.sources.reflectionLabBlueprint.shortLabel",
+		datumKey: "contradictions.sources.reflectionLabBlueprint.datum"
+	},
+	{
+		id: "system:R7-CORE-404",
+		type: "log",
+		moduleId: "System",
+		match: { code: "R7-CORE-404" },
+		titleKey: "contradictions.sources.r7Core404.title",
+		shortLabelKey: "contradictions.sources.r7Core404.shortLabel",
+		datumKey: "contradictions.sources.r7Core404.datum"
+	},
+	{
+		id: "document:continuity-board-minutes",
+		type: "document",
+		moduleId: "Documents",
+		match: { title: "Continuity Board Minutes" },
+		titleKey: "contradictions.sources.continuityBoardMinutes.title",
+		shortLabelKey: "contradictions.sources.continuityBoardMinutes.shortLabel",
+		datumKey: "contradictions.sources.continuityBoardMinutes.datum"
+	},
+	{
+		id: "system:RELAY-OMEGA",
+		type: "log",
+		moduleId: "System",
+		match: { code: "RELAY-OMEGA" },
+		titleKey: "contradictions.sources.relayOmega.title",
+		shortLabelKey: "contradictions.sources.relayOmega.shortLabel",
+		datumKey: "contradictions.sources.relayOmega.datum"
+	},
+	{
+		id: "email:mara-helix-can-burn",
+		type: "email",
+		moduleId: "Emails",
+		match: { subject: "Helix can burn, R-7 cannot" },
+		titleKey: "contradictions.sources.maraHelixBurn.title",
+		shortLabelKey: "contradictions.sources.maraHelixBurn.shortLabel",
+		datumKey: "contradictions.sources.maraHelixBurn.datum"
+	},
+	{
+		id: "system:MERGE-909",
+		type: "log",
+		moduleId: "System",
+		match: { code: "MERGE-909" },
+		titleKey: "contradictions.sources.merge909.title",
+		shortLabelKey: "contradictions.sources.merge909.shortLabel",
+		datumKey: "contradictions.sources.merge909.datum"
+	}
+];
+
 /** @type {Record<string, { titleKey: string, questionKey: string, explanations: Array<{ id: string, labelKey: string }> }>} */
 const CONTRADICTION_DETAILS = {
 	"maintenance-window-overrun": {
@@ -192,11 +268,85 @@ const CONTRADICTION_DETAILS = {
 				labelKey: "contradictions.items.kadeOffsiteDecoyConflict.explanations.statementProvesLogin"
 			}
 		]
+	},
+	"prime-continuity-identified-replicas": {
+		titleKey: "contradictions.items.primeContinuityIdentifiedReplicas.title",
+		questionKey: "contradictions.items.primeContinuityIdentifiedReplicas.question",
+		explanations: [
+			{
+				id: "aggregate-vs-identified-replicas",
+				labelKey:
+					"contradictions.items.primeContinuityIdentifiedReplicas.explanations.aggregateVsIdentifiedReplicas"
+			},
+			{
+				id: "continuity-is-archive",
+				labelKey: "contradictions.items.primeContinuityIdentifiedReplicas.explanations.continuityIsArchive"
+			},
+			{
+				id: "employees-are-anonymous",
+				labelKey: "contradictions.items.primeContinuityIdentifiedReplicas.explanations.employeesAreAnonymous"
+			}
+		]
+	},
+	"r7-archive-active-core": {
+		titleKey: "contradictions.items.r7ArchiveActiveCore.title",
+		questionKey: "contradictions.items.r7ArchiveActiveCore.question",
+		explanations: [
+			{
+				id: "r7-was-active-core",
+				labelKey: "contradictions.items.r7ArchiveActiveCore.explanations.r7WasActiveCore"
+			},
+			{
+				id: "r7-was-storage",
+				labelKey: "contradictions.items.r7ArchiveActiveCore.explanations.r7WasStorage"
+			},
+			{
+				id: "blueprint-was-old",
+				labelKey: "contradictions.items.r7ArchiveActiveCore.explanations.blueprintWasOld"
+			}
+		]
+	},
+	"board-minutes-relay-omega": {
+		titleKey: "contradictions.items.boardMinutesRelayOmega.title",
+		questionKey: "contradictions.items.boardMinutesRelayOmega.question",
+		explanations: [
+			{
+				id: "planned-isolation",
+				labelKey: "contradictions.items.boardMinutesRelayOmega.explanations.plannedIsolation"
+			},
+			{
+				id: "relay-random-failure",
+				labelKey: "contradictions.items.boardMinutesRelayOmega.explanations.relayRandomFailure"
+			},
+			{
+				id: "minutes-clear-the-board",
+				labelKey: "contradictions.items.boardMinutesRelayOmega.explanations.minutesClearTheBoard"
+			}
+		]
+	},
+	"helix-burn-merge-survival": {
+		titleKey: "contradictions.items.helixBurnMergeSurvival.title",
+		questionKey: "contradictions.items.helixBurnMergeSurvival.question",
+		explanations: [
+			{
+				id: "purge-preserved-core",
+				labelKey: "contradictions.items.helixBurnMergeSurvival.explanations.purgePreservedCore"
+			},
+			{
+				id: "merge-was-destruction",
+				labelKey: "contradictions.items.helixBurnMergeSurvival.explanations.mergeWasDestruction"
+			},
+			{
+				id: "mara-stopped-r7",
+				labelKey: "contradictions.items.helixBurnMergeSurvival.explanations.maraStoppedR7"
+			}
+		]
 	}
 };
 
 export const CHAPTER_CONTRADICTIONS = withContradictionDetails(HELIX_INCIDENT_SOLUTION.contradictions);
 export const MIRROR_CONTRADICTIONS = withContradictionDetails(MIRROR_PROJECT_SOLUTION.contradictions);
+export const REFLECTION_CONTRADICTIONS = withContradictionDetails(REFLECTION_CORE_SOLUTION.contradictions);
 
 export const GENERIC_CONTRADICTION_EXPLANATIONS = [
 	{
@@ -215,11 +365,13 @@ export const GENERIC_CONTRADICTION_EXPLANATIONS = [
 
 /** @param {string} chapterId */
 export function contradictionSourceDefinitionsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CONTRADICTION_SOURCE_DEFINITIONS;
 	return chapterId === CHAPTER_2_ID ? MIRROR_CONTRADICTION_SOURCE_DEFINITIONS : CONTRADICTION_SOURCE_DEFINITIONS;
 }
 
 /** @param {string} chapterId */
 export function contradictionsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CONTRADICTIONS;
 	return chapterId === CHAPTER_2_ID ? MIRROR_CONTRADICTIONS : CHAPTER_CONTRADICTIONS;
 }
 

@@ -1,7 +1,8 @@
 import { CASE_INTEGRITY_PENALTIES } from "$lib/stores/InvestigationStore";
 import { HELIX_INCIDENT_SOLUTION } from "$lib/cases/helixIncidentSolution";
 import { MIRROR_PROJECT_SOLUTION } from "$lib/cases/mirrorProjectSolution";
-import { CHAPTER_1_ID, CHAPTER_2_ID } from "$lib/game/chapters";
+import { REFLECTION_CORE_SOLUTION } from "$lib/cases/reflectionCoreSolution";
+import { CHAPTER_1_ID, CHAPTER_2_ID, CHAPTER_3_ID } from "$lib/game/chapters";
 
 export const TIMELINE_DEDUCTION_ID = HELIX_INCIDENT_SOLUTION.timeline.deductionId;
 export const TIMELINE_PENALTY = CASE_INTEGRITY_PENALTIES.repeatedPuzzleMistake;
@@ -102,6 +103,65 @@ export const MIRROR_TIMELINE_EVENTS = [
 	}
 ];
 
+export const REFLECTION_TIMELINE_EVENTS = [
+	{
+		id: "audit-consent-chain-requested",
+		titleKey: "timeline.events.auditConsentChainRequested.title",
+		sourceKey: "timeline.events.auditConsentChainRequested.source",
+		descriptionKey: "timeline.events.auditConsentChainRequested.description",
+		unlock: { moduleId: "System", code: "AUDIT-310" }
+	},
+	{
+		id: "arendt-warns-individual-simulation",
+		titleKey: "timeline.events.arendtWarnsIndividualSimulation.title",
+		sourceKey: "timeline.events.arendtWarnsIndividualSimulation.source",
+		descriptionKey: "timeline.events.arendtWarnsIndividualSimulation.description",
+		unlock: { moduleId: "Documents", title: "Sealed Statement of Dr. Selene Arendt" }
+	},
+	{
+		id: "mirror-prime-prediction-reliable",
+		titleKey: "timeline.events.mirrorPrimePredictionReliable.title",
+		sourceKey: "timeline.events.mirrorPrimePredictionReliable.source",
+		descriptionKey: "timeline.events.mirrorPrimePredictionReliable.description",
+		unlock: { moduleId: "System", code: "PRIME-617" }
+	},
+	{
+		id: "omega-7-authorized",
+		titleKey: "timeline.events.omega7Authorized.title",
+		sourceKey: "timeline.events.omega7Authorized.source",
+		descriptionKey: "timeline.events.omega7Authorized.description",
+		unlock: { moduleId: "System", code: "BOARD-000" }
+	},
+	{
+		id: "helix-isolated-blackout-relay",
+		titleKey: "timeline.events.helixIsolatedBlackoutRelay.title",
+		sourceKey: "timeline.events.helixIsolatedBlackoutRelay.source",
+		descriptionKey: "timeline.events.helixIsolatedBlackoutRelay.description",
+		unlock: { moduleId: "System", code: "RELAY-OMEGA" }
+	},
+	{
+		id: "mirror-package-merged-r7",
+		titleKey: "timeline.events.mirrorPackageMergedR7.title",
+		sourceKey: "timeline.events.mirrorPackageMergedR7.source",
+		descriptionKey: "timeline.events.mirrorPackageMergedR7.description",
+		unlock: { moduleId: "System", code: "MERGE-909" }
+	},
+	{
+		id: "helix-local-index-eliminated",
+		titleKey: "timeline.events.helixLocalIndexEliminated.title",
+		sourceKey: "timeline.events.helixLocalIndexEliminated.source",
+		descriptionKey: "timeline.events.helixLocalIndexEliminated.description",
+		unlock: { moduleId: "Emails", subject: "Helix can burn, R-7 cannot" }
+	},
+	{
+		id: "mirror-prime-locks-core",
+		titleKey: "timeline.events.mirrorPrimeLocksCore.title",
+		sourceKey: "timeline.events.mirrorPrimeLocksCore.source",
+		descriptionKey: "timeline.events.mirrorPrimeLocksCore.description",
+		unlock: { moduleId: "System", code: "LOCK-777" }
+	}
+];
+
 export const CORRECT_TIMELINE_ORDER = HELIX_INCIDENT_SOLUTION.timeline.correctOrder;
 
 export const INITIAL_TIMELINE_ORDER = [
@@ -140,28 +200,55 @@ export const MIRROR_TERMINAL_TIMELINE_ORDER = [
 	"mirror-audited-index-purged"
 ];
 
+export const REFLECTION_INITIAL_TIMELINE_ORDER = [
+	"mirror-prime-locks-core",
+	"audit-consent-chain-requested",
+	"mirror-package-merged-r7",
+	"arendt-warns-individual-simulation",
+	"helix-local-index-eliminated",
+	"omega-7-authorized",
+	"mirror-prime-prediction-reliable",
+	"helix-isolated-blackout-relay"
+];
+
+export const REFLECTION_TERMINAL_TIMELINE_ORDER = [
+	"mirror-prime-prediction-reliable",
+	"audit-consent-chain-requested",
+	"omega-7-authorized",
+	"arendt-warns-individual-simulation",
+	"helix-isolated-blackout-relay",
+	"mirror-package-merged-r7",
+	"mirror-prime-locks-core",
+	"helix-local-index-eliminated"
+];
+
 /** @param {string} chapterId */
 export function timelineEventsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_TIMELINE_EVENTS;
 	return chapterId === CHAPTER_2_ID ? MIRROR_TIMELINE_EVENTS : CHAPTER_TIMELINE_EVENTS;
 }
 
 /** @param {string} chapterId */
 export function correctTimelineOrderForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORE_SOLUTION.timeline.correctOrder;
 	return chapterId === CHAPTER_2_ID ? MIRROR_PROJECT_SOLUTION.timeline.correctOrder : HELIX_INCIDENT_SOLUTION.timeline.correctOrder;
 }
 
 /** @param {string} chapterId */
 export function timelineDeductionIdForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORE_SOLUTION.timeline.deductionId;
 	return chapterId === CHAPTER_2_ID ? MIRROR_PROJECT_SOLUTION.timeline.deductionId : HELIX_INCIDENT_SOLUTION.timeline.deductionId;
 }
 
 /** @param {string} chapterId */
 export function initialTimelineOrderForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_INITIAL_TIMELINE_ORDER;
 	return chapterId === CHAPTER_2_ID ? MIRROR_INITIAL_TIMELINE_ORDER : INITIAL_TIMELINE_ORDER;
 }
 
 /** @param {string} chapterId */
 export function terminalTimelineOrderForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_TERMINAL_TIMELINE_ORDER;
 	return chapterId === CHAPTER_2_ID ? MIRROR_TERMINAL_TIMELINE_ORDER : TERMINAL_TIMELINE_ORDER;
 }
 

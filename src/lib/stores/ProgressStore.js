@@ -1,4 +1,5 @@
 import { browser } from "$app/environment";
+import { CHAPTER_1_ID } from "$lib/game/chapters";
 import { writable } from "svelte/store";
 
 const STORAGE_KEY = "deadsignal.progress.v1";
@@ -33,12 +34,13 @@ export function resetProgress() {
 export function markItemRead(item) {
 	progress.update((state) => {
 		const existing = state.items[item.id];
+		const chapterId = item.chapterId ?? null;
 		const discoveredTags = {
 			...(state.discoveredTags ?? {}),
-			...tagsRecord(item.evidenceTags)
+			...tagsRecord(item.evidenceTags, chapterId)
 		};
 
-		if (existing?.read) {
+		if (existing?.read && itemMatchesChapter(existing, chapterId)) {
 			return {
 				...state,
 				discoveredTags
@@ -60,13 +62,16 @@ export function markItemRead(item) {
 	});
 }
 
-/** @param {string[]} tags */
-export function markEvidenceTagsDiscovered(tags) {
+/**
+ * @param {string[]} tags
+ * @param {string | null} chapterId
+ */
+export function markEvidenceTagsDiscovered(tags, chapterId = null) {
 	progress.update((state) => ({
 		...state,
 		discoveredTags: {
 			...(state.discoveredTags ?? {}),
-			...tagsRecord(tags)
+			...tagsRecord(tags, chapterId)
 		}
 	}));
 }
@@ -79,9 +84,15 @@ export function readItems(state) {
 /**
  * @param {Record<string, any>} state
  * @param {string} tag
+ * @param {string | null} chapterId
  */
-export function hasReadEvidenceTag(state, tag) {
-	return Boolean(state.discoveredTags?.[tag]) || readItems(state).some((item) => item.evidenceTags?.includes(tag));
+export function hasReadEvidenceTag(state, tag, chapterId = null) {
+	if (!tag) return false;
+
+	if (chapterId && state.discoveredTags?.[scopedTagKey(chapterId, tag)]) return true;
+	if (!chapterId && state.discoveredTags?.[tag]) return true;
+
+	return readItems(state).some((item) => itemMatchesChapter(item, chapterId) && item.evidenceTags?.includes(tag));
 }
 
 /**
@@ -129,9 +140,26 @@ export function isFileUnlocked(state, fileId) {
 	return Boolean(state.unlockedFiles?.[fileId]);
 }
 
-/** @param {string[]} tags */
-function tagsRecord(tags = []) {
-	return Object.fromEntries(tags.map((tag) => [tag, true]));
+/**
+ * @param {string[]} tags
+ * @param {string | null} chapterId
+ */
+function tagsRecord(tags = [], chapterId = null) {
+	const entries = tags.map((tag) => [tag, true]);
+
+	if (chapterId) {
+		entries.push(...tags.map((tag) => [scopedTagKey(chapterId, tag), true]));
+	}
+
+	return Object.fromEntries(entries);
+}
+
+/**
+ * @param {string} chapterId
+ * @param {string} tag
+ */
+function scopedTagKey(chapterId, tag) {
+	return `${chapterId}:${tag}`;
 }
 
 /**
@@ -140,7 +168,7 @@ function tagsRecord(tags = []) {
  */
 function itemMatchesChapter(item, chapterId) {
 	if (!chapterId) return true;
-	return (item.chapterId ?? "chapter-1") === chapterId;
+	return (item.chapterId ?? CHAPTER_1_ID) === chapterId;
 }
 
 /** @param {Record<string, any>} state */

@@ -1,7 +1,8 @@
 import { CASE_INTEGRITY_PENALTIES } from "$lib/stores/InvestigationStore";
 import { HELIX_INCIDENT_SOLUTION } from "$lib/cases/helixIncidentSolution";
 import { MIRROR_PROJECT_SOLUTION } from "$lib/cases/mirrorProjectSolution";
-import { CHAPTER_1_ID, CHAPTER_2_ID } from "$lib/game/chapters";
+import { REFLECTION_CORE_SOLUTION } from "$lib/cases/reflectionCoreSolution";
+import { CHAPTER_1_ID, CHAPTER_2_ID, CHAPTER_3_ID } from "$lib/game/chapters";
 
 export const SUSPECT_ACCUSATION_DECISION_ID = "suspect";
 export const SUSPECT_ACCUSATION_DEDUCTION_ID = HELIX_INCIDENT_SOLUTION.suspect.deductionId;
@@ -369,8 +370,257 @@ export const MIRROR_SUSPECTS = [
 	}
 ];
 
+export const REFLECTION_SUSPECTS = [
+	{
+		id: "helix-continuity-committee",
+		nameKey: "suspects.items.helixContinuityCommittee.name",
+		roleKey: "suspects.items.helixContinuityCommittee.role",
+		questionKey: "suspects.items.helixContinuityCommittee.question",
+		facts: [
+			{
+				id: "board-000-signature",
+				labelKey: "suspects.items.helixContinuityCommittee.facts.board000Signature",
+				sourceKey: "suspects.sources.board000Signature",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "board-000-signature" }
+			},
+			{
+				id: "omega-7-authorized",
+				labelKey: "suspects.items.helixContinuityCommittee.facts.omega7Authorized",
+				sourceKey: "suspects.sources.omega7Directive",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "omega-7-directive" }
+			},
+			{
+				id: "r7-preserved",
+				labelKey: "suspects.items.helixContinuityCommittee.facts.r7Preserved",
+				sourceKey: "suspects.sources.mirrorPrimeCore",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "mirror-prime-core" }
+			}
+		],
+		reasons: [
+			{
+				id: "board-000-authorized-omega-7",
+				labelKey: "suspects.items.helixContinuityCommittee.reasons.board000AuthorizedOmega7",
+				requiredFactIds: REFLECTION_CORE_SOLUTION.suspect.requiredFactIds
+			},
+			{
+				id: "mara-alone",
+				labelKey: "suspects.items.helixContinuityCommittee.reasons.maraAlone"
+			},
+			{
+				id: "mirror-prime-acted-alone",
+				labelKey: "suspects.items.helixContinuityCommittee.reasons.mirrorPrimeActedAlone"
+			}
+		]
+	},
+	{
+		id: "selene-arendt",
+		nameKey: "suspects.items.seleneArendt.name",
+		roleKey: "suspects.items.seleneArendt.role",
+		questionKey: "suspects.items.seleneArendt.question",
+		facts: [
+			{
+				id: "replica-architecture",
+				labelKey: "suspects.items.seleneArendt.facts.replicaArchitecture",
+				sourceKey: "suspects.sources.replicaIntegrity",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "replica-integrity-report" }
+			},
+			{
+				id: "arendt-warning",
+				labelKey: "suspects.items.seleneArendt.facts.arendtWarning",
+				sourceKey: "suspects.sources.arendtStatement",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "selene-arendt-statement" }
+			}
+		],
+		reasons: [
+			{
+				id: "designed-replicas",
+				labelKey: "suspects.items.seleneArendt.reasons.designedReplicas"
+			},
+			{
+				id: "authorized-omega-7",
+				labelKey: "suspects.items.seleneArendt.reasons.authorizedOmega7"
+			},
+			{
+				id: "hid-board-signature",
+				labelKey: "suspects.items.seleneArendt.reasons.hidBoardSignature"
+			}
+		]
+	},
+	{
+		id: "mara-voss",
+		nameKey: "suspects.items.maraVossReflection.name",
+		roleKey: "suspects.items.maraVossReflection.role",
+		questionKey: "suspects.items.maraVossReflection.question",
+		facts: [
+			{
+				id: "mvoss-token",
+				labelKey: "suspects.items.maraVossReflection.facts.mvossToken",
+				sourceKey: "suspects.sources.mvoss01Token",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "mvoss-01-admin-token" }
+			},
+			{
+				id: "helix-can-burn",
+				labelKey: "suspects.items.maraVossReflection.facts.helixCanBurn",
+				sourceKey: "suspects.sources.helixCanBurn",
+				unlock: { moduleId: "Emails", subject: "Helix can burn, R-7 cannot" }
+			}
+		],
+		reasons: [
+			{
+				id: "executed-coverup",
+				labelKey: "suspects.items.maraVossReflection.reasons.executedCoverup"
+			},
+			{
+				id: "final-board-authority",
+				labelKey: "suspects.items.maraVossReflection.reasons.finalBoardAuthority"
+			},
+			{
+				id: "created-mirror-prime",
+				labelKey: "suspects.items.maraVossReflection.reasons.createdMirrorPrime"
+			}
+		]
+	},
+	{
+		id: "elias-ren",
+		nameKey: "suspects.items.eliasRenReflection.name",
+		roleKey: "suspects.items.eliasRenReflection.role",
+		questionKey: "suspects.items.eliasRenReflection.question",
+		facts: [
+			{
+				id: "model-choosing-exits",
+				labelKey: "suspects.items.eliasRenReflection.facts.modelChoosingExits",
+				sourceKey: "suspects.sources.modelExits",
+				unlock: { moduleId: "Emails", subject: "The model is choosing exits" }
+			},
+			{
+				id: "warning-chain",
+				labelKey: "suspects.items.eliasRenReflection.facts.warningChain",
+				sourceKey: "suspects.sources.renArendt",
+				unlock: { moduleId: "Chats", channel: "Ren-S.Arendt" }
+			}
+		],
+		reasons: [
+			{
+				id: "raised-model-alert",
+				labelKey: "suspects.items.eliasRenReflection.reasons.raisedModelAlert"
+			},
+			{
+				id: "signed-board-order",
+				labelKey: "suspects.items.eliasRenReflection.reasons.signedBoardOrder"
+			},
+			{
+				id: "owned-r7",
+				labelKey: "suspects.items.eliasRenReflection.reasons.ownedR7"
+			}
+		]
+	},
+	{
+		id: "i-rourke",
+		nameKey: "suspects.items.iRourkeReflection.name",
+		roleKey: "suspects.items.iRourkeReflection.role",
+		questionKey: "suspects.items.iRourkeReflection.question",
+		facts: [
+			{
+				id: "r7-route",
+				labelKey: "suspects.items.iRourkeReflection.facts.r7Route",
+				sourceKey: "suspects.sources.reflectionLabBlueprint",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "reflection-lab-blueprint" }
+			},
+			{
+				id: "relay-context",
+				labelKey: "suspects.items.iRourkeReflection.facts.relayContext",
+				sourceKey: "suspects.sources.relayOmega",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "relay-omega-isolation-log" }
+			}
+		],
+		reasons: [
+			{
+				id: "knew-r7-route",
+				labelKey: "suspects.items.iRourkeReflection.reasons.knewR7Route"
+			},
+			{
+				id: "authorized-committee",
+				labelKey: "suspects.items.iRourkeReflection.reasons.authorizedCommittee"
+			},
+			{
+				id: "built-replicas",
+				labelKey: "suspects.items.iRourkeReflection.reasons.builtReplicas"
+			}
+		]
+	},
+	{
+		id: "noah-kade",
+		nameKey: "suspects.items.noahKadeReflection.name",
+		roleKey: "suspects.items.noahKadeReflection.role",
+		questionKey: "suspects.items.noahKadeReflection.question",
+		facts: [
+			{
+				id: "prior-decoy",
+				labelKey: "suspects.items.noahKadeReflection.facts.priorDecoy",
+				sourceKey: "suspects.sources.nKadePriorDecoy",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "lock-777-record" }
+			},
+			{
+				id: "misdirection",
+				labelKey: "suspects.items.noahKadeReflection.facts.misdirection",
+				sourceKey: "suspects.sources.board000Signature",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "board-000-signature" }
+			}
+		],
+		reasons: [
+			{
+				id: "credential-again",
+				labelKey: "suspects.items.noahKadeReflection.reasons.credentialAgain"
+			},
+			{
+				id: "board-used-decoy",
+				labelKey: "suspects.items.noahKadeReflection.reasons.boardUsedDecoy"
+			},
+			{
+				id: "controlled-mirror-prime",
+				labelKey: "suspects.items.noahKadeReflection.reasons.controlledMirrorPrime"
+			}
+		]
+	},
+	{
+		id: "mirror-prime",
+		nameKey: "suspects.items.mirrorPrime.name",
+		roleKey: "suspects.items.mirrorPrime.role",
+		questionKey: "suspects.items.mirrorPrime.question",
+		facts: [
+			{
+				id: "lock-777",
+				labelKey: "suspects.items.mirrorPrime.facts.lock777",
+				sourceKey: "suspects.sources.lock777",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "lock-777-record" }
+			},
+			{
+				id: "executed-constraints",
+				labelKey: "suspects.items.mirrorPrime.facts.executedConstraints",
+				sourceKey: "suspects.sources.mirrorPrimeCore",
+				unlock: { moduleId: "EvidenceBoard", evidenceId: "mirror-prime-core" }
+			}
+		],
+		reasons: [
+			{
+				id: "locked-core",
+				labelKey: "suspects.items.mirrorPrime.reasons.lockedCore"
+			},
+			{
+				id: "human-authorized-first",
+				labelKey: "suspects.items.mirrorPrime.reasons.humanAuthorizedFirst"
+			},
+			{
+				id: "was-legal-board",
+				labelKey: "suspects.items.mirrorPrime.reasons.wasLegalBoard"
+			}
+		]
+	}
+];
+
 /** @param {string} chapterId */
 export function suspectsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_SUSPECTS;
 	return chapterId === CHAPTER_2_ID ? MIRROR_SUSPECTS : CHAPTER_SUSPECTS;
 }
 
@@ -381,16 +631,19 @@ export function suspectAccusationDecisionIdForChapter(chapterId = CHAPTER_1_ID) 
 
 /** @param {string} chapterId */
 export function suspectAccusationDeductionIdForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORE_SOLUTION.suspect.deductionId;
 	return chapterId === CHAPTER_2_ID ? MIRROR_PROJECT_SOLUTION.suspect.deductionId : HELIX_INCIDENT_SOLUTION.suspect.deductionId;
 }
 
 /** @param {string} chapterId */
 export function correctSuspectIdForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORE_SOLUTION.suspect.id;
 	return chapterId === CHAPTER_2_ID ? MIRROR_PROJECT_SOLUTION.suspect.id : HELIX_INCIDENT_SOLUTION.suspect.id;
 }
 
 /** @param {string} chapterId */
 export function correctSuspectReasonIdForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_CORE_SOLUTION.suspect.reasonId;
 	return chapterId === CHAPTER_2_ID ? MIRROR_PROJECT_SOLUTION.suspect.reasonId : HELIX_INCIDENT_SOLUTION.suspect.reasonId;
 }
 
@@ -440,6 +693,11 @@ export function validateSuspectAccusation(suspectId, reasonId, knownFactIds = []
 	return {
 		accepted: true,
 		reason: "accepted",
-		hintKey: chapterId === CHAPTER_2_ID ? "suspects.feedback.mirrorAccepted" : "suspects.feedback.accepted"
+		hintKey:
+			chapterId === CHAPTER_3_ID
+				? "suspects.feedback.reflectionAccepted"
+				: chapterId === CHAPTER_2_ID
+					? "suspects.feedback.mirrorAccepted"
+					: "suspects.feedback.accepted"
 	};
 }

@@ -1,10 +1,12 @@
 import { CASE_INTEGRITY_PENALTIES } from "$lib/stores/InvestigationStore";
 import { HELIX_INCIDENT_SOLUTION } from "$lib/cases/helixIncidentSolution";
 import { MIRROR_PROJECT_SOLUTION } from "$lib/cases/mirrorProjectSolution";
-import { CHAPTER_1_ID, CHAPTER_2_ID } from "$lib/game/chapters";
+import { REFLECTION_CORE_SOLUTION } from "$lib/cases/reflectionCoreSolution";
+import { CHAPTER_1_ID, CHAPTER_2_ID, CHAPTER_3_ID } from "$lib/game/chapters";
 
 export const FINAL_REPORT_DECISION_ID = "chapter-1-final-report";
 export const MIRROR_FINAL_REPORT_DECISION_ID = "chapter-2-final-report";
+export const REFLECTION_FINAL_REPORT_DECISION_ID = "chapter-3-final-report";
 
 export const FINAL_REPORT_DECISION = {
 	id: FINAL_REPORT_DECISION_ID,
@@ -14,6 +16,12 @@ export const FINAL_REPORT_DECISION = {
 
 export const MIRROR_FINAL_REPORT_DECISION = {
 	id: MIRROR_FINAL_REPORT_DECISION_ID,
+	type: "finalReport",
+	penalty: CASE_INTEGRITY_PENALTIES.finalReport
+};
+
+export const REFLECTION_FINAL_REPORT_DECISION = {
+	id: REFLECTION_FINAL_REPORT_DECISION_ID,
 	type: "finalReport",
 	penalty: CASE_INTEGRITY_PENALTIES.finalReport
 };
@@ -233,18 +241,157 @@ export const MIRROR_FINAL_REPORT_QUESTIONS = [
 	}
 ];
 
+export const REFLECTION_FINAL_REPORT_QUESTIONS = [
+	{
+		id: "mirror-final-form",
+		titleKey: "caseReview.questions.mirrorFinalForm.title",
+		correctChoiceIds: correctFinalReportChoices("mirror-final-form", CHAPTER_3_ID),
+		choices: [
+			{
+				id: "employee-scheduling-tool",
+				labelKey: "caseReview.questions.mirrorFinalForm.choices.employeeSchedulingTool"
+			},
+			{
+				id: "behavioral-decision-replicas",
+				labelKey: "caseReview.questions.mirrorFinalForm.choices.behavioralDecisionReplicas"
+			},
+			{
+				id: "relay-diagnostics-suite",
+				labelKey: "caseReview.questions.mirrorFinalForm.choices.relayDiagnosticsSuite"
+			}
+		]
+	},
+	{
+		id: "helix-project-role",
+		titleKey: "caseReview.questions.helixProjectRole.title",
+		correctChoiceIds: correctFinalReportChoices("helix-project-role", CHAPTER_3_ID),
+		choices: [
+			{
+				id: "true-research-core",
+				labelKey: "caseReview.questions.helixProjectRole.choices.trueResearchCore"
+			},
+			{
+				id: "operational-facade",
+				labelKey: "caseReview.questions.helixProjectRole.choices.operationalFacade"
+			},
+			{
+				id: "unrelated-outage-site",
+				labelKey: "caseReview.questions.helixProjectRole.choices.unrelatedOutageSite"
+			}
+		]
+	},
+	{
+		id: "true-core-site",
+		titleKey: "caseReview.questions.trueCoreSite.title",
+		correctChoiceIds: correctFinalReportChoices("true-core-site", CHAPTER_3_ID),
+		choices: [
+			{
+				id: "east-archive",
+				labelKey: "caseReview.questions.trueCoreSite.choices.eastArchive"
+			},
+			{
+				id: "reflection-lab-r7",
+				labelKey: "caseReview.questions.trueCoreSite.choices.reflectionLabR7"
+			},
+			{
+				id: "sublevel-c-camera-grid",
+				labelKey: "caseReview.questions.trueCoreSite.choices.sublevelCCameraGrid"
+			}
+		]
+	},
+	{
+		id: "blackout-strategic-purpose",
+		titleKey: "caseReview.questions.blackoutStrategicPurpose.title",
+		correctChoiceIds: correctFinalReportChoices("blackout-strategic-purpose", CHAPTER_3_ID),
+		choices: [
+			{
+				id: "accidental-relay-overload",
+				labelKey: "caseReview.questions.blackoutStrategicPurpose.choices.accidentalRelayOverload"
+			},
+			{
+				id: "isolate-audit-cover-transfer",
+				labelKey: "caseReview.questions.blackoutStrategicPurpose.choices.isolateAuditCoverTransfer"
+			},
+			{
+				id: "stop-mirror-prime",
+				labelKey: "caseReview.questions.blackoutStrategicPurpose.choices.stopMirrorPrime"
+			}
+		]
+	},
+	{
+		id: "exported-package-fate",
+		titleKey: "caseReview.questions.exportedPackageFate.title",
+		correctChoiceIds: correctFinalReportChoices("exported-package-fate", CHAPTER_3_ID),
+		choices: [
+			{
+				id: "destroyed-by-purge",
+				labelKey: "caseReview.questions.exportedPackageFate.choices.destroyedByPurge"
+			},
+			{
+				id: "merged-into-mirror-prime",
+				labelKey: "caseReview.questions.exportedPackageFate.choices.mergedIntoMirrorPrime"
+			},
+			{
+				id: "lost-in-relay-cache",
+				labelKey: "caseReview.questions.exportedPackageFate.choices.lostInRelayCache"
+			}
+		]
+	},
+	{
+		id: "final-decision-maker",
+		titleKey: "caseReview.questions.finalDecisionMaker.title",
+		correctChoiceIds: correctFinalReportChoices("final-decision-maker", CHAPTER_3_ID),
+		choices: [
+			{
+				id: "mara-voss-alone",
+				labelKey: "caseReview.questions.finalDecisionMaker.choices.maraVossAlone"
+			},
+			{
+				id: "continuity-board",
+				labelKey: "caseReview.questions.finalDecisionMaker.choices.continuityBoard"
+			},
+			{
+				id: "mirror-prime-alone",
+				labelKey: "caseReview.questions.finalDecisionMaker.choices.mirrorPrimeAlone"
+			}
+		]
+	},
+	{
+		id: "case-classification",
+		titleKey: "caseReview.questions.caseClassification.title",
+		correctChoiceIds: correctFinalReportChoices("case-classification", CHAPTER_3_ID),
+		choices: [
+			{
+				id: "routine-continuity-plan",
+				labelKey: "caseReview.questions.caseClassification.choices.routineContinuityPlan"
+			},
+			{
+				id: "deliberate-human-coverup",
+				labelKey: "caseReview.questions.caseClassification.choices.deliberateHumanCoverup"
+			},
+			{
+				id: "unsolved-system-failure",
+				labelKey: "caseReview.questions.caseClassification.choices.unsolvedSystemFailure"
+			}
+		]
+	}
+];
+
 /** @param {string} chapterId */
 export function finalReportDecisionIdForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_FINAL_REPORT_DECISION_ID;
 	return chapterId === CHAPTER_2_ID ? MIRROR_FINAL_REPORT_DECISION_ID : FINAL_REPORT_DECISION_ID;
 }
 
 /** @param {string} chapterId */
 export function finalReportDecisionForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_FINAL_REPORT_DECISION;
 	return chapterId === CHAPTER_2_ID ? MIRROR_FINAL_REPORT_DECISION : FINAL_REPORT_DECISION;
 }
 
 /** @param {string} chapterId */
 export function finalReportQuestionsForChapter(chapterId = CHAPTER_1_ID) {
+	if (chapterId === CHAPTER_3_ID) return REFLECTION_FINAL_REPORT_QUESTIONS;
 	return chapterId === CHAPTER_2_ID ? MIRROR_FINAL_REPORT_QUESTIONS : FINAL_REPORT_QUESTIONS;
 }
 
@@ -272,7 +419,11 @@ export function countFinalReportAnswers(answers = {}, chapterId = CHAPTER_1_ID) 
  */
 function correctFinalReportChoices(questionId, chapterId = CHAPTER_1_ID) {
 	const answers = /** @type {Record<string, string[]>} */ (
-		chapterId === CHAPTER_2_ID ? MIRROR_PROJECT_SOLUTION.finalReportAnswers : HELIX_INCIDENT_SOLUTION.finalReportAnswers
+		chapterId === CHAPTER_3_ID
+			? REFLECTION_CORE_SOLUTION.finalReportAnswers
+			: chapterId === CHAPTER_2_ID
+				? MIRROR_PROJECT_SOLUTION.finalReportAnswers
+				: HELIX_INCIDENT_SOLUTION.finalReportAnswers
 	);
 	return answers[questionId] ?? [];
 }
